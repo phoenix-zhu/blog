@@ -1,0 +1,36 @@
+<!-- Social Share Button HTML -->
+
+<!-- Twitter -->
+<li><a href="//twitter.com/share?url={{ .Permalink }}&text={{ .Title }}&via={{ .Site.Social.twitter }}" target="_blank" class="fa fa-twitter">
+    <p>Twitter</p>
+</a></li>
+
+<!-- Google Plus -->
+<li><a href="//plus.google.com/share?url={{ .Permalink }}" target="_blank" class="fa fa-google-plus">
+    <p>Google+</p>
+</a></li>
+
+<!-- Facebook -->
+<li><a href="//www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" target="_blank" class="fa fa-facebook">
+    <p>Facebook</p>
+</a></li>
+
+<!-- Reddit (url, title) -->
+<li><a href="//reddit.com/submit?url={{ .Permalink }}&title={{ .Title }}" target="_blank" class="fa fa-reddit-alien">
+    <p>Reddit</p>
+</a></li>
+
+<!-- LinkedIn -->
+<li><a href="//www.linkedin.com/shareArticle?url={{ .Permalink }}&title={{ .Title }}" target="_blank" class="fa fa-linkedin">
+    <p>LinkedIn</p>
+</a></li>
+
+<!-- StumbleUpon (url, title) -->
+<li><a href="//www.stumbleupon.com/submit?url={{ .Permalink }}&title={{ .Title }}" target="_blank" class="fa fa-stumbleupon">
+    <p>StumbleUpon</p>
+</a></li>
+
+<!-- Email -->
+<li><a href="mailto:?subject=Check out this post by {{ .Params.author }}&body={{ .Permalink }}" target="_blank" class="fa fa-envelope">
+    <p>Email</p>
+</a></li>

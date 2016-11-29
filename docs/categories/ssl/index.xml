@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ssl on chAtOPs.in</title>
+    <link>https://blog.chatops.in/categories/ssl/</link>
+    <description>Recent content in ssl on chAtOPs.in</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 Jul 2016 15:56:46 +0800</lastBuildDate>
+    <atom:link href="https://blog.chatops.in/categories/ssl/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>解决老版本Ruby安装时的openssl问题</title>
+      <link>https://blog.chatops.in/post/fix-old-ruby-ssl-issue/</link>
+      <pubDate>Fri, 08 Jul 2016 15:56:46 +0800</pubDate>
+      
+      <guid>https://blog.chatops.in/post/fix-old-ruby-ssl-issue/</guid>
+      <description>&lt;p&gt;今天要用一个老的Ruby repo，同步下来发现用的Ruby的版本是1.9.3-p484。安装了ruby之后安装bundler提示如下错误：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;/Users/home/.rbenv/versions/1.9.3-p484/lib/ruby/1.9.1/rubygems/remote_fetcher.rb:329:in &lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;rescue in connection_for&lt;span class=&#34;err&#34;&gt;&amp;#39;&lt;/span&gt;: cannot load such file -- openssl &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;LoadError&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;经过一番研究，发现需要在安装的时候指定openssl的路径，在Mac上面找到openssl目录的方法如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;brew list openssl&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;输出类似如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;/usr/local/Cellar/openssl/1.0.2h_1/bin/c_rehash
+/usr/local/Cellar/openssl/1.0.2h_1/bin/openssl
+/usr/local/Cellar/openssl/1.0.2h_1/include/openssl/ &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;75&lt;/span&gt; files&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+/usr/local/Cellar/openssl/1.0.2h_1/lib/libcrypto.1.0.0.dylib
+/usr/local/Cellar/openssl/1.0.2h_1/lib/libssl.1.0.0.dylib
+/usr/local/Cellar/openssl/1.0.2h_1/lib/engines/ &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;12&lt;/span&gt; files&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+/usr/local/Cellar/openssl/1.0.2h_1/lib/pkgconfig/ &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3&lt;/span&gt; files&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+/usr/local/Cellar/openssl/1.0.2h_1/lib/ &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; other files&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+/usr/local/Cellar/openssl/1.0.2h_1/share/man/ &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1588&lt;/span&gt; files&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;这个&lt;code&gt;/usr/local/Cellar/openssl/1.0.2h_1&lt;/code&gt;就是我们要用的目录。&lt;/p&gt;
+
+&lt;p&gt;之后就简单了，使用下面的命令重新安装一下Ruby就好了。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;RUBY_CONFIGURE_OPTS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;--with-openssl-dir&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local/Cellar/openssl/1.0.2h_1 rbenv install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
