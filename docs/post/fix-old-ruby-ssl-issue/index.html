@@ -45,22 +45,22 @@
 <meta name="twitter:text:title" content="解决老版本Ruby安装时的openssl问题"/>
 <meta name="twitter:title" content="解决老版本Ruby安装时的openssl问题"/>
 <meta name="twitter:description" content="今天要用一个老的Ruby repo，同步下来发现用的Ruby的版本是1.9.3-p484。安装了ruby之后安装bundler提示如下错误：
-/Users/home/.rbenv/versions/1.9.3-p484/lib/ruby/1.9.1/rubygems/remote_fetcher.rb:329:in `rescue in connection_for&#39;: cannot load such file -- openssl (LoadError) 经过一番研究，发现需要在安装的时候指定openssl的路径，在Mac上面找到openssl目录的方法如下：
+/Users/home/.rbenv/versions/1.9.3-p484/lib/ruby/1.9.1/rubygems/remote_fetcher.rb:329:in `rescue in connection_for&#39;: cannot load such file -- openssl (LoadError)  经过一番研究，发现需要在安装的时候指定openssl的路径，在Mac上面找到openssl目录的方法如下：
 brew list openssl
 输出类似如下：
-/usr/local/Cellar/openssl/1.0.2h_1/bin/c_rehash /usr/local/Cellar/openssl/1.0.2h_1/bin/openssl /usr/local/Cellar/openssl/1.0.2h_1/include/openssl/ (75 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/libcrypto.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2h_1/lib/libssl.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2h_1/lib/engines/ (12 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/pkgconfig/ (3 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/ (4 other files) /usr/local/Cellar/openssl/1.0.2h_1/share/man/ (1588 files) 这个/usr/local/Cellar/openssl/1.0.2h_1就是我们要用的目录。
+/usr/local/Cellar/openssl/1.0.2h_1/bin/c_rehash /usr/local/Cellar/openssl/1.0.2h_1/bin/openssl /usr/local/Cellar/openssl/1.0.2h_1/include/openssl/ (75 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/libcrypto.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2h_1/lib/libssl.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2h_1/lib/engines/ (12 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/pkgconfig/ (3 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/ (4 other files) /usr/local/Cellar/openssl/1.0.2h_1/share/man/ (1588 files)  这个/usr/local/Cellar/openssl/1.0.2h_1就是我们要用的目录。
 之后就简单了，使用下面的命令重新安装一下Ruby就好了。
-RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/Cellar/openssl/1.0.2h_1 rbenv install "/>
+RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/Cellar/openssl/1.0.2h_1 rbenv install  "/>
 
 
         <meta property="og:title" content="解决老版本Ruby安装时的openssl问题" />
 <meta property="og:description" content="今天要用一个老的Ruby repo，同步下来发现用的Ruby的版本是1.9.3-p484。安装了ruby之后安装bundler提示如下错误：
-/Users/home/.rbenv/versions/1.9.3-p484/lib/ruby/1.9.1/rubygems/remote_fetcher.rb:329:in `rescue in connection_for&#39;: cannot load such file -- openssl (LoadError) 经过一番研究，发现需要在安装的时候指定openssl的路径，在Mac上面找到openssl目录的方法如下：
+/Users/home/.rbenv/versions/1.9.3-p484/lib/ruby/1.9.1/rubygems/remote_fetcher.rb:329:in `rescue in connection_for&#39;: cannot load such file -- openssl (LoadError)  经过一番研究，发现需要在安装的时候指定openssl的路径，在Mac上面找到openssl目录的方法如下：
 brew list openssl
 输出类似如下：
-/usr/local/Cellar/openssl/1.0.2h_1/bin/c_rehash /usr/local/Cellar/openssl/1.0.2h_1/bin/openssl /usr/local/Cellar/openssl/1.0.2h_1/include/openssl/ (75 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/libcrypto.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2h_1/lib/libssl.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2h_1/lib/engines/ (12 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/pkgconfig/ (3 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/ (4 other files) /usr/local/Cellar/openssl/1.0.2h_1/share/man/ (1588 files) 这个/usr/local/Cellar/openssl/1.0.2h_1就是我们要用的目录。
+/usr/local/Cellar/openssl/1.0.2h_1/bin/c_rehash /usr/local/Cellar/openssl/1.0.2h_1/bin/openssl /usr/local/Cellar/openssl/1.0.2h_1/include/openssl/ (75 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/libcrypto.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2h_1/lib/libssl.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2h_1/lib/engines/ (12 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/pkgconfig/ (3 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/ (4 other files) /usr/local/Cellar/openssl/1.0.2h_1/share/man/ (1588 files)  这个/usr/local/Cellar/openssl/1.0.2h_1就是我们要用的目录。
 之后就简单了，使用下面的命令重新安装一下Ruby就好了。
-RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/Cellar/openssl/1.0.2h_1 rbenv install " />
+RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/Cellar/openssl/1.0.2h_1 rbenv install  " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.chatops.in/post/fix-old-ruby-ssl-issue/" />
 
@@ -82,12 +82,12 @@ RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/Cellar/openssl/1.0.2h_1 rbenv 
         
 <meta itemprop="name" content="解决老版本Ruby安装时的openssl问题">
 <meta itemprop="description" content="今天要用一个老的Ruby repo，同步下来发现用的Ruby的版本是1.9.3-p484。安装了ruby之后安装bundler提示如下错误：
-/Users/home/.rbenv/versions/1.9.3-p484/lib/ruby/1.9.1/rubygems/remote_fetcher.rb:329:in `rescue in connection_for&#39;: cannot load such file -- openssl (LoadError) 经过一番研究，发现需要在安装的时候指定openssl的路径，在Mac上面找到openssl目录的方法如下：
+/Users/home/.rbenv/versions/1.9.3-p484/lib/ruby/1.9.1/rubygems/remote_fetcher.rb:329:in `rescue in connection_for&#39;: cannot load such file -- openssl (LoadError)  经过一番研究，发现需要在安装的时候指定openssl的路径，在Mac上面找到openssl目录的方法如下：
 brew list openssl
 输出类似如下：
-/usr/local/Cellar/openssl/1.0.2h_1/bin/c_rehash /usr/local/Cellar/openssl/1.0.2h_1/bin/openssl /usr/local/Cellar/openssl/1.0.2h_1/include/openssl/ (75 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/libcrypto.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2h_1/lib/libssl.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2h_1/lib/engines/ (12 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/pkgconfig/ (3 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/ (4 other files) /usr/local/Cellar/openssl/1.0.2h_1/share/man/ (1588 files) 这个/usr/local/Cellar/openssl/1.0.2h_1就是我们要用的目录。
+/usr/local/Cellar/openssl/1.0.2h_1/bin/c_rehash /usr/local/Cellar/openssl/1.0.2h_1/bin/openssl /usr/local/Cellar/openssl/1.0.2h_1/include/openssl/ (75 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/libcrypto.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2h_1/lib/libssl.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2h_1/lib/engines/ (12 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/pkgconfig/ (3 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/ (4 other files) /usr/local/Cellar/openssl/1.0.2h_1/share/man/ (1588 files)  这个/usr/local/Cellar/openssl/1.0.2h_1就是我们要用的目录。
 之后就简单了，使用下面的命令重新安装一下Ruby就好了。
-RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/Cellar/openssl/1.0.2h_1 rbenv install ">
+RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/Cellar/openssl/1.0.2h_1 rbenv install  ">
 
 
 <meta itemprop="dateModified" content="2016-07-08T15:56:46&#43;08:00" />
@@ -95,7 +95,7 @@ RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/Cellar/openssl/1.0.2h_1 rbenv 
 
 
 
-<meta itemprop="keywords" content="bash,ruby,ssl," />
+<meta itemprop="keywords" content="bash,devops,ruby,ssl," />
 
         
 
@@ -386,27 +386,30 @@ RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/Cellar/openssl/1.0.2h_1 rbenv 
 
     <div id="content">
         <p>今天要用一个老的Ruby repo，同步下来发现用的Ruby的版本是1.9.3-p484。安装了ruby之后安装bundler提示如下错误：</p>
-/Users/home/.rbenv/versions/1.9.3-p484/lib/ruby/1.9.1/rubygems/remote_fetcher.rb:329:in `rescue in connection_for': cannot load such file -- openssl (LoadError)
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>/Users/home/.rbenv/versions/1.9.3-p484/lib/ruby/1.9.1/rubygems/remote_fetcher.rb:329:in <span class="sb">`</span>rescue in connection_for<span class="err">&#39;</span>: cannot load such file -- openssl <span class="o">(</span>LoadError<span class="o">)</span>
+</code></pre></div>
 
 <p>经过一番研究，发现需要在安装的时候指定openssl的路径，在Mac上面找到openssl目录的方法如下：</p>
 
 <p><code>brew list openssl</code></p>
 
 <p>输出类似如下：</p>
-/usr/local/Cellar/openssl/1.0.2h_1/bin/c_rehash
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>/usr/local/Cellar/openssl/1.0.2h_1/bin/c_rehash
 /usr/local/Cellar/openssl/1.0.2h_1/bin/openssl
-/usr/local/Cellar/openssl/1.0.2h_1/include/openssl/ (75 files)
+/usr/local/Cellar/openssl/1.0.2h_1/include/openssl/ <span class="o">(</span><span class="m">75</span> files<span class="o">)</span>
 /usr/local/Cellar/openssl/1.0.2h_1/lib/libcrypto.1.0.0.dylib
 /usr/local/Cellar/openssl/1.0.2h_1/lib/libssl.1.0.0.dylib
-/usr/local/Cellar/openssl/1.0.2h_1/lib/engines/ (12 files)
-/usr/local/Cellar/openssl/1.0.2h_1/lib/pkgconfig/ (3 files)
-/usr/local/Cellar/openssl/1.0.2h_1/lib/ (4 other files)
-/usr/local/Cellar/openssl/1.0.2h_1/share/man/ (1588 files)
+/usr/local/Cellar/openssl/1.0.2h_1/lib/engines/ <span class="o">(</span><span class="m">12</span> files<span class="o">)</span>
+/usr/local/Cellar/openssl/1.0.2h_1/lib/pkgconfig/ <span class="o">(</span><span class="m">3</span> files<span class="o">)</span>
+/usr/local/Cellar/openssl/1.0.2h_1/lib/ <span class="o">(</span><span class="m">4</span> other files<span class="o">)</span>
+/usr/local/Cellar/openssl/1.0.2h_1/share/man/ <span class="o">(</span><span class="m">1588</span> files<span class="o">)</span>
+</code></pre></div>
 
 <p>这个<code>/usr/local/Cellar/openssl/1.0.2h_1</code>就是我们要用的目录。</p>
 
 <p>之后就简单了，使用下面的命令重新安装一下Ruby就好了。</p>
-RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/Cellar/openssl/1.0.2h_1 rbenv install
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nv">RUBY_CONFIGURE_OPTS</span><span class="o">=</span>--with-openssl-dir<span class="o">=</span>/usr/local/Cellar/openssl/1.0.2h_1 rbenv install
+</code></pre></div>
 
     </div>
 
@@ -473,7 +476,7 @@ RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/Cellar/openssl/1.0.2h_1 rbenv 
             
             
                 <header>
-                    <h2>Chatops</h2>
+                    <h2>chatops &amp; devops</h2>
                     <p><i class='fa fa-hand-peace-o'></i> Being a great chatops</p>
                 </header>
             
@@ -663,6 +666,15 @@ RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/Cellar/openssl/1.0.2h_1 rbenv 
                         <article>
                             <header>
                                 <a href="/categories/bash/">bash</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/devops/">devops</a>
                                 <span style="float:right;">1</span>
                             </header>
                         </article>

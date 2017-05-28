@@ -39,6 +39,12 @@
   </url>
   
   <url>
+    <loc>https://blog.chatops.in/categories/devops/</loc>
+    <lastmod>2017-05-29T03:14:32+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.chatops.in/post/</loc>
     <lastmod>2017-05-29T03:14:32+08:00</lastmod>
     <priority>0</priority>
