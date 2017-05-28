@@ -1,6 +1,6 @@
 +++
 author = ""
-categories = []
+categories = ["devops"]
 date = "2017-05-29T03:14:32+08:00"
 description = ""
 featured = ""
