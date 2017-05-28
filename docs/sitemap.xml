@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blog.chatops.in/</loc>
-    <lastmod>2016-08-01T22:56:17+08:00</lastmod>
+    <loc>https://blog.chatops.in/post/the-name-of-devops/</loc>
+    <lastmod>2017-05-29T03:14:32+08:00</lastmod>
   </url>
   
   <url>
@@ -23,6 +24,47 @@
   
   <url>
     <loc>https://blog.chatops.in/about-me/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.chatops.in/categories/bash/</loc>
+    <lastmod>2016-08-01T22:56:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.chatops.in/categories/</loc>
+    <lastmod>2016-08-01T22:56:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.chatops.in/post/</loc>
+    <lastmod>2017-05-29T03:14:32+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.chatops.in/categories/ruby/</loc>
+    <lastmod>2016-07-08T15:56:46+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.chatops.in/categories/ssl/</loc>
+    <lastmod>2016-07-08T15:56:46+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.chatops.in/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.chatops.in/</loc>
+    <lastmod>2017-05-29T03:14:32+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>

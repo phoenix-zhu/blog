@@ -10,7 +10,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.16" />
+        <meta name="generator" content="Hugo 0.21" />
         
     
         
@@ -42,18 +42,29 @@
 
 
 
+<meta name="twitter:text:title" content="一场由BASH的-E参数引发的血案"/>
 <meta name="twitter:title" content="一场由BASH的-E参数引发的血案"/>
-<meta name="twitter:description" content="最近有一个CI会偶发性的失败，而且频率还挺高，天天看着血色的CI状态面板，真是够够的了。最害怕偶发性的问题了，次次都失败比这个还更能让我更容易接受一些。但不管怎么样，CI总得修啊。和当时写脚本的哥们研究了一下，一致认为问题应该是由nodejs的包没有成功安装导致的。这个脚本是当做docker容器的entrypoint跑的，奇怪的地方在于即使我们在后面有判断如果未能成功安装会再次尝试安装的代码，但是根本不会执行，第一次没有安装成功的话容器直接就退出了。因为每次出问题都是sass没有安装成功退出的，所以心底里一直怀疑是这个包那里有问题，导致了容器直接崩溃退出了。问了周边一些用nodejs的人，都或多或少的遇到安装sass失败的情况，但对于如何提高安装成功率除了重复安装都没有什么好的解决办法。 既然都没有更好的办法，加上原来的代码在第一次失败之后只有一次尝试安装，虽然现实情况来看从来就没有跑到过那里就退出了，但是总是感觉这样不好看，就把这部分重新写了一下，搞了一个不死不休的循环，大概类似如下： cd /dev/null until [[ $? -eq 0 ]]; do rm -rf node_modules &amp;&amp; npm cache clean &amp;&amp; npm install done 在until之前故意写了的那个cd是为了得到一个非0的返回码确保能进入循环。 把这个跑了一下，发现容器直接在cd /dev/null那里失败之后就退出了，难道bash的任何错误就会直接让容器终止？没有听说过这种事情啊，遍寻各种资料也都没有发现docker有这样的问题和特性。难道是docker镜像的问题？重写了一个简单测试的脚本当做entrypoint开一个容器跑了一下，发现错误之后的代码是能执行下去，并没有让容器退出。那就不是容器的问题，是脚本的问题了，抬头看了一下CI里面的脚本，发现原来脚本的shebang（就是第一行最开始的#!，如有兴趣了解更多请猛击这里）那里给bash的解释器加了一个-e的参数，男人了一下bash，对这个-e的解释如下： -e Exit immediately if a pipeline (which may consist of a single simple command), a subshell command enclosed in parentheses, or one of the commands executed as part of a command list enclosed by braces (see SHELL GRAMMAR above) exits with a nonzero status. The shell does not exit if the command that fails is part of the command list immediately following a while or until keyword, part of the test following the if or elif reserved words, part of any command executed in a &amp;&amp; or || list except the command following the final &amp;&amp; or ||, any command in a pipeline but the last, or if the command&#39;s return value is being inverted with !."/>
-
+<meta name="twitter:description" content="最近有一个CI会偶发性的失败，而且频率还挺高，天天看着血色的CI状态面板，真是够够的了。最害怕偶发性的问题了，次次都失败比这个还更能让我更容易接受一些。但不管怎么样，CI总得修啊。和当时写脚本的哥们研究了一下，一致认为问题应该是由nodejs的包没有成功安装导致的。这个脚本是当做docker容器的entrypoint跑的，奇怪的地方在于即使我们在后面有判断如果未能成功安装会再次尝试安装的代码，但是根本不会执行，第一次没有安装成功的话容器直接就退出了。因为每次出问题都是sass没有安装成功退出的，所以心底里一直怀疑是这个包那里有问题，导致了容器直接崩溃退出了。问了周边一些用nodejs的人，都或多或少的遇到安装sass失败的情况，但对于如何提高安装成功率除了重复安装都没有什么好的解决办法。
+既然都没有更好的办法，加上原来的代码在第一次失败之后只有一次尝试安装，虽然现实情况来看从来就没有跑到过那里就退出了，但是总是感觉这样不好看，就把这部分重新写了一下，搞了一个不死不休的循环，大概类似如下：
+cd /dev/null until [[ $? -eq 0 ]]; do rm -rf node_modules && npm cache clean && npm install done 在until之前故意写了的那个cd是为了得到一个非0的返回码确保能进入循环。
+把这个跑了一下，发现容器直接在cd /dev/null那里失败之后就退出了，难道bash的任何错误就会直接让容器终止？没有听说过这种事情啊，遍寻各种资料也都没有发现docker有这样的问题和特性。难道是docker镜像的问题？重写了一个简单测试的脚本当做entrypoint开一个容器跑了一下，发现错误之后的代码是能执行下去，并没有让容器退出。那就不是容器的问题，是脚本的问题了，抬头看了一下CI里面的脚本，发现原来脚本的shebang（就是第一行最开始的#!，如有兴趣了解更多请猛击这里）那里给bash的解释器加了一个-e的参数，男人了一下bash，对这个-e的解释如下：
+-e Exit immediately if a pipeline (which may consist of a single simple command), a subshell command enclosed in parentheses, or one of the commands executed as part of a command list enclosed by braces (see SHELL GRAMMAR above) exits with a nonzero status. The shell does not exit if the command that fails is part of the command list immediately following a while or until keyword, part of the test following the if or elif reserved words, part of any command executed in a && or || list except the command following the final && or ||, any command in a pipeline but the last, or if the command&#39;s return value is being inverted with !"/>
 
 
         <meta property="og:title" content="一场由BASH的-E参数引发的血案" />
-<meta property="og:description" content="最近有一个CI会偶发性的失败，而且频率还挺高，天天看着血色的CI状态面板，真是够够的了。最害怕偶发性的问题了，次次都失败比这个还更能让我更容易接受一些。但不管怎么样，CI总得修啊。和当时写脚本的哥们研究了一下，一致认为问题应该是由nodejs的包没有成功安装导致的。这个脚本是当做docker容器的entrypoint跑的，奇怪的地方在于即使我们在后面有判断如果未能成功安装会再次尝试安装的代码，但是根本不会执行，第一次没有安装成功的话容器直接就退出了。因为每次出问题都是sass没有安装成功退出的，所以心底里一直怀疑是这个包那里有问题，导致了容器直接崩溃退出了。问了周边一些用nodejs的人，都或多或少的遇到安装sass失败的情况，但对于如何提高安装成功率除了重复安装都没有什么好的解决办法。 既然都没有更好的办法，加上原来的代码在第一次失败之后只有一次尝试安装，虽然现实情况来看从来就没有跑到过那里就退出了，但是总是感觉这样不好看，就把这部分重新写了一下，搞了一个不死不休的循环，大概类似如下： cd /dev/null until [[ $? -eq 0 ]]; do rm -rf node_modules &amp;&amp; npm cache clean &amp;&amp; npm install done 在until之前故意写了的那个cd是为了得到一个非0的返回码确保能进入循环。 把这个跑了一下，发现容器直接在cd /dev/null那里失败之后就退出了，难道bash的任何错误就会直接让容器终止？没有听说过这种事情啊，遍寻各种资料也都没有发现docker有这样的问题和特性。难道是docker镜像的问题？重写了一个简单测试的脚本当做entrypoint开一个容器跑了一下，发现错误之后的代码是能执行下去，并没有让容器退出。那就不是容器的问题，是脚本的问题了，抬头看了一下CI里面的脚本，发现原来脚本的shebang（就是第一行最开始的#!，如有兴趣了解更多请猛击这里）那里给bash的解释器加了一个-e的参数，男人了一下bash，对这个-e的解释如下： -e Exit immediately if a pipeline (which may consist of a single simple command), a subshell command enclosed in parentheses, or one of the commands executed as part of a command list enclosed by braces (see SHELL GRAMMAR above) exits with a nonzero status. The shell does not exit if the command that fails is part of the command list immediately following a while or until keyword, part of the test following the if or elif reserved words, part of any command executed in a &amp;&amp; or || list except the command following the final &amp;&amp; or ||, any command in a pipeline but the last, or if the command&#39;s return value is being inverted with !." />
+<meta property="og:description" content="最近有一个CI会偶发性的失败，而且频率还挺高，天天看着血色的CI状态面板，真是够够的了。最害怕偶发性的问题了，次次都失败比这个还更能让我更容易接受一些。但不管怎么样，CI总得修啊。和当时写脚本的哥们研究了一下，一致认为问题应该是由nodejs的包没有成功安装导致的。这个脚本是当做docker容器的entrypoint跑的，奇怪的地方在于即使我们在后面有判断如果未能成功安装会再次尝试安装的代码，但是根本不会执行，第一次没有安装成功的话容器直接就退出了。因为每次出问题都是sass没有安装成功退出的，所以心底里一直怀疑是这个包那里有问题，导致了容器直接崩溃退出了。问了周边一些用nodejs的人，都或多或少的遇到安装sass失败的情况，但对于如何提高安装成功率除了重复安装都没有什么好的解决办法。
+既然都没有更好的办法，加上原来的代码在第一次失败之后只有一次尝试安装，虽然现实情况来看从来就没有跑到过那里就退出了，但是总是感觉这样不好看，就把这部分重新写了一下，搞了一个不死不休的循环，大概类似如下：
+cd /dev/null until [[ $? -eq 0 ]]; do rm -rf node_modules && npm cache clean && npm install done 在until之前故意写了的那个cd是为了得到一个非0的返回码确保能进入循环。
+把这个跑了一下，发现容器直接在cd /dev/null那里失败之后就退出了，难道bash的任何错误就会直接让容器终止？没有听说过这种事情啊，遍寻各种资料也都没有发现docker有这样的问题和特性。难道是docker镜像的问题？重写了一个简单测试的脚本当做entrypoint开一个容器跑了一下，发现错误之后的代码是能执行下去，并没有让容器退出。那就不是容器的问题，是脚本的问题了，抬头看了一下CI里面的脚本，发现原来脚本的shebang（就是第一行最开始的#!，如有兴趣了解更多请猛击这里）那里给bash的解释器加了一个-e的参数，男人了一下bash，对这个-e的解释如下：
+-e Exit immediately if a pipeline (which may consist of a single simple command), a subshell command enclosed in parentheses, or one of the commands executed as part of a command list enclosed by braces (see SHELL GRAMMAR above) exits with a nonzero status. The shell does not exit if the command that fails is part of the command list immediately following a while or until keyword, part of the test following the if or elif reserved words, part of any command executed in a && or || list except the command following the final && or ||, any command in a pipeline but the last, or if the command&#39;s return value is being inverted with !" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.chatops.in/post/bash-e-flag/" />
 
 
-<meta property="og:updated_time" content="2016-08-01T22:56:17&#43;08:00"/>
+
+<meta property="article:published_time" content="2016-08-01T22:56:17&#43;08:00"/>
+<meta property="article:modified_time" content="2016-08-01T22:56:17&#43;08:00"/>
+
 
 
 
@@ -66,7 +77,11 @@
 
         
 <meta itemprop="name" content="一场由BASH的-E参数引发的血案">
-<meta itemprop="description" content="最近有一个CI会偶发性的失败，而且频率还挺高，天天看着血色的CI状态面板，真是够够的了。最害怕偶发性的问题了，次次都失败比这个还更能让我更容易接受一些。但不管怎么样，CI总得修啊。和当时写脚本的哥们研究了一下，一致认为问题应该是由nodejs的包没有成功安装导致的。这个脚本是当做docker容器的entrypoint跑的，奇怪的地方在于即使我们在后面有判断如果未能成功安装会再次尝试安装的代码，但是根本不会执行，第一次没有安装成功的话容器直接就退出了。因为每次出问题都是sass没有安装成功退出的，所以心底里一直怀疑是这个包那里有问题，导致了容器直接崩溃退出了。问了周边一些用nodejs的人，都或多或少的遇到安装sass失败的情况，但对于如何提高安装成功率除了重复安装都没有什么好的解决办法。 既然都没有更好的办法，加上原来的代码在第一次失败之后只有一次尝试安装，虽然现实情况来看从来就没有跑到过那里就退出了，但是总是感觉这样不好看，就把这部分重新写了一下，搞了一个不死不休的循环，大概类似如下： cd /dev/null until [[ $? -eq 0 ]]; do rm -rf node_modules &amp;&amp; npm cache clean &amp;&amp; npm install done 在until之前故意写了的那个cd是为了得到一个非0的返回码确保能进入循环。 把这个跑了一下，发现容器直接在cd /dev/null那里失败之后就退出了，难道bash的任何错误就会直接让容器终止？没有听说过这种事情啊，遍寻各种资料也都没有发现docker有这样的问题和特性。难道是docker镜像的问题？重写了一个简单测试的脚本当做entrypoint开一个容器跑了一下，发现错误之后的代码是能执行下去，并没有让容器退出。那就不是容器的问题，是脚本的问题了，抬头看了一下CI里面的脚本，发现原来脚本的shebang（就是第一行最开始的#!，如有兴趣了解更多请猛击这里）那里给bash的解释器加了一个-e的参数，男人了一下bash，对这个-e的解释如下： -e Exit immediately if a pipeline (which may consist of a single simple command), a subshell command enclosed in parentheses, or one of the commands executed as part of a command list enclosed by braces (see SHELL GRAMMAR above) exits with a nonzero status. The shell does not exit if the command that fails is part of the command list immediately following a while or until keyword, part of the test following the if or elif reserved words, part of any command executed in a &amp;&amp; or || list except the command following the final &amp;&amp; or ||, any command in a pipeline but the last, or if the command&#39;s return value is being inverted with !.">
+<meta itemprop="description" content="最近有一个CI会偶发性的失败，而且频率还挺高，天天看着血色的CI状态面板，真是够够的了。最害怕偶发性的问题了，次次都失败比这个还更能让我更容易接受一些。但不管怎么样，CI总得修啊。和当时写脚本的哥们研究了一下，一致认为问题应该是由nodejs的包没有成功安装导致的。这个脚本是当做docker容器的entrypoint跑的，奇怪的地方在于即使我们在后面有判断如果未能成功安装会再次尝试安装的代码，但是根本不会执行，第一次没有安装成功的话容器直接就退出了。因为每次出问题都是sass没有安装成功退出的，所以心底里一直怀疑是这个包那里有问题，导致了容器直接崩溃退出了。问了周边一些用nodejs的人，都或多或少的遇到安装sass失败的情况，但对于如何提高安装成功率除了重复安装都没有什么好的解决办法。
+既然都没有更好的办法，加上原来的代码在第一次失败之后只有一次尝试安装，虽然现实情况来看从来就没有跑到过那里就退出了，但是总是感觉这样不好看，就把这部分重新写了一下，搞了一个不死不休的循环，大概类似如下：
+cd /dev/null until [[ $? -eq 0 ]]; do rm -rf node_modules && npm cache clean && npm install done 在until之前故意写了的那个cd是为了得到一个非0的返回码确保能进入循环。
+把这个跑了一下，发现容器直接在cd /dev/null那里失败之后就退出了，难道bash的任何错误就会直接让容器终止？没有听说过这种事情啊，遍寻各种资料也都没有发现docker有这样的问题和特性。难道是docker镜像的问题？重写了一个简单测试的脚本当做entrypoint开一个容器跑了一下，发现错误之后的代码是能执行下去，并没有让容器退出。那就不是容器的问题，是脚本的问题了，抬头看了一下CI里面的脚本，发现原来脚本的shebang（就是第一行最开始的#!，如有兴趣了解更多请猛击这里）那里给bash的解释器加了一个-e的参数，男人了一下bash，对这个-e的解释如下：
+-e Exit immediately if a pipeline (which may consist of a single simple command), a subshell command enclosed in parentheses, or one of the commands executed as part of a command list enclosed by braces (see SHELL GRAMMAR above) exits with a nonzero status. The shell does not exit if the command that fails is part of the command list immediately following a while or until keyword, part of the test following the if or elif reserved words, part of any command executed in a && or || list except the command following the final && or ||, any command in a pipeline but the last, or if the command&#39;s return value is being inverted with !">
 
 
 <meta itemprop="dateModified" content="2016-08-01T22:56:17&#43;08:00" />
@@ -219,6 +234,10 @@
 
                 
                     <li>
+                        <a href="https://blog.chatops.in/post/the-name-of-devops/"><p>关于devops的拼写</p></a>
+                    </li>
+                
+                    <li>
                         <a href="https://blog.chatops.in/post/bash-e-flag/"><p>一场由BASH的-E参数引发的血案</p></a>
                     </li>
                 
@@ -228,6 +247,10 @@
                 
                     <li>
                         <a href="https://blog.chatops.in/post/hello-world/"><p>Hello, world!</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.chatops.in/post/"><p>Posts</p></a>
                     </li>
                 
             </ul>
@@ -359,27 +382,25 @@
         <p>最近有一个CI会偶发性的失败，而且频率还挺高，天天看着血色的CI状态面板，真是够够的了。最害怕偶发性的问题了，次次都失败比这个还更能让我更容易接受一些。但不管怎么样，CI总得修啊。和当时写脚本的哥们研究了一下，一致认为问题应该是由nodejs的包没有成功安装导致的。这个脚本是当做docker容器的entrypoint跑的，奇怪的地方在于即使我们在后面有判断如果未能成功安装会再次尝试安装的代码，但是根本不会执行，第一次没有安装成功的话容器直接就退出了。因为每次出问题都是sass没有安装成功退出的，所以心底里一直怀疑是这个包那里有问题，导致了容器直接崩溃退出了。问了周边一些用nodejs的人，都或多或少的遇到安装sass失败的情况，但对于如何提高安装成功率除了重复安装都没有什么好的解决办法。</p>
 
 <p>既然都没有更好的办法，加上原来的代码在第一次失败之后只有一次尝试安装，虽然现实情况来看从来就没有跑到过那里就退出了，但是总是感觉这样不好看，就把这部分重新写了一下，搞了一个不死不休的循环，大概类似如下：</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">cd</span> /dev/null
-<span class="k">until</span> <span class="o">[[</span> <span class="nv">$?</span> -eq <span class="m">0</span> <span class="o">]]</span><span class="p">;</span> <span class="k">do</span>
-rm -rf node_modules <span class="o">&amp;&amp;</span> npm cache clean <span class="o">&amp;&amp;</span> npm install
-<span class="k">done</span>
-</code></pre></div>
+cd /dev/null
+until [[ $? -eq 0 ]]; do
+rm -rf node_modules && npm cache clean && npm install
+done
 
 <p>在until之前故意写了的那个cd是为了得到一个非0的返回码确保能进入循环。</p>
 
 <p>把这个跑了一下，发现容器直接在<code>cd /dev/null</code>那里失败之后就退出了，难道bash的任何错误就会直接让容器终止？没有听说过这种事情啊，遍寻各种资料也都没有发现docker有这样的问题和特性。难道是docker镜像的问题？重写了一个简单测试的脚本当做entrypoint开一个容器跑了一下，发现错误之后的代码是能执行下去，并没有让容器退出。那就不是容器的问题，是脚本的问题了，抬头看了一下CI里面的脚本，发现原来脚本的shebang（就是第一行最开始的#!，如有兴趣了解更多请<a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">猛击这里</a>）那里给bash的解释器加了一个<code>-e</code>的参数，男人了一下bash，对这个<code>-e</code>的解释如下：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>-e  Exit  immediately  if  a  pipeline  (which may consist of a single simple
+-e  Exit  immediately  if  a  pipeline  (which may consist of a single simple
     command),  a subshell command enclosed in parentheses, or one of the commands executed as
     part of a command list enclosed by braces (see SHELL GRAMMAR above) exits  with a nonzero
     status.  The shell does not exit if the command that fails is part of the command list
     immediately following a while or until keyword, part of the test following the if or elif
-    reserved words, part  of  any command  executed in a &amp;&amp; or || list except the command
-    following the final &amp;&amp; or ||, any command in a pipeline but the last, or if the command&#39;s
+    reserved words, part  of  any command  executed in a && or || list except the command
+    following the final && or ||, any command in a pipeline but the last, or if the command's
     return value is being inverted with !.  A trap on ERR, if set, is executed before the
     shell  exits.   This  option applies to the shell environment and each subshell
     environment separately (see COMMAND EXECUTION ENVIRONMENT above), and may cause subshells
     to exit before executing all the commands in the subshell.
-</code></pre></div>
 
 <p>原来问题在这里，以前还从来没有注意过<code>-e</code>这个神奇的东西，今天又涨了一下姿势，以后看谁不顺眼，就偷偷的给他的解释器加个<code>-e</code>去，嘿嘿。</p>
 
@@ -425,6 +446,9 @@ rm -rf node_modules <span class="o">&amp;&amp;</span> npm cache clean <span clas
                 class="button big previous">解决老版本Ruby安装时的openssl问题</a></li>
     
 
+    
+        <li><a href="https://blog.chatops.in/post/the-name-of-devops/"
+                class="button big next">关于devops的拼写</a></li>
     
 </ul>
 
@@ -534,6 +558,20 @@ rm -rf node_modules <span class="o">&amp;&amp;</span> npm cache clean <span clas
                     <li>
                         <article>
                             <header>
+                                <h3><a href="https://blog.chatops.in/post/the-name-of-devops/">关于devops的拼写</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2017-05-29'>
+                                    May 29, 2017</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
                                 <h3><a href="https://blog.chatops.in/post/bash-e-flag/">一场由BASH的-E参数引发的血案</a></h3>
                                 
                                     
@@ -573,7 +611,31 @@ rm -rf node_modules <span class="o">&amp;&amp;</span> npm cache clean <span clas
                         </article>
                     </li>
                 
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="https://blog.chatops.in/post/">Posts</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2017-05-29'>
+                                    May 29, 2017</time>
+                            </header>
+                        </article>
+                    </li>
+                
 
+                
+                    <li>
+                        <ul class="actions">
+                            <li><a href=
+                            
+                                /post/
+                            
+                            class="button">View more posts</a></li>
+                        </ul>
+                    </li>
                 
             </ul>
         </section>

@@ -6,8 +6,20 @@
     <description>Recent content on chAtOPs.in</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Aug 2016 22:56:17 +0800</lastBuildDate>
-    <atom:link href="https://blog.chatops.in/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 May 2017 03:14:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.chatops.in/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>关于devops的拼写</title>
+      <link>https://blog.chatops.in/post/the-name-of-devops/</link>
+      <pubDate>Mon, 29 May 2017 03:14:32 +0800</pubDate>
+      
+      <guid>https://blog.chatops.in/post/the-name-of-devops/</guid>
+      <description>在看《Effective DevOps》这本书的时候，前言那里有一段关于devops的拼写的说法。
+&#34;Devops&#34;, &#34;devops&#34;, or &#34;DevOps&#34;? We have had many discussions over the capitalization(or lack thereof) of the term &#34;devops&#34;, A simple online poll showed overwhelming support for &#34;DevOps&#34;. We also found a focus on the &#34;Dev&#34; and &#34;Ops&#34; within organizations, This has lead to the creation of &#34;DevSecOps&#34; and &#34;DevQAOps&#34;, as &#34;DevOps&#34; implies an exclusivity of just &#34;Dev&#34; and &#34;Ops&#34;. Ultimately, this is why we&#39;ve chosen &#34;devops&#34; - it reflects the original hashtag on Twitter used to connect people who want to help change conversations from *us versus them* to *enabling the business* with sustainable work practices that focus on people.</description>
+    </item>
     
     <item>
       <title>一场由BASH的-E参数引发的血案</title>
@@ -15,35 +27,11 @@
       <pubDate>Mon, 01 Aug 2016 22:56:17 +0800</pubDate>
       
       <guid>https://blog.chatops.in/post/bash-e-flag/</guid>
-      <description>&lt;p&gt;最近有一个CI会偶发性的失败，而且频率还挺高，天天看着血色的CI状态面板，真是够够的了。最害怕偶发性的问题了，次次都失败比这个还更能让我更容易接受一些。但不管怎么样，CI总得修啊。和当时写脚本的哥们研究了一下，一致认为问题应该是由nodejs的包没有成功安装导致的。这个脚本是当做docker容器的entrypoint跑的，奇怪的地方在于即使我们在后面有判断如果未能成功安装会再次尝试安装的代码，但是根本不会执行，第一次没有安装成功的话容器直接就退出了。因为每次出问题都是sass没有安装成功退出的，所以心底里一直怀疑是这个包那里有问题，导致了容器直接崩溃退出了。问了周边一些用nodejs的人，都或多或少的遇到安装sass失败的情况，但对于如何提高安装成功率除了重复安装都没有什么好的解决办法。&lt;/p&gt;
-
-&lt;p&gt;既然都没有更好的办法，加上原来的代码在第一次失败之后只有一次尝试安装，虽然现实情况来看从来就没有跑到过那里就退出了，但是总是感觉这样不好看，就把这部分重新写了一下，搞了一个不死不休的循环，大概类似如下：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /dev/null
-&lt;span class=&#34;k&#34;&gt;until&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$?&lt;/span&gt; -eq &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt;
-rm -rf node_modules &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; npm cache clean &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; npm install
-&lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;在until之前故意写了的那个cd是为了得到一个非0的返回码确保能进入循环。&lt;/p&gt;
-
-&lt;p&gt;把这个跑了一下，发现容器直接在&lt;code&gt;cd /dev/null&lt;/code&gt;那里失败之后就退出了，难道bash的任何错误就会直接让容器终止？没有听说过这种事情啊，遍寻各种资料也都没有发现docker有这样的问题和特性。难道是docker镜像的问题？重写了一个简单测试的脚本当做entrypoint开一个容器跑了一下，发现错误之后的代码是能执行下去，并没有让容器退出。那就不是容器的问题，是脚本的问题了，抬头看了一下CI里面的脚本，发现原来脚本的shebang（就是第一行最开始的#!，如有兴趣了解更多请&lt;a href=&#34;https://en.wikipedia.org/wiki/Shebang_(Unix)&#34;&gt;猛击这里&lt;/a&gt;）那里给bash的解释器加了一个&lt;code&gt;-e&lt;/code&gt;的参数，男人了一下bash，对这个&lt;code&gt;-e&lt;/code&gt;的解释如下：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span&gt;&lt;/span&gt;-e  Exit  immediately  if  a  pipeline  (which may consist of a single simple
-    command),  a subshell command enclosed in parentheses, or one of the commands executed as
-    part of a command list enclosed by braces (see SHELL GRAMMAR above) exits  with a nonzero
-    status.  The shell does not exit if the command that fails is part of the command list
-    immediately following a while or until keyword, part of the test following the if or elif
-    reserved words, part  of  any command  executed in a &amp;amp;&amp;amp; or || list except the command
-    following the final &amp;amp;&amp;amp; or ||, any command in a pipeline but the last, or if the command&amp;#39;s
-    return value is being inverted with !.  A trap on ERR, if set, is executed before the
-    shell  exits.   This  option applies to the shell environment and each subshell
-    environment separately (see COMMAND EXECUTION ENVIRONMENT above), and may cause subshells
-    to exit before executing all the commands in the subshell.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;原来问题在这里，以前还从来没有注意过&lt;code&gt;-e&lt;/code&gt;这个神奇的东西，今天又涨了一下姿势，以后看谁不顺眼，就偷偷的给他的解释器加个&lt;code&gt;-e&lt;/code&gt;去，嘿嘿。&lt;/p&gt;
-
-&lt;p&gt;终于我们的容器不用再一报错就退出了，CI也能正常的跑下去了，虽然可能nodejs会碰到重复安装的问题，但是只是一个时间问题而已了。&lt;/p&gt;
-</description>
+      <description>最近有一个CI会偶发性的失败，而且频率还挺高，天天看着血色的CI状态面板，真是够够的了。最害怕偶发性的问题了，次次都失败比这个还更能让我更容易接受一些。但不管怎么样，CI总得修啊。和当时写脚本的哥们研究了一下，一致认为问题应该是由nodejs的包没有成功安装导致的。这个脚本是当做docker容器的entrypoint跑的，奇怪的地方在于即使我们在后面有判断如果未能成功安装会再次尝试安装的代码，但是根本不会执行，第一次没有安装成功的话容器直接就退出了。因为每次出问题都是sass没有安装成功退出的，所以心底里一直怀疑是这个包那里有问题，导致了容器直接崩溃退出了。问了周边一些用nodejs的人，都或多或少的遇到安装sass失败的情况，但对于如何提高安装成功率除了重复安装都没有什么好的解决办法。
+既然都没有更好的办法，加上原来的代码在第一次失败之后只有一次尝试安装，虽然现实情况来看从来就没有跑到过那里就退出了，但是总是感觉这样不好看，就把这部分重新写了一下，搞了一个不死不休的循环，大概类似如下：
+cd /dev/null until [[ $? -eq 0 ]]; do rm -rf node_modules &amp;&amp; npm cache clean &amp;&amp; npm install done 在until之前故意写了的那个cd是为了得到一个非0的返回码确保能进入循环。
+把这个跑了一下，发现容器直接在cd /dev/null那里失败之后就退出了，难道bash的任何错误就会直接让容器终止？没有听说过这种事情啊，遍寻各种资料也都没有发现docker有这样的问题和特性。难道是docker镜像的问题？重写了一个简单测试的脚本当做entrypoint开一个容器跑了一下，发现错误之后的代码是能执行下去，并没有让容器退出。那就不是容器的问题，是脚本的问题了，抬头看了一下CI里面的脚本，发现原来脚本的shebang（就是第一行最开始的#!，如有兴趣了解更多请猛击这里）那里给bash的解释器加了一个-e的参数，男人了一下bash，对这个-e的解释如下：
+-e Exit immediately if a pipeline (which may consist of a single simple command), a subshell command enclosed in parentheses, or one of the commands executed as part of a command list enclosed by braces (see SHELL GRAMMAR above) exits with a nonzero status. The shell does not exit if the command that fails is part of the command list immediately following a while or until keyword, part of the test following the if or elif reserved words, part of any command executed in a &amp;&amp; or || list except the command following the final &amp;&amp; or ||, any command in a pipeline but the last, or if the command&#39;s return value is being inverted with !</description>
     </item>
     
     <item>
@@ -52,32 +40,13 @@ rm -rf node_modules &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt
       <pubDate>Fri, 08 Jul 2016 15:56:46 +0800</pubDate>
       
       <guid>https://blog.chatops.in/post/fix-old-ruby-ssl-issue/</guid>
-      <description>&lt;p&gt;今天要用一个老的Ruby repo，同步下来发现用的Ruby的版本是1.9.3-p484。安装了ruby之后安装bundler提示如下错误：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;/Users/home/.rbenv/versions/1.9.3-p484/lib/ruby/1.9.1/rubygems/remote_fetcher.rb:329:in &lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;rescue in connection_for&lt;span class=&#34;err&#34;&gt;&amp;#39;&lt;/span&gt;: cannot load such file -- openssl &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;LoadError&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;经过一番研究，发现需要在安装的时候指定openssl的路径，在Mac上面找到openssl目录的方法如下：&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;brew list openssl&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;输出类似如下：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;/usr/local/Cellar/openssl/1.0.2h_1/bin/c_rehash
-/usr/local/Cellar/openssl/1.0.2h_1/bin/openssl
-/usr/local/Cellar/openssl/1.0.2h_1/include/openssl/ &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;75&lt;/span&gt; files&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-/usr/local/Cellar/openssl/1.0.2h_1/lib/libcrypto.1.0.0.dylib
-/usr/local/Cellar/openssl/1.0.2h_1/lib/libssl.1.0.0.dylib
-/usr/local/Cellar/openssl/1.0.2h_1/lib/engines/ &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;12&lt;/span&gt; files&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-/usr/local/Cellar/openssl/1.0.2h_1/lib/pkgconfig/ &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3&lt;/span&gt; files&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-/usr/local/Cellar/openssl/1.0.2h_1/lib/ &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; other files&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-/usr/local/Cellar/openssl/1.0.2h_1/share/man/ &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1588&lt;/span&gt; files&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;这个&lt;code&gt;/usr/local/Cellar/openssl/1.0.2h_1&lt;/code&gt;就是我们要用的目录。&lt;/p&gt;
-
-&lt;p&gt;之后就简单了，使用下面的命令重新安装一下Ruby就好了。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;RUBY_CONFIGURE_OPTS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;--with-openssl-dir&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local/Cellar/openssl/1.0.2h_1 rbenv install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-</description>
+      <description>今天要用一个老的Ruby repo，同步下来发现用的Ruby的版本是1.9.3-p484。安装了ruby之后安装bundler提示如下错误：
+/Users/home/.rbenv/versions/1.9.3-p484/lib/ruby/1.9.1/rubygems/remote_fetcher.rb:329:in `rescue in connection_for&#39;: cannot load such file -- openssl (LoadError) 经过一番研究，发现需要在安装的时候指定openssl的路径，在Mac上面找到openssl目录的方法如下：
+brew list openssl
+输出类似如下：
+/usr/local/Cellar/openssl/1.0.2h_1/bin/c_rehash /usr/local/Cellar/openssl/1.0.2h_1/bin/openssl /usr/local/Cellar/openssl/1.0.2h_1/include/openssl/ (75 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/libcrypto.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2h_1/lib/libssl.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2h_1/lib/engines/ (12 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/pkgconfig/ (3 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/ (4 other files) /usr/local/Cellar/openssl/1.0.2h_1/share/man/ (1588 files) 这个/usr/local/Cellar/openssl/1.0.2h_1就是我们要用的目录。
+之后就简单了，使用下面的命令重新安装一下Ruby就好了。
+RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/Cellar/openssl/1.0.2h_1 rbenv install </description>
     </item>
     
     <item>
@@ -86,12 +55,9 @@ rm -rf node_modules &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt
       <pubDate>Sun, 26 Jun 2016 01:48:56 +0800</pubDate>
       
       <guid>https://blog.chatops.in/post/hello-world/</guid>
-      <description>&lt;p&gt;非常技术人员的方式来宣告我在这里的第一篇东西，哈哈。&lt;/p&gt;
-
-&lt;p&gt;话说很久很久都没有想过要写Blog这种东西了，以前自己还是挺喜欢把自己的一些想法或者解决过的问题什么的写下来的，但是互联网的兴灭总是出乎你的意料，自己以前所写的东西伴随着个人空间，免费的或者商用的Blog提供者的消亡统统的都成为过眼云烟，慢慢的就没有写下去的念头。后来虽然有twitter和微博的火爆，但发现自己对于这些很容易暴露隐私的东西很难提的起太多的兴趣，也就没有和年轻人去赶时髦玩朋友圈之类的了。现在Github有这样的服务，想着总归不会像以前的那些服务商那么悲催的随随便便的说没有就没有了吧？虽然说Github和我们伟大的GFW有点过节，但是对于数据什么的总归还是相对安全和有保障的吧。&lt;/p&gt;
-
-&lt;p&gt;很长时间没有写东西了，发现自己现在都不会写了，先这样吧，且行且写且看。&lt;/p&gt;
-</description>
+      <description>非常技术人员的方式来宣告我在这里的第一篇东西，哈哈。
+话说很久很久都没有想过要写Blog这种东西了，以前自己还是挺喜欢把自己的一些想法或者解决过的问题什么的写下来的，但是互联网的兴灭总是出乎你的意料，自己以前所写的东西伴随着个人空间，免费的或者商用的Blog提供者的消亡统统的都成为过眼云烟，慢慢的就没有写下去的念头。后来虽然有twitter和微博的火爆，但发现自己对于这些很容易暴露隐私的东西很难提的起太多的兴趣，也就没有和年轻人去赶时髦玩朋友圈之类的了。现在Github有这样的服务，想着总归不会像以前的那些服务商那么悲催的随随便便的说没有就没有了吧？虽然说Github和我们伟大的GFW有点过节，但是对于数据什么的总归还是相对安全和有保障的吧。
+很长时间没有写东西了，发现自己现在都不会写了，先这样吧，且行且写且看。</description>
     </item>
     
     <item>
@@ -100,20 +66,8 @@ rm -rf node_modules &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://blog.chatops.in/about-me/</guid>
-      <description>
-
-&lt;h2 id=&#34;zhu-ye&#34;&gt;Zhu Ye&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Thoughtworks Lead Consultant&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;13 years work experience in OPS field.&lt;/li&gt;
-&lt;li&gt;Extensive knowledge of OPS things.&lt;/li&gt;
-&lt;li&gt;Good at large scale plan, architecture design.&lt;/li&gt;
-&lt;li&gt;Excellent troubleshooting skills.&lt;/li&gt;
-&lt;li&gt;Currently focus on AWS automation stuff.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description> Zhu Ye Thoughtworks Lead Consultant
+ 13 years work experience in OPS field. Extensive knowledge of OPS things. Good at large scale plan, architecture design. Excellent troubleshooting skills. Currently focus on AWS automation stuff.  </description>
     </item>
     
   </channel>

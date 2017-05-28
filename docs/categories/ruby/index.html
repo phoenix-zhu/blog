@@ -13,12 +13,12 @@
 <html>
     <head>
         
-            <title>ruby Posts - chAtOPs.in</title>
+            <title>Ruby Posts - chAtOPs.in</title>
         
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.16" />
+        <meta name="generator" content="Hugo 0.21" />
         
     
         
@@ -45,10 +45,11 @@
         
 
         
-        <meta property="og:title" content="ruby" />
+        <meta property="og:title" content="Ruby" />
 <meta property="og:description" content="HTML5 UP theme. Powered by Hugo" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://blog.chatops.in/categories/ruby/" />
+
 
 
 <meta property="og:updated_time" content="2016-07-08T15:56:46&#43;08:00"/>
@@ -61,8 +62,9 @@
 
 
 
+
         
-<meta itemprop="name" content="ruby">
+<meta itemprop="name" content="Ruby">
 <meta itemprop="description" content="HTML5 UP theme. Powered by Hugo">
 
 
@@ -204,6 +206,10 @@
 
                 
                     <li>
+                        <a href="https://blog.chatops.in/post/the-name-of-devops/"><p>关于devops的拼写</p></a>
+                    </li>
+                
+                    <li>
                         <a href="https://blog.chatops.in/post/bash-e-flag/"><p>一场由BASH的-E参数引发的血案</p></a>
                     </li>
                 
@@ -215,6 +221,10 @@
                         <a href="https://blog.chatops.in/post/hello-world/"><p>Hello, world!</p></a>
                     </li>
                 
+                    <li>
+                        <a href="https://blog.chatops.in/post/"><p>Posts</p></a>
+                    </li>
+                
             </ul>
         </section>
 
@@ -224,7 +234,7 @@
 
     
     <div id="main">
-        <h1>ruby</h1>
+        <h1>Ruby</h1>
         
         
             <article class="post">
@@ -253,7 +263,13 @@
 
     
 
-    <p>今天要用一个老的Ruby repo，同步下来发现用的Ruby的版本是1.9.3-p484。安装了ruby之后安装bundler提示如下错误： /Users/home/.rbenv/versions/1.9.3-p484/lib/ruby/1.9.1/rubygems/remote_fetcher.rb:329:in `rescue in connection_for&#39;: cannot load such file &ndash; openssl (LoadError) 经过一番研究，发现需要在安装的时候指定openssl的路径，在Mac上面找到openssl目录的方法如下： brew list openssl 输出类似如下： /usr/local/Cellar/openssl/1.0.2h_1/bin/c_rehash /usr/local/Cellar/openssl/1.0.2h_1/bin/openssl /usr/local/Cellar/openssl/1.0.2h_1/include/openssl/ (75 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/libcrypto.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2h_1/lib/libssl.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2h_1/lib/engines/ (12 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/pkgconfig/ (3 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/ (4 other files) /usr/local/Cellar/openssl/1.0.2h_1/share/man/ (1588 files) 这个/usr/local/Cellar/openssl/1.0.2h_1就是我们要用的目录。 之后就简单了，使用下面的命令重新安装一下Ruby就好了。 RUBY_CONFIGURE_OPTS=&ndash;with-openssl-dir=/usr/local/Cellar/openssl/1.0.2h_1 rbenv install</p>
+    <p>今天要用一个老的Ruby repo，同步下来发现用的Ruby的版本是1.9.3-p484。安装了ruby之后安装bundler提示如下错误：
+/Users/home/.rbenv/versions/1.9.3-p484/lib/ruby/1.9.1/rubygems/remote_fetcher.rb:329:in `rescue in connection_for&rsquo;: cannot load such file &ndash; openssl (LoadError) 经过一番研究，发现需要在安装的时候指定openssl的路径，在Mac上面找到openssl目录的方法如下：
+brew list openssl
+输出类似如下：
+/usr/local/Cellar/openssl/1.0.2h_1/bin/c_rehash /usr/local/Cellar/openssl/1.0.2h_1/bin/openssl /usr/local/Cellar/openssl/1.0.2h_1/include/openssl/ (75 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/libcrypto.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2h_1/lib/libssl.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2h_1/lib/engines/ (12 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/pkgconfig/ (3 files) /usr/local/Cellar/openssl/1.0.2h_1/lib/ (4 other files) /usr/local/Cellar/openssl/1.0.2h_1/share/man/ (1588 files) 这个/usr/local/Cellar/openssl/1.0.2h_1就是我们要用的目录。
+之后就简单了，使用下面的命令重新安装一下Ruby就好了。
+RUBY_CONFIGURE_OPTS=&ndash;with-openssl-dir=/usr/local/Cellar/openssl/1.0.2h_1 rbenv install</p>
 
     <footer>
         <ul class="actions">
@@ -412,6 +428,20 @@
                     <li>
                         <article>
                             <header>
+                                <h3><a href="https://blog.chatops.in/post/the-name-of-devops/">关于devops的拼写</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2017-05-29'>
+                                    May 29, 2017</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
                                 <h3><a href="https://blog.chatops.in/post/bash-e-flag/">一场由BASH的-E参数引发的血案</a></h3>
                                 
                                     
@@ -451,7 +481,31 @@
                         </article>
                     </li>
                 
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="https://blog.chatops.in/post/">Posts</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2017-05-29'>
+                                    May 29, 2017</time>
+                            </header>
+                        </article>
+                    </li>
+                
 
+                
+                    <li>
+                        <ul class="actions">
+                            <li><a href=
+                            
+                                /post/
+                            
+                            class="button">View more posts</a></li>
+                        </ul>
+                    </li>
                 
             </ul>
         </section>
