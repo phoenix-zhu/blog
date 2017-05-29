@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bash on chAtOPs.in</title>
-    <link>https://blog.chatops.in/categories/bash/</link>
+    <link>http://blog.chatops.in/categories/bash/</link>
     <description>Recent content in Bash on chAtOPs.in</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 01 Aug 2016 22:56:17 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.chatops.in/categories/bash/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.chatops.in/categories/bash/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>一场由BASH的-E参数引发的血案</title>
-      <link>https://blog.chatops.in/post/bash-e-flag/</link>
+      <link>http://blog.chatops.in/post/bash-e-flag/</link>
       <pubDate>Mon, 01 Aug 2016 22:56:17 +0800</pubDate>
       
-      <guid>https://blog.chatops.in/post/bash-e-flag/</guid>
+      <guid>http://blog.chatops.in/post/bash-e-flag/</guid>
       <description>最近有一个CI会偶发性的失败，而且频率还挺高，天天看着血色的CI状态面板，真是够够的了。最害怕偶发性的问题了，次次都失败比这个还更能让我更容易接受一些。但不管怎么样，CI总得修啊。和当时写脚本的哥们研究了一下，一致认为问题应该是由nodejs的包没有成功安装导致的。这个脚本是当做docker容器的entrypoint跑的，奇怪的地方在于即使我们在后面有判断如果未能成功安装会再次尝试安装的代码，但是根本不会执行，第一次没有安装成功的话容器直接就退出了。因为每次出问题都是sass没有安装成功退出的，所以心底里一直怀疑是这个包那里有问题，导致了容器直接崩溃退出了。问了周边一些用nodejs的人，都或多或少的遇到安装sass失败的情况，但对于如何提高安装成功率除了重复安装都没有什么好的解决办法。
 既然都没有更好的办法，加上原来的代码在第一次失败之后只有一次尝试安装，虽然现实情况来看从来就没有跑到过那里就退出了，但是总是感觉这样不好看，就把这部分重新写了一下，搞了一个不死不休的循环，大概类似如下：
 cd /dev/null until [[ $? -eq 0 ]]; do rm -rf node_modules &amp;amp;&amp;amp; npm cache clean &amp;amp;&amp;amp; npm install done  在until之前故意写了的那个cd是为了得到一个非0的返回码确保能进入循环。

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ruby on chAtOPs.in</title>
-    <link>https://blog.chatops.in/categories/ruby/</link>
+    <link>http://blog.chatops.in/categories/ruby/</link>
     <description>Recent content in Ruby on chAtOPs.in</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 08 Jul 2016 15:56:46 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.chatops.in/categories/ruby/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.chatops.in/categories/ruby/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>解决老版本Ruby安装时的openssl问题</title>
-      <link>https://blog.chatops.in/post/fix-old-ruby-ssl-issue/</link>
+      <link>http://blog.chatops.in/post/fix-old-ruby-ssl-issue/</link>
       <pubDate>Fri, 08 Jul 2016 15:56:46 +0800</pubDate>
       
-      <guid>https://blog.chatops.in/post/fix-old-ruby-ssl-issue/</guid>
+      <guid>http://blog.chatops.in/post/fix-old-ruby-ssl-issue/</guid>
       <description>今天要用一个老的Ruby repo，同步下来发现用的Ruby的版本是1.9.3-p484。安装了ruby之后安装bundler提示如下错误：
 /Users/home/.rbenv/versions/1.9.3-p484/lib/ruby/1.9.1/rubygems/remote_fetcher.rb:329:in `rescue in connection_for&amp;#39;: cannot load such file -- openssl (LoadError)  经过一番研究，发现需要在安装的时候指定openssl的路径，在Mac上面找到openssl目录的方法如下：
 brew list openssl

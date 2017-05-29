@@ -1,4 +1,4 @@
-baseurl = "https://blog.chatops.in/"
+baseurl = "http://blog.chatops.in/"
 languageCode = "en-us"
 title = "chAtOPs.in"
 theme = "hugo-future-imperfect"
@@ -7,7 +7,7 @@ preserveTaxonomyNames = true
 pygmentsUseClasses = true
 pygmentsCodeFences =  true
 pygmentsCodeFencesGuessSyntax = true
-
+publishdir = "docs"
 
 [params]
     # Sets the meta tag description, usually reserved for the main page

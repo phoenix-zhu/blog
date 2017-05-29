@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Devops on chAtOPs.in</title>
-    <link>https://blog.chatops.in/categories/devops/</link>
+    <link>http://blog.chatops.in/categories/devops/</link>
     <description>Recent content in Devops on chAtOPs.in</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 29 May 2017 03:14:32 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.chatops.in/categories/devops/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.chatops.in/categories/devops/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>关于devops的拼写</title>
-      <link>https://blog.chatops.in/post/the-name-of-devops/</link>
+      <link>http://blog.chatops.in/post/the-name-of-devops/</link>
       <pubDate>Mon, 29 May 2017 03:14:32 +0800</pubDate>
       
-      <guid>https://blog.chatops.in/post/the-name-of-devops/</guid>
+      <guid>http://blog.chatops.in/post/the-name-of-devops/</guid>
       <description>在看《Effective DevOps》这本书的时候，前言那里有一段关于devops的拼写的说法。
 &amp;quot;Devops&amp;quot;, &amp;quot;devops&amp;quot;, or &amp;quot;DevOps&amp;quot;?
 We have had many discussions over the capitalization(or lack thereof) of the term &amp;quot;devops&amp;quot;, A simple online poll showed overwhelming support for &amp;quot;DevOps&amp;quot;. We also found a focus on the &amp;quot;Dev&amp;quot; and &amp;quot;Ops&amp;quot; within organizations, This has lead to the creation of &amp;quot;DevSecOps&amp;quot; and &amp;quot;DevQAOps&amp;quot;, as &amp;quot;DevOps&amp;quot; implies an exclusivity of just &amp;quot;Dev&amp;quot; and &amp;quot;Ops&amp;quot;.

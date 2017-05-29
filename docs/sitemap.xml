@@ -3,78 +3,89 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blog.chatops.in/post/about-development-provisioning-orchestration/</loc>
+    <loc>http://blog.chatops.in/post/best-cloud-tools-for-infrastructure-automation/</loc>
+    <lastmod>2017-05-30T01:50:49+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.chatops.in/post/about-development-provisioning-orchestration/</loc>
     <lastmod>2017-05-29T14:07:21+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.chatops.in/post/the-name-of-devops/</loc>
+    <loc>http://blog.chatops.in/post/the-name-of-devops/</loc>
     <lastmod>2017-05-29T03:14:32+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.chatops.in/post/bash-e-flag/</loc>
+    <loc>http://blog.chatops.in/post/bash-e-flag/</loc>
     <lastmod>2016-08-01T22:56:17+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.chatops.in/post/fix-old-ruby-ssl-issue/</loc>
+    <loc>http://blog.chatops.in/post/fix-old-ruby-ssl-issue/</loc>
     <lastmod>2016-07-08T15:56:46+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.chatops.in/post/hello-world/</loc>
+    <loc>http://blog.chatops.in/post/hello-world/</loc>
     <lastmod>2016-06-26T01:48:56+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.chatops.in/about-me/</loc>
+    <loc>http://blog.chatops.in/about-me/</loc>
   </url>
   
   <url>
-    <loc>https://blog.chatops.in/categories/bash/</loc>
+    <loc>http://blog.chatops.in/categories/automation/</loc>
+    <lastmod>2017-05-30T01:50:49+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.chatops.in/categories/bash/</loc>
     <lastmod>2016-08-01T22:56:17+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.chatops.in/categories/</loc>
-    <lastmod>2016-08-01T22:56:17+08:00</lastmod>
+    <loc>http://blog.chatops.in/categories/</loc>
+    <lastmod>2017-05-30T01:50:49+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.chatops.in/categories/devops/</loc>
+    <loc>http://blog.chatops.in/categories/devops/</loc>
     <lastmod>2017-05-29T03:14:32+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.chatops.in/post/</loc>
-    <lastmod>2017-05-29T14:07:21+08:00</lastmod>
+    <loc>http://blog.chatops.in/post/</loc>
+    <lastmod>2017-05-30T01:50:49+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.chatops.in/categories/ruby/</loc>
+    <loc>http://blog.chatops.in/categories/ruby/</loc>
     <lastmod>2016-07-08T15:56:46+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.chatops.in/categories/ssl/</loc>
+    <loc>http://blog.chatops.in/categories/ssl/</loc>
     <lastmod>2016-07-08T15:56:46+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.chatops.in/tags/</loc>
+    <loc>http://blog.chatops.in/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.chatops.in/</loc>
-    <lastmod>2017-05-29T14:07:21+08:00</lastmod>
+    <loc>http://blog.chatops.in/</loc>
+    <lastmod>2017-05-30T01:50:49+08:00</lastmod>
     <priority>0</priority>
   </url>
   

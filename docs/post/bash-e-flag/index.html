@@ -58,7 +58,7 @@ cd /dev/null until [[ $? -eq 0 ]]; do rm -rf node_modules &amp;&amp; npm cache c
 把这个跑了一下，发现容器直接在cd /dev/null那里失败之后就退出了，难道bash的任何错误就会直接让容器终止？没有听说过这种事情啊，遍寻各种资料也都没有发现docker有这样的问题和特性。难道是docker镜像的问题？重写了一个简单测试的脚本当做entrypoint开一个容器跑了一下，发现错误之后的代码是能执行下去，并没有让容器退出。那就不是容器的问题，是脚本的问题了，抬头看了一下CI里面的脚本，发现原来脚本的shebang（就是第一行最开始的#!，如有兴趣了解更多请猛击这里）那里给bash的解释器加了一个-e的参数，男人了一下bash，对这个-e的解释如下：
 -e Exit immediately if a pipeline (which may consist of a single simple command), a subshell command enclosed in parentheses, or one of the commands executed as part of a command list enclosed by braces (see SHELL GRAMMAR above) exits with a nonzero status. The shell does not exit if the command that fails is part of the command list immediately following a while or until keyword, part of the test following the if or elif reserved words, part of any command executed in a &amp;&amp; or || list except the command following the final &amp;&amp; or ||, any command in a pipeline but the last, or if the command&#39;s return value is being inverted with !" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.chatops.in/post/bash-e-flag/" />
+<meta property="og:url" content="http://blog.chatops.in/post/bash-e-flag/" />
 
 
 
@@ -89,7 +89,7 @@ cd /dev/null until [[ $? -eq 0 ]]; do rm -rf node_modules &amp;&amp; npm cache c
 
 
 
-<meta itemprop="keywords" content="bash,devops,ruby,ssl," />
+<meta itemprop="keywords" content="automation,bash,devops,ruby,ssl," />
 
         
 
@@ -165,7 +165,7 @@ cd /dev/null until [[ $? -eq 0 ]]; do rm -rf node_modules &amp;&amp; npm cache c
                 <a class="fa-search" href="#search">Search</a>
                 <form id="search" method="get" action="//google.com/search">
                     <input type="text" name="q" placeholder="Search" />
-                    <input type="hidden" name="q" value="site:https://blog.chatops.in/">
+                    <input type="hidden" name="q" value="site:http://blog.chatops.in/">
                 </form>
             </li>
             <li class="menu">
@@ -182,7 +182,7 @@ cd /dev/null until [[ $? -eq 0 ]]; do rm -rf node_modules &amp;&amp; npm cache c
         <section>
             <form class="search" method="get" action="//google.com/search">
                 <input type="text" name="q" placeholder="Search" />
-                <input type="hidden" name="q" value="site:https://blog.chatops.in/">
+                <input type="hidden" name="q" value="site:http://blog.chatops.in/">
             </form>
         </section>
 
@@ -234,23 +234,23 @@ cd /dev/null until [[ $? -eq 0 ]]; do rm -rf node_modules &amp;&amp; npm cache c
 
                 
                     <li>
-                        <a href="https://blog.chatops.in/post/about-development-provisioning-orchestration/"><p>关于Deployment，Provisioning和Orchestration的区别</p></a>
+                        <a href="http://blog.chatops.in/post/best-cloud-tools-for-infrastructure-automation/"><p>自动化工具集合</p></a>
                     </li>
                 
                     <li>
-                        <a href="https://blog.chatops.in/post/the-name-of-devops/"><p>关于devops的拼写</p></a>
+                        <a href="http://blog.chatops.in/post/about-development-provisioning-orchestration/"><p>关于Deployment，Provisioning和Orchestration的区别</p></a>
                     </li>
                 
                     <li>
-                        <a href="https://blog.chatops.in/post/bash-e-flag/"><p>一场由BASH的-E参数引发的血案</p></a>
+                        <a href="http://blog.chatops.in/post/the-name-of-devops/"><p>关于devops的拼写</p></a>
                     </li>
                 
                     <li>
-                        <a href="https://blog.chatops.in/post/fix-old-ruby-ssl-issue/"><p>解决老版本Ruby安装时的openssl问题</p></a>
+                        <a href="http://blog.chatops.in/post/bash-e-flag/"><p>一场由BASH的-E参数引发的血案</p></a>
                     </li>
                 
                     <li>
-                        <a href="https://blog.chatops.in/post/hello-world/"><p>Hello, world!</p></a>
+                        <a href="http://blog.chatops.in/post/fix-old-ruby-ssl-issue/"><p>解决老版本Ruby安装时的openssl问题</p></a>
                     </li>
                 
             </ul>
@@ -269,37 +269,37 @@ cd /dev/null until [[ $? -eq 0 ]]; do rm -rf node_modules &amp;&amp; npm cache c
             
 
 
-<li><a href="//twitter.com/share?url=https%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f&text=%e4%b8%80%e5%9c%ba%e7%94%b1BASH%e7%9a%84-E%e5%8f%82%e6%95%b0%e5%bc%95%e5%8f%91%e7%9a%84%e8%a1%80%e6%a1%88&via=" target="_blank" class="fa fa-twitter">
+<li><a href="//twitter.com/share?url=http%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f&text=%e4%b8%80%e5%9c%ba%e7%94%b1BASH%e7%9a%84-E%e5%8f%82%e6%95%b0%e5%bc%95%e5%8f%91%e7%9a%84%e8%a1%80%e6%a1%88&via=" target="_blank" class="fa fa-twitter">
     <p>Twitter</p>
 </a></li>
 
 
-<li><a href="//plus.google.com/share?url=https%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f" target="_blank" class="fa fa-google-plus">
+<li><a href="//plus.google.com/share?url=http%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f" target="_blank" class="fa fa-google-plus">
     <p>Google+</p>
 </a></li>
 
 
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f" target="_blank" class="fa fa-facebook">
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f" target="_blank" class="fa fa-facebook">
     <p>Facebook</p>
 </a></li>
 
 
-<li><a href="//reddit.com/submit?url=https%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f&title=%e4%b8%80%e5%9c%ba%e7%94%b1BASH%e7%9a%84-E%e5%8f%82%e6%95%b0%e5%bc%95%e5%8f%91%e7%9a%84%e8%a1%80%e6%a1%88" target="_blank" class="fa fa-reddit-alien">
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f&title=%e4%b8%80%e5%9c%ba%e7%94%b1BASH%e7%9a%84-E%e5%8f%82%e6%95%b0%e5%bc%95%e5%8f%91%e7%9a%84%e8%a1%80%e6%a1%88" target="_blank" class="fa fa-reddit-alien">
     <p>Reddit</p>
 </a></li>
 
 
-<li><a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f&title=%e4%b8%80%e5%9c%ba%e7%94%b1BASH%e7%9a%84-E%e5%8f%82%e6%95%b0%e5%bc%95%e5%8f%91%e7%9a%84%e8%a1%80%e6%a1%88" target="_blank" class="fa fa-linkedin">
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f&title=%e4%b8%80%e5%9c%ba%e7%94%b1BASH%e7%9a%84-E%e5%8f%82%e6%95%b0%e5%bc%95%e5%8f%91%e7%9a%84%e8%a1%80%e6%a1%88" target="_blank" class="fa fa-linkedin">
     <p>LinkedIn</p>
 </a></li>
 
 
-<li><a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f&title=%e4%b8%80%e5%9c%ba%e7%94%b1BASH%e7%9a%84-E%e5%8f%82%e6%95%b0%e5%bc%95%e5%8f%91%e7%9a%84%e8%a1%80%e6%a1%88" target="_blank" class="fa fa-stumbleupon">
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f&title=%e4%b8%80%e5%9c%ba%e7%94%b1BASH%e7%9a%84-E%e5%8f%82%e6%95%b0%e5%bc%95%e5%8f%91%e7%9a%84%e8%a1%80%e6%a1%88" target="_blank" class="fa fa-stumbleupon">
     <p>StumbleUpon</p>
 </a></li>
 
 
-<li><a href="mailto:?subject=Check out this post by &body=https%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f" target="_blank" class="fa fa-envelope">
+<li><a href="mailto:?subject=Check out this post by &body=http%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f" target="_blank" class="fa fa-envelope">
     <p>Email</p>
 </a></li>
         </ul>
@@ -314,7 +314,7 @@ cd /dev/null until [[ $? -eq 0 ]]; do rm -rf node_modules &amp;&amp; npm cache c
     <header>
     <div class="title">
         
-            <h1><a href="https://blog.chatops.in/post/bash-e-flag/">一场由BASH的-E参数引发的血案</a></h1>
+            <h1><a href="http://blog.chatops.in/post/bash-e-flag/">一场由BASH的-E参数引发的血案</a></h1>
             
         
         
@@ -341,37 +341,37 @@ cd /dev/null until [[ $? -eq 0 ]]; do rm -rf node_modules &amp;&amp; npm cache c
             
 
 
-<li><a href="//twitter.com/share?url=https%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f&text=%e4%b8%80%e5%9c%ba%e7%94%b1BASH%e7%9a%84-E%e5%8f%82%e6%95%b0%e5%bc%95%e5%8f%91%e7%9a%84%e8%a1%80%e6%a1%88&via=" target="_blank" class="fa fa-twitter">
+<li><a href="//twitter.com/share?url=http%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f&text=%e4%b8%80%e5%9c%ba%e7%94%b1BASH%e7%9a%84-E%e5%8f%82%e6%95%b0%e5%bc%95%e5%8f%91%e7%9a%84%e8%a1%80%e6%a1%88&via=" target="_blank" class="fa fa-twitter">
     <p>Twitter</p>
 </a></li>
 
 
-<li><a href="//plus.google.com/share?url=https%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f" target="_blank" class="fa fa-google-plus">
+<li><a href="//plus.google.com/share?url=http%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f" target="_blank" class="fa fa-google-plus">
     <p>Google+</p>
 </a></li>
 
 
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f" target="_blank" class="fa fa-facebook">
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f" target="_blank" class="fa fa-facebook">
     <p>Facebook</p>
 </a></li>
 
 
-<li><a href="//reddit.com/submit?url=https%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f&title=%e4%b8%80%e5%9c%ba%e7%94%b1BASH%e7%9a%84-E%e5%8f%82%e6%95%b0%e5%bc%95%e5%8f%91%e7%9a%84%e8%a1%80%e6%a1%88" target="_blank" class="fa fa-reddit-alien">
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f&title=%e4%b8%80%e5%9c%ba%e7%94%b1BASH%e7%9a%84-E%e5%8f%82%e6%95%b0%e5%bc%95%e5%8f%91%e7%9a%84%e8%a1%80%e6%a1%88" target="_blank" class="fa fa-reddit-alien">
     <p>Reddit</p>
 </a></li>
 
 
-<li><a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f&title=%e4%b8%80%e5%9c%ba%e7%94%b1BASH%e7%9a%84-E%e5%8f%82%e6%95%b0%e5%bc%95%e5%8f%91%e7%9a%84%e8%a1%80%e6%a1%88" target="_blank" class="fa fa-linkedin">
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f&title=%e4%b8%80%e5%9c%ba%e7%94%b1BASH%e7%9a%84-E%e5%8f%82%e6%95%b0%e5%bc%95%e5%8f%91%e7%9a%84%e8%a1%80%e6%a1%88" target="_blank" class="fa fa-linkedin">
     <p>LinkedIn</p>
 </a></li>
 
 
-<li><a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f&title=%e4%b8%80%e5%9c%ba%e7%94%b1BASH%e7%9a%84-E%e5%8f%82%e6%95%b0%e5%bc%95%e5%8f%91%e7%9a%84%e8%a1%80%e6%a1%88" target="_blank" class="fa fa-stumbleupon">
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f&title=%e4%b8%80%e5%9c%ba%e7%94%b1BASH%e7%9a%84-E%e5%8f%82%e6%95%b0%e5%bc%95%e5%8f%91%e7%9a%84%e8%a1%80%e6%a1%88" target="_blank" class="fa fa-stumbleupon">
     <p>StumbleUpon</p>
 </a></li>
 
 
-<li><a href="mailto:?subject=Check out this post by &body=https%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f" target="_blank" class="fa fa-envelope">
+<li><a href="mailto:?subject=Check out this post by &body=http%3a%2f%2fblog.chatops.in%2fpost%2fbash-e-flag%2f" target="_blank" class="fa fa-envelope">
     <p>Email</p>
 </a></li>
         </ul>
@@ -444,12 +444,12 @@ rm -rf node_modules <span class="o">&amp;&amp;</span> npm cache clean <span clas
 </article>
 <ul class="actions pagination">
     
-        <li><a href="https://blog.chatops.in/post/fix-old-ruby-ssl-issue/"
+        <li><a href="http://blog.chatops.in/post/fix-old-ruby-ssl-issue/"
                 class="button big previous">解决老版本Ruby安装时的openssl问题</a></li>
     
 
     
-        <li><a href="https://blog.chatops.in/post/the-name-of-devops/"
+        <li><a href="http://blog.chatops.in/post/the-name-of-devops/"
                 class="button big next">关于devops的拼写</a></li>
     
 </ul>
@@ -560,7 +560,21 @@ rm -rf node_modules <span class="o">&amp;&amp;</span> npm cache clean <span clas
                     <li>
                         <article>
                             <header>
-                                <h3><a href="https://blog.chatops.in/post/about-development-provisioning-orchestration/">关于Deployment，Provisioning和Orchestration的区别</a></h3>
+                                <h3><a href="http://blog.chatops.in/post/best-cloud-tools-for-infrastructure-automation/">自动化工具集合</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2017-05-30'>
+                                    May 30, 2017</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://blog.chatops.in/post/about-development-provisioning-orchestration/">关于Deployment，Provisioning和Orchestration的区别</a></h3>
                                 
                                     
                                 
@@ -574,7 +588,7 @@ rm -rf node_modules <span class="o">&amp;&amp;</span> npm cache clean <span clas
                     <li>
                         <article>
                             <header>
-                                <h3><a href="https://blog.chatops.in/post/the-name-of-devops/">关于devops的拼写</a></h3>
+                                <h3><a href="http://blog.chatops.in/post/the-name-of-devops/">关于devops的拼写</a></h3>
                                 
                                     
                                 
@@ -588,7 +602,7 @@ rm -rf node_modules <span class="o">&amp;&amp;</span> npm cache clean <span clas
                     <li>
                         <article>
                             <header>
-                                <h3><a href="https://blog.chatops.in/post/bash-e-flag/">一场由BASH的-E参数引发的血案</a></h3>
+                                <h3><a href="http://blog.chatops.in/post/bash-e-flag/">一场由BASH的-E参数引发的血案</a></h3>
                                 
                                     
                                 
@@ -602,27 +616,13 @@ rm -rf node_modules <span class="o">&amp;&amp;</span> npm cache clean <span clas
                     <li>
                         <article>
                             <header>
-                                <h3><a href="https://blog.chatops.in/post/fix-old-ruby-ssl-issue/">解决老版本Ruby安装时的openssl问题</a></h3>
+                                <h3><a href="http://blog.chatops.in/post/fix-old-ruby-ssl-issue/">解决老版本Ruby安装时的openssl问题</a></h3>
                                 
                                     
                                 
                                 <time class="published" datetime=
                                     '2016-07-08'>
                                     July 8, 2016</time>
-                            </header>
-                        </article>
-                    </li>
-                
-                    <li>
-                        <article>
-                            <header>
-                                <h3><a href="https://blog.chatops.in/post/hello-world/">Hello, world!</a></h3>
-                                
-                                    
-                                
-                                <time class="published" datetime=
-                                    '2016-06-26'>
-                                    June 26, 2016</time>
                             </header>
                         </article>
                     </li>
@@ -656,6 +656,15 @@ rm -rf node_modules <span class="o">&amp;&amp;</span> npm cache clean <span clas
                     
                 
 
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/automation/">automation</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
                 
                     <li>
                         <article>
