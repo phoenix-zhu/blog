@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.chatops.in/post/about-development-provisioning-orchestration/</loc>
+    <lastmod>2017-05-29T14:07:21+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.chatops.in/post/the-name-of-devops/</loc>
     <lastmod>2017-05-29T03:14:32+08:00</lastmod>
   </url>
@@ -46,7 +51,7 @@
   
   <url>
     <loc>https://blog.chatops.in/post/</loc>
-    <lastmod>2017-05-29T03:14:32+08:00</lastmod>
+    <lastmod>2017-05-29T14:07:21+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -69,7 +74,7 @@
   
   <url>
     <loc>https://blog.chatops.in/</loc>
-    <lastmod>2017-05-29T03:14:32+08:00</lastmod>
+    <lastmod>2017-05-29T14:07:21+08:00</lastmod>
     <priority>0</priority>
   </url>
   

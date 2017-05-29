@@ -22,6 +22,6 @@ title = "关于devops的拼写"
 `Successful projects require input, effort, insight, and collaboration from people across the organization; the problems inherent in your organization may not be limited to just developers and operations team. We have deliberately chosen to use lowercase "devops" throughout the text of this book to reflect our view that this is an inclusive movement, not an exclusive one.
 `
 
-看样子我们每个人都在根据自己的理解在阐述devops这个词了，不过我还是挺认同作者选定使用devops的理由，我们应该聚焦于业务怎么持续化发展本身，而成功取决于很多的因素，每个团队或者企业面临的问题都是不一样的，并不是单纯的Dev或者Ops的问题。
+的确，我们每个人都在根据自己的理解在阐述`devops`这个词了。不过我还是挺认同作者选定使用`devops`的理由，我们应该是聚焦于业务怎么持续化发展本身而不是谁的责任。成功取决于很多的因素，每个团队或者企业面临的问题都是不一样的，并不是所有的问题都是单纯的`Dev`和`Ops`的问题。显然`DevOps`这个词更容易诱导别人认为这只是`Dev`和`Ops`的事情，从而衍生出更多类似`DevSecOps`或者`DevQAOps`这样的词出现。
 
-不过作者虽然在书里面使用了devops，但是封面上却使用了DevOps这个拼写，也是挺有趣的一件事情。
+不过作者虽然在书里面使用了`devops`，但是封面上却使用了`DevOps`这个拼写，也是挺有趣的一件事情。
