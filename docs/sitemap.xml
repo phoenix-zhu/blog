@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.chatops.in/post/learn-git/</loc>
+    <lastmod>2017-05-31T16:53:02+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.chatops.in/post/best-cloud-tools-for-infrastructure-automation/</loc>
     <lastmod>2017-05-30T01:50:49+08:00</lastmod>
   </url>
@@ -61,8 +66,20 @@
   </url>
   
   <url>
+    <loc>http://blog.chatops.in/categories/git/</loc>
+    <lastmod>2017-05-31T16:53:02+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.chatops.in/categories/learn/</loc>
+    <lastmod>2017-05-31T16:53:02+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.chatops.in/post/</loc>
-    <lastmod>2017-05-30T01:50:49+08:00</lastmod>
+    <lastmod>2017-05-31T16:53:02+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -85,7 +102,7 @@
   
   <url>
     <loc>http://blog.chatops.in/</loc>
-    <lastmod>2017-05-30T01:50:49+08:00</lastmod>
+    <lastmod>2017-05-31T16:53:02+08:00</lastmod>
     <priority>0</priority>
   </url>
   

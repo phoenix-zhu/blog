@@ -6,10 +6,20 @@
     <description>Recent content on chAtOPs.in</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 30 May 2017 01:50:49 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 31 May 2017 16:53:02 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.chatops.in/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Git学习网站</title>
+      <link>http://blog.chatops.in/post/learn-git/</link>
+      <pubDate>Wed, 31 May 2017 16:53:02 +0800</pubDate>
+      
+      <guid>http://blog.chatops.in/post/learn-git/</guid>
+      <description>以前一个同事推荐的学习git的，基础性的操作和知识点都包含了。
+http://learngitbranching.js.org/</description>
+    </item>
     
     <item>
       <title>自动化工具集合</title>
