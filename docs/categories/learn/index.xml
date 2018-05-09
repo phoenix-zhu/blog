@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Learn on chAtOPs.in</title>
+    <title>Learn on chAtOPS.in</title>
     <link>http://blog.chatops.in/categories/learn/</link>
-    <description>Recent content in Learn on chAtOPs.in</description>
+    <description>Recent content in Learn on chAtOPS.in</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Wed, 31 May 2017 16:53:02 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.chatops.in/categories/learn/index.xml" rel="self" type="application/rss+xml" />
@@ -17,8 +17,7 @@
       <pubDate>Wed, 31 May 2017 16:53:02 +0800</pubDate>
       
       <guid>http://blog.chatops.in/post/learn-git/</guid>
-      <description>以前一个同事推荐的学习git的，基础性的操作和知识点都包含了。
-http://learngitbranching.js.org/</description>
+      <description>以前一个同事推荐的学习git的，基础性的操作和知识点都包含了。 http://learngitbranching.js.org/</description>
     </item>
     
   </channel>

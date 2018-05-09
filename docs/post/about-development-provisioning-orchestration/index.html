@@ -1,68 +1,63 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>关于Deployment，Provisioning和Orchestration的区别 - chAtOPS.in</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-<html>
-    <head>
-        
-            
-                <title>关于Deployment，Provisioning和Orchestration的区别</title>
-            
-        
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.21" />
-        
-    
-        
-        
-    
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-    
 
-    <link rel="apple-touch-icon-precomposed"
-        href='/favicon/apple-touch-icon-precomposed-32x32.png'>
-    <link rel="icon" href='/favicon/favicon-32x32.png'>
-    
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="msapplication-TileImage"
-        content='/favicon/mstile-32x32.png'>
+<meta name="author" content="Phoenix" />
+  <meta name="description" content="这几个词并不是什么新鲜词，但我们在读英文文档的时候经常会碰到，它们之间的区别是什么其实也是一直困扰我的一个问题，尤其是 Deployment 和 Provisioning ，我曾经问过一个" />
+
+  <meta name="keywords" content="Hugo, theme, even" />
 
 
 
-        
-        
-            
-                <meta name="description" content="HTML5 UP theme. Powered by Hugo">
-            
-        
-
-        
-
-  <meta name="twitter:card" content="summary"/>
 
 
 
-<meta name="twitter:text:title" content="关于Deployment，Provisioning和Orchestration的区别"/>
-<meta name="twitter:title" content="关于Deployment，Provisioning和Orchestration的区别"/>
-<meta name="twitter:description" content="这几个词并不是什么新鲜词，但我们在读英文文档的时候经常会碰到，它们之间的区别是什么其实也是一直困扰我的一个问题，尤其是 Deployment 和 Provisioning ，我曾经问过一个英语是母语的外国友人这两个之间的区别，他的解释是 Provisioning 是 Deployment 的一部分，不过今天看到一篇Blog(What&rsquo;s Deployment Versus Provisioning Versus Orchestration?)详细的解释了三者之间的区别，就顺便转过来帮助大家理解一下三者的定义。
-Deployment 是指把一个全新的或者新版本的应用(Application)安装/更新到一台已经配置好的服务器上。开发人员喜欢使用这个词，而且他们会把前期的配置服务器环境以及安装应用所需的依赖包的过程也认为是 deploy 的环节，也就是说 Deployment 包含了 Provisioning。 Deployment 的时候多使用 Capistrano or Mina。运维人员会用 Provisioning 这个词来表示前期业务环境的准备过程，比如购买服务或者虚拟机，设备的网络接入，系统安装和相关的环境配置等。对于运维人员来讲，Deployment 就是前面狭义上定义的应用安装的过程而已，并不包含 Provisioning。Provisioning 的时候多使用 Chef, Ansible or Puppet。
-这么看来，Deployment 和 Provisioning 是母语系国家开发和运维人员因为角色不同对于 基础环境配置 和 部署 概念大小理解上的细微差异而偏好使用的两个词。刚好我问的那位外国友人刚好是一个开发人员，所以也不难理解他为什么解释说 Provisioning 是 Deployment 的一个部分。话说作为一个苦逼的非母语系的运维人员，我个人有限的英语词库里面对于 部署 的理解就是 Deployment，而 基础环境配置 这种事情可能会用 Environment setup 这种直接的表述，这也是我为什么在看到 Provisioning 这个词的时候迷惑的地方了。
-最后来说说 Orchestration 这个词，这个词源于交响乐队的乐曲编排，在IT行业中，被用来抽象的描述指以一种规律性运行或者可以自制的东西，更接地气的解释是大规模系统的部署和控制方式。我个人更多的理解为根据系统的特性按照既定的策略安装配置所需的环境。这个词我们看到的基本上都是把它译为 编排 了，也算是比较表意的了。相对而言，不同角色在这个词理解上的差异没有那么大。文章中举了一些例子来帮助理解这个词，顺便摘过来：
- 在所有的数据库服务器上运行最新的数据迁移脚本，但不包含应用服务器 在应用服务器上检查当前的软件版本并安装所需的补丁，最后汇报结果 在所有的服务器上使用ps命令检查并确认Daemontools进程在运行 干掉所有的Node.js进程  通常来讲，上面所提及的那些用来做用来做 Deployment 和 Provisioning 的都可以算是 Orchestration 工具，另外还有一些常用的 Orchestration 工具，比如Fabric, MCollective, Salt等也都是可以用来做 Deployment 和 Provisioning 的。"/>
+<meta name="generator" content="Hugo 0.40.2" />
 
 
-        <meta property="og:title" content="关于Deployment，Provisioning和Orchestration的区别" />
-<meta property="og:description" content="这几个词并不是什么新鲜词，但我们在读英文文档的时候经常会碰到，它们之间的区别是什么其实也是一直困扰我的一个问题，尤其是 Deployment 和 Provisioning ，我曾经问过一个英语是母语的外国友人这两个之间的区别，他的解释是 Provisioning 是 Deployment 的一部分，不过今天看到一篇Blog(What&rsquo;s Deployment Versus Provisioning Versus Orchestration?)详细的解释了三者之间的区别，就顺便转过来帮助大家理解一下三者的定义。
-Deployment 是指把一个全新的或者新版本的应用(Application)安装/更新到一台已经配置好的服务器上。开发人员喜欢使用这个词，而且他们会把前期的配置服务器环境以及安装应用所需的依赖包的过程也认为是 deploy 的环节，也就是说 Deployment 包含了 Provisioning。 Deployment 的时候多使用 Capistrano or Mina。运维人员会用 Provisioning 这个词来表示前期业务环境的准备过程，比如购买服务或者虚拟机，设备的网络接入，系统安装和相关的环境配置等。对于运维人员来讲，Deployment 就是前面狭义上定义的应用安装的过程而已，并不包含 Provisioning。Provisioning 的时候多使用 Chef, Ansible or Puppet。
-这么看来，Deployment 和 Provisioning 是母语系国家开发和运维人员因为角色不同对于 基础环境配置 和 部署 概念大小理解上的细微差异而偏好使用的两个词。刚好我问的那位外国友人刚好是一个开发人员，所以也不难理解他为什么解释说 Provisioning 是 Deployment 的一个部分。话说作为一个苦逼的非母语系的运维人员，我个人有限的英语词库里面对于 部署 的理解就是 Deployment，而 基础环境配置 这种事情可能会用 Environment setup 这种直接的表述，这也是我为什么在看到 Provisioning 这个词的时候迷惑的地方了。
-最后来说说 Orchestration 这个词，这个词源于交响乐队的乐曲编排，在IT行业中，被用来抽象的描述指以一种规律性运行或者可以自制的东西，更接地气的解释是大规模系统的部署和控制方式。我个人更多的理解为根据系统的特性按照既定的策略安装配置所需的环境。这个词我们看到的基本上都是把它译为 编排 了，也算是比较表意的了。相对而言，不同角色在这个词理解上的差异没有那么大。文章中举了一些例子来帮助理解这个词，顺便摘过来：
- 在所有的数据库服务器上运行最新的数据迁移脚本，但不包含应用服务器 在应用服务器上检查当前的软件版本并安装所需的补丁，最后汇报结果 在所有的服务器上使用ps命令检查并确认Daemontools进程在运行 干掉所有的Node.js进程  通常来讲，上面所提及的那些用来做用来做 Deployment 和 Provisioning 的都可以算是 Orchestration 工具，另外还有一些常用的 Orchestration 工具，比如Fabric, MCollective, Salt等也都是可以用来做 Deployment 和 Provisioning 的。" />
+<link rel="canonical" href="http://blog.chatops.in/post/about-development-provisioning-orchestration/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.1.1" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="关于Deployment，Provisioning和Orchestration的区别" />
+<meta property="og:description" content="这几个词并不是什么新鲜词，但我们在读英文文档的时候经常会碰到，它们之间的区别是什么其实也是一直困扰我的一个问题，尤其是 Deployment 和 Provisioning ，我曾经问过一个" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://blog.chatops.in/post/about-development-provisioning-orchestration/" />
 
 
 
 <meta property="article:published_time" content="2017-05-29T14:07:21&#43;08:00"/>
+
 <meta property="article:modified_time" content="2017-05-29T14:07:21&#43;08:00"/>
 
 
@@ -75,311 +70,101 @@ Deployment 是指把一个全新的或者新版本的应用(Application)安装/�
 
 
 
-        
 <meta itemprop="name" content="关于Deployment，Provisioning和Orchestration的区别">
-<meta itemprop="description" content="这几个词并不是什么新鲜词，但我们在读英文文档的时候经常会碰到，它们之间的区别是什么其实也是一直困扰我的一个问题，尤其是 Deployment 和 Provisioning ，我曾经问过一个英语是母语的外国友人这两个之间的区别，他的解释是 Provisioning 是 Deployment 的一部分，不过今天看到一篇Blog(What&rsquo;s Deployment Versus Provisioning Versus Orchestration?)详细的解释了三者之间的区别，就顺便转过来帮助大家理解一下三者的定义。
-Deployment 是指把一个全新的或者新版本的应用(Application)安装/更新到一台已经配置好的服务器上。开发人员喜欢使用这个词，而且他们会把前期的配置服务器环境以及安装应用所需的依赖包的过程也认为是 deploy 的环节，也就是说 Deployment 包含了 Provisioning。 Deployment 的时候多使用 Capistrano or Mina。运维人员会用 Provisioning 这个词来表示前期业务环境的准备过程，比如购买服务或者虚拟机，设备的网络接入，系统安装和相关的环境配置等。对于运维人员来讲，Deployment 就是前面狭义上定义的应用安装的过程而已，并不包含 Provisioning。Provisioning 的时候多使用 Chef, Ansible or Puppet。
-这么看来，Deployment 和 Provisioning 是母语系国家开发和运维人员因为角色不同对于 基础环境配置 和 部署 概念大小理解上的细微差异而偏好使用的两个词。刚好我问的那位外国友人刚好是一个开发人员，所以也不难理解他为什么解释说 Provisioning 是 Deployment 的一个部分。话说作为一个苦逼的非母语系的运维人员，我个人有限的英语词库里面对于 部署 的理解就是 Deployment，而 基础环境配置 这种事情可能会用 Environment setup 这种直接的表述，这也是我为什么在看到 Provisioning 这个词的时候迷惑的地方了。
-最后来说说 Orchestration 这个词，这个词源于交响乐队的乐曲编排，在IT行业中，被用来抽象的描述指以一种规律性运行或者可以自制的东西，更接地气的解释是大规模系统的部署和控制方式。我个人更多的理解为根据系统的特性按照既定的策略安装配置所需的环境。这个词我们看到的基本上都是把它译为 编排 了，也算是比较表意的了。相对而言，不同角色在这个词理解上的差异没有那么大。文章中举了一些例子来帮助理解这个词，顺便摘过来：
- 在所有的数据库服务器上运行最新的数据迁移脚本，但不包含应用服务器 在应用服务器上检查当前的软件版本并安装所需的补丁，最后汇报结果 在所有的服务器上使用ps命令检查并确认Daemontools进程在运行 干掉所有的Node.js进程  通常来讲，上面所提及的那些用来做用来做 Deployment 和 Provisioning 的都可以算是 Orchestration 工具，另外还有一些常用的 Orchestration 工具，比如Fabric, MCollective, Salt等也都是可以用来做 Deployment 和 Provisioning 的。">
+<meta itemprop="description" content="这几个词并不是什么新鲜词，但我们在读英文文档的时候经常会碰到，它们之间的区别是什么其实也是一直困扰我的一个问题，尤其是 Deployment 和 Provisioning ，我曾经问过一个">
 
 
+<meta itemprop="datePublished" content="2017-05-29T14:07:21&#43;08:00" />
 <meta itemprop="dateModified" content="2017-05-29T14:07:21&#43;08:00" />
-<meta itemprop="wordCount" content="89">
+<meta itemprop="wordCount" content="1151">
 
 
 
-<meta itemprop="keywords" content="automation,bash,devops,git,learn,ruby,ssl," />
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="关于Deployment，Provisioning和Orchestration的区别"/>
+<meta name="twitter:description" content="这几个词并不是什么新鲜词，但我们在读英文文档的时候经常会碰到，它们之间的区别是什么其实也是一直困扰我的一个问题，尤其是 Deployment 和 Provisioning ，我曾经问过一个"/>
 
-        
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
 
-        
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
 
-        
-        
-            
-        
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">chAtOPS.in</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">Blog</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/about-me">
+        <li class="mobile-menu-item">ABout Me</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">chAtOPS.in</a>
+</div>
 
-        
-        
-            <link rel="stylesheet" href="/css/google-font.css" />
-            <link rel="stylesheet" href="/css/font-awesome.min.css" />
-            <link rel="stylesheet" href="/css/main.css" />
-            <link rel="stylesheet" href="/css/add-on.css" />
-            
-            <link rel="stylesheet" href="/css/pygments-css/colorful.css">
-        
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">Blog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about-me">ABout Me</a>
+      </li>
+  </ul>
+</nav>
+    </header>
 
-        
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">关于Deployment，Provisioning和Orchestration的区别</h1>
 
+      <div class="post-meta">
+        <span class="post-time"> 2017-05-29 </span>
         
         
         
-            
-        
-    </head>
-    <body>
-
-        
-        <div id="wrapper">
+      </div>
+    </header>
 
     
     
-<header id="header">
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  
+  <div class="post-toc-content always-active">
     
-        <h2><a href="/">chAtOPs.in</i></a></h2>
-    
-
-    <nav class="links">
-        <ul>
-            
-                <li>
-                    <a href="/post/">
-                        
-                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/categories/">
-                        Categories
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/about-me/">
-                        About Me
-                    </a>
-                </li>
-            
-        </ul>
-    </nav>
-    <nav class="main">
-        <ul>
-            
-            <li id="share-nav" class="share-menu" style="display:none;">
-                <a class="fa-share-alt" href="#share-menu">Share</a>
-            </li>
-            
-            <li class="search">
-                <a class="fa-search" href="#search">Search</a>
-                <form id="search" method="get" action="//google.com/search">
-                    <input type="text" name="q" placeholder="Search" />
-                    <input type="hidden" name="q" value="site:http://blog.chatops.in/">
-                </form>
-            </li>
-            <li class="menu">
-                <a class="fa-bars" href="#menu">Menu</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-
-
-<section id="menu">
+  </div>
+</div>
 
     
-        <section>
-            <form class="search" method="get" action="//google.com/search">
-                <input type="text" name="q" placeholder="Search" />
-                <input type="hidden" name="q" value="site:http://blog.chatops.in/">
-            </form>
-        </section>
-
-    
-        <section>
-            <ul class="links">
-                
-                    <li>
-                        <a href="/post/">
-                            <h3>
-                                
-                                    <i class="fa fa-newspaper-o">&nbsp;</i>
-                                
-                                Blog
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/categories/">
-                            <h3>
-                                
-                                Categories
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/about-me/">
-                            <h3>
-                                
-                                About Me
-                            </h3>
-                        </a>
-                    </li>
-                
-            </ul>
-        </section>
-
-    
-        <section>
-            <ul class="links">
-                <header>
-                    <h3>Recent Posts</h3>
-                </header>
-                
-                    
-                
-
-                
-                    <li>
-                        <a href="http://blog.chatops.in/post/learn-git/"><p>Git学习网站</p></a>
-                    </li>
-                
-                    <li>
-                        <a href="http://blog.chatops.in/post/best-cloud-tools-for-infrastructure-automation/"><p>自动化工具集合</p></a>
-                    </li>
-                
-                    <li>
-                        <a href="http://blog.chatops.in/post/about-development-provisioning-orchestration/"><p>关于Deployment，Provisioning和Orchestration的区别</p></a>
-                    </li>
-                
-                    <li>
-                        <a href="http://blog.chatops.in/post/the-name-of-devops/"><p>关于devops的拼写</p></a>
-                    </li>
-                
-                    <li>
-                        <a href="http://blog.chatops.in/post/bash-e-flag/"><p>一场由BASH的-E参数引发的血案</p></a>
-                    </li>
-                
-            </ul>
-        </section>
-
-    
-        
-</section>
-
-    <section id="share-menu">
-    <section id="social-share-nav">
-        <ul class="links">
-            <header>
-                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
-            </header>
-            
-
-
-<li><a href="//twitter.com/share?url=http%3a%2f%2fblog.chatops.in%2fpost%2fabout-development-provisioning-orchestration%2f&text=%e5%85%b3%e4%ba%8eDeployment%ef%bc%8cProvisioning%e5%92%8cOrchestration%e7%9a%84%e5%8c%ba%e5%88%ab&via=" target="_blank" class="fa fa-twitter">
-    <p>Twitter</p>
-</a></li>
-
-
-<li><a href="//plus.google.com/share?url=http%3a%2f%2fblog.chatops.in%2fpost%2fabout-development-provisioning-orchestration%2f" target="_blank" class="fa fa-google-plus">
-    <p>Google+</p>
-</a></li>
-
-
-<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblog.chatops.in%2fpost%2fabout-development-provisioning-orchestration%2f" target="_blank" class="fa fa-facebook">
-    <p>Facebook</p>
-</a></li>
-
-
-<li><a href="//reddit.com/submit?url=http%3a%2f%2fblog.chatops.in%2fpost%2fabout-development-provisioning-orchestration%2f&title=%e5%85%b3%e4%ba%8eDeployment%ef%bc%8cProvisioning%e5%92%8cOrchestration%e7%9a%84%e5%8c%ba%e5%88%ab" target="_blank" class="fa fa-reddit-alien">
-    <p>Reddit</p>
-</a></li>
-
-
-<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fblog.chatops.in%2fpost%2fabout-development-provisioning-orchestration%2f&title=%e5%85%b3%e4%ba%8eDeployment%ef%bc%8cProvisioning%e5%92%8cOrchestration%e7%9a%84%e5%8c%ba%e5%88%ab" target="_blank" class="fa fa-linkedin">
-    <p>LinkedIn</p>
-</a></li>
-
-
-<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fblog.chatops.in%2fpost%2fabout-development-provisioning-orchestration%2f&title=%e5%85%b3%e4%ba%8eDeployment%ef%bc%8cProvisioning%e5%92%8cOrchestration%e7%9a%84%e5%8c%ba%e5%88%ab" target="_blank" class="fa fa-stumbleupon">
-    <p>StumbleUpon</p>
-</a></li>
-
-
-<li><a href="mailto:?subject=Check out this post by &body=http%3a%2f%2fblog.chatops.in%2fpost%2fabout-development-provisioning-orchestration%2f" target="_blank" class="fa fa-envelope">
-    <p>Email</p>
-</a></li>
-        </ul>
-    </section>
-</section>
-
-    
-    <div id="main">
-        
-        
-        <article class="post">
-    <header>
-    <div class="title">
-        
-            <h1><a href="http://blog.chatops.in/post/about-development-provisioning-orchestration/">关于Deployment，Provisioning和Orchestration的区别</a></h1>
-            
-        
-        
-    </div>
-    <div class="meta">
-        
-            
-        
-
-        <time class="published"
-            datetime='2017-05-29'>
-            May 29, 2017</time>
-        <span class="author"></span>
-        
-            <p>1 minute read</p>
-        
-        
-    </div>
-</header>
-
-
-    <section id="social-share">
-        <ul class="icons">
-            
-
-
-<li><a href="//twitter.com/share?url=http%3a%2f%2fblog.chatops.in%2fpost%2fabout-development-provisioning-orchestration%2f&text=%e5%85%b3%e4%ba%8eDeployment%ef%bc%8cProvisioning%e5%92%8cOrchestration%e7%9a%84%e5%8c%ba%e5%88%ab&via=" target="_blank" class="fa fa-twitter">
-    <p>Twitter</p>
-</a></li>
-
-
-<li><a href="//plus.google.com/share?url=http%3a%2f%2fblog.chatops.in%2fpost%2fabout-development-provisioning-orchestration%2f" target="_blank" class="fa fa-google-plus">
-    <p>Google+</p>
-</a></li>
-
-
-<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblog.chatops.in%2fpost%2fabout-development-provisioning-orchestration%2f" target="_blank" class="fa fa-facebook">
-    <p>Facebook</p>
-</a></li>
-
-
-<li><a href="//reddit.com/submit?url=http%3a%2f%2fblog.chatops.in%2fpost%2fabout-development-provisioning-orchestration%2f&title=%e5%85%b3%e4%ba%8eDeployment%ef%bc%8cProvisioning%e5%92%8cOrchestration%e7%9a%84%e5%8c%ba%e5%88%ab" target="_blank" class="fa fa-reddit-alien">
-    <p>Reddit</p>
-</a></li>
-
-
-<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fblog.chatops.in%2fpost%2fabout-development-provisioning-orchestration%2f&title=%e5%85%b3%e4%ba%8eDeployment%ef%bc%8cProvisioning%e5%92%8cOrchestration%e7%9a%84%e5%8c%ba%e5%88%ab" target="_blank" class="fa fa-linkedin">
-    <p>LinkedIn</p>
-</a></li>
-
-
-<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fblog.chatops.in%2fpost%2fabout-development-provisioning-orchestration%2f&title=%e5%85%b3%e4%ba%8eDeployment%ef%bc%8cProvisioning%e5%92%8cOrchestration%e7%9a%84%e5%8c%ba%e5%88%ab" target="_blank" class="fa fa-stumbleupon">
-    <p>StumbleUpon</p>
-</a></li>
-
-
-<li><a href="mailto:?subject=Check out this post by &body=http%3a%2f%2fblog.chatops.in%2fpost%2fabout-development-provisioning-orchestration%2f" target="_blank" class="fa fa-envelope">
-    <p>Email</p>
-</a></li>
-        </ul>
-    </section>
-    
-
-    <div id="content">
-        <p>这几个词并不是什么新鲜词，但我们在读英文文档的时候经常会碰到，它们之间的区别是什么其实也是一直困扰我的一个问题，尤其是 <strong><em>Deployment</em></strong> 和 <strong><em>Provisioning</em></strong> ，我曾经问过一个英语是母语的外国友人这两个之间的区别，他的解释是 <strong><em>Provisioning</em></strong> 是 <strong><em>Deployment</em></strong> 的一部分，不过今天看到一篇Blog(<a href="http://codefol.io/posts/deployment-versus-provisioning-versus-orchestration">What&rsquo;s Deployment Versus Provisioning Versus Orchestration?</a>)详细的解释了三者之间的区别，就顺便转过来帮助大家理解一下三者的定义。</p>
+    <div class="post-content">
+      <p>这几个词并不是什么新鲜词，但我们在读英文文档的时候经常会碰到，它们之间的区别是什么其实也是一直困扰我的一个问题，尤其是 <strong><em>Deployment</em></strong> 和 <strong><em>Provisioning</em></strong> ，我曾经问过一个英语是母语的外国友人这两个之间的区别，他的解释是 <strong><em>Provisioning</em></strong> 是 <strong><em>Deployment</em></strong> 的一部分，不过今天看到一篇Blog(<a href="http://codefol.io/posts/deployment-versus-provisioning-versus-orchestration">What&rsquo;s Deployment Versus Provisioning Versus Orchestration?</a>)详细的解释了三者之间的区别，就顺便转过来帮助大家理解一下三者的定义。</p>
 
 <p><strong><em>Deployment</em></strong> 是指把一个全新的或者新版本的应用(Application)安装/更新到一台已经配置好的服务器上。开发人员喜欢使用这个词，而且他们会把前期的配置服务器环境以及安装应用所需的依赖包的过程也认为是 <strong>deploy</strong> 的环节，也就是说 <strong><em>Deployment</em></strong> 包含了 <strong><em>Provisioning</em></strong>。 <strong><em>Deployment</em></strong> 的时候多使用 <a href="http://capistranorb.com/">Capistrano</a> or <a href="http://nadarei.co/mina/">Mina</a>。运维人员会用 <strong><em>Provisioning</em></strong> 这个词来表示前期业务环境的准备过程，比如购买服务或者虚拟机，设备的网络接入，系统安装和相关的环境配置等。对于运维人员来讲，<strong><em>Deployment</em></strong> 就是前面狭义上定义的应用安装的过程而已，并不包含 <strong><em>Provisioning</em></strong>。<strong><em>Provisioning</em></strong> 的时候多使用 <a href="http://getchef.io/">Chef</a>, <a href="http://ansible.com/">Ansible</a> or <a href="http://puppetlabs.com/">Puppet</a>。</p>
 
@@ -400,59 +185,96 @@ Deployment 是指把一个全新的或者新版本的应用(Application)安装/�
 
     </div>
 
-    <footer>
-        <ul class="stats">
     
-        
-
-        
-        
     
 
     
     
-</ul>
 
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/best-cloud-tools-for-infrastructure-automation/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">自动化工具集合</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/the-name-of-devops/">
+            <span class="next-text nav-default">关于devops的拼写</span>
+            <span class="prev-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
     </footer>
-</article>
-<ul class="actions pagination">
+  </article>
+        </div>
+        
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'http-blog-chatops-in';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:phoenix_zhu@outlook.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/phoenix-zhu" class="iconfont icon-github" title="github"></a>
+  <a href="http://blog.chatops.in/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
     
-        <li><a href="http://blog.chatops.in/post/the-name-of-devops/"
-                class="button big previous">关于devops的拼写</a></li>
-    
+      2016 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Phoenix</span>
+  </span>
+</div>
+    </footer>
 
-    
-        <li><a href="http://blog.chatops.in/post/best-cloud-tools-for-infrastructure-automation/"
-                class="button big next">自动化工具集合</a></li>
-    
-</ul>
-
-
-
-
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
     </div>
-    
-<section id="sidebar">
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.min.js?v=3.1.1"></script>
 
-    
-        <section id="intro">
-            
-            
-                
-                    <img src="/images/logo.png" class="intro-circle" width="200" alt="You can&#39;t see it" />
-                
-            
-            
-                <header>
-                    <h2></h2>
-                    <p><i class='fa fa-hand-peace-o'></i> Being a great chatops</p>
-                </header>
-            
-            <ul class="icons">
-                
-                
-                    
-<li><a href="//github.com/phoenix-zhu" target="_blank" title="GitHub" class="fa fa-github"></a></li>
 
 
 
@@ -460,336 +282,5 @@ Deployment 是指把一个全新的或者新版本的应用(Application)安装/�
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li><a href="mailto:phoenix_zhu@outlook.com" title="Email" class="fa fa-envelope"></a></li>
-
-
-                
-            </ul>
-        </section>
-
-        
-        
-
-
-    
-        <section id="recent-posts">
-            <ul class="posts">
-                <header>
-                    <h3>Recent Posts</h3>
-                </header>
-                
-                    
-                
-
-                
-                    
-                
-
-                
-                    <li>
-                        <article>
-                            <header>
-                                <h3><a href="http://blog.chatops.in/post/learn-git/">Git学习网站</a></h3>
-                                
-                                    
-                                
-                                <time class="published" datetime=
-                                    '2017-05-31'>
-                                    May 31, 2017</time>
-                            </header>
-                        </article>
-                    </li>
-                
-                    <li>
-                        <article>
-                            <header>
-                                <h3><a href="http://blog.chatops.in/post/best-cloud-tools-for-infrastructure-automation/">自动化工具集合</a></h3>
-                                
-                                    
-                                
-                                <time class="published" datetime=
-                                    '2017-05-30'>
-                                    May 30, 2017</time>
-                            </header>
-                        </article>
-                    </li>
-                
-                    <li>
-                        <article>
-                            <header>
-                                <h3><a href="http://blog.chatops.in/post/about-development-provisioning-orchestration/">关于Deployment，Provisioning和Orchestration的区别</a></h3>
-                                
-                                    
-                                
-                                <time class="published" datetime=
-                                    '2017-05-29'>
-                                    May 29, 2017</time>
-                            </header>
-                        </article>
-                    </li>
-                
-                    <li>
-                        <article>
-                            <header>
-                                <h3><a href="http://blog.chatops.in/post/the-name-of-devops/">关于devops的拼写</a></h3>
-                                
-                                    
-                                
-                                <time class="published" datetime=
-                                    '2017-05-29'>
-                                    May 29, 2017</time>
-                            </header>
-                        </article>
-                    </li>
-                
-                    <li>
-                        <article>
-                            <header>
-                                <h3><a href="http://blog.chatops.in/post/bash-e-flag/">一场由BASH的-E参数引发的血案</a></h3>
-                                
-                                    
-                                
-                                <time class="published" datetime=
-                                    '2016-08-01'>
-                                    August 1, 2016</time>
-                            </header>
-                        </article>
-                    </li>
-                
-
-                
-                    <li>
-                        <ul class="actions">
-                            <li><a href=
-                            
-                                /post/
-                            
-                            class="button">View more posts</a></li>
-                        </ul>
-                    </li>
-                
-            </ul>
-        </section>
-
-    
-    
-    
-    
-        <section id="categories">
-            <ul class="posts">
-                <header>
-                    <h3><a href="/categories/">Categories</a></h3>
-                </header>
-
-                
-                    
-                
-
-                
-                    <li>
-                        <article>
-                            <header>
-                                <a href="/categories/automation/">automation</a>
-                                <span style="float:right;">1</span>
-                            </header>
-                        </article>
-                    </li>
-                
-                    <li>
-                        <article>
-                            <header>
-                                <a href="/categories/bash/">bash</a>
-                                <span style="float:right;">1</span>
-                            </header>
-                        </article>
-                    </li>
-                
-                    <li>
-                        <article>
-                            <header>
-                                <a href="/categories/devops/">devops</a>
-                                <span style="float:right;">1</span>
-                            </header>
-                        </article>
-                    </li>
-                
-                    <li>
-                        <article>
-                            <header>
-                                <a href="/categories/git/">git</a>
-                                <span style="float:right;">1</span>
-                            </header>
-                        </article>
-                    </li>
-                
-                    <li>
-                        <article>
-                            <header>
-                                <a href="/categories/learn/">learn</a>
-                                <span style="float:right;">1</span>
-                            </header>
-                        </article>
-                    </li>
-                
-                    <li>
-                        <article>
-                            <header>
-                                <a href="/categories/ruby/">ruby</a>
-                                <span style="float:right;">1</span>
-                            </header>
-                        </article>
-                    </li>
-                
-                    <li>
-                        <article>
-                            <header>
-                                <a href="/categories/ssl/">ssl</a>
-                                <span style="float:right;">1</span>
-                            </header>
-                        </article>
-                    </li>
-                
-            </ul>
-        </section>
-    
-
-    
-        <section id="footer">
-            <ul class="icons">
-                
-                
-                    
-<li><a href="//github.com/phoenix-zhu" target="_blank" title="GitHub" class="fa fa-github"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li><a href="mailto:phoenix_zhu@outlook.com" title="Email" class="fa fa-envelope"></a></li>
-
-
-                
-            </ul>
-
-            <p class="copyright">&copy; chAtOPs.in. Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Ported by <a href="//github.com/jpescador" target="_blank">Julio Pescador</a>. Powered by <a href="//gohugo.io" target="_blank">Hugo</a></p>
-        </section>
-
-</section>
-
-            </div>
-        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
-        
-
-        
-        
-            
-        
-
-        
-        
-            <script src="/js/jquery.min.js"></script>
-            <script src="/js/skel.min.js"></script>
-            <script src="/js/util.js"></script>
-            <script src="/js/main.js"></script>
-            <script src="/js/backToTop.js"></script>
-            <script src="/js/highlight.pack.js"></script>
-        
-
-        
-
-            
-            <script>hljs.initHighlightingOnLoad();</script>
-            
-    </body>
+</body>
 </html>
-
