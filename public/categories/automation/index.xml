@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Automation on chAtOPS.in</title>
+    <link>http://blog.chatops.in/categories/automation/</link>
+    <description>Recent content in Automation on chAtOPS.in</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 30 May 2017 01:50:49 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.chatops.in/categories/automation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>自动化工具集合</title>
+      <link>http://blog.chatops.in/post/best-cloud-tools-for-infrastructure-automation/</link>
+      <pubDate>Tue, 30 May 2017 01:50:49 +0800</pubDate>
+      
+      <guid>http://blog.chatops.in/post/best-cloud-tools-for-infrastructure-automation/</guid>
+      <description>瞎逛看到这个非常全面的自动化工具集，按照字母顺序排列，原文请见Best Cloud Tools for Infrastructure Automation There are two main reasons for infrastructure automation. First, system administrators, IT professionals and DevOps engineers need to automate as many routine tasks as possible. That&amp;rsquo;s why we build tools</description>
+    </item>
+    
+  </channel>
+</rss>
