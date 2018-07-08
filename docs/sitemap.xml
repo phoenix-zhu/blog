@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.chatops.in/post/https-for-your-github-blog/</loc>
+    <lastmod>2018-07-08T21:28:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.chatops.in/post/learn-git/</loc>
     <lastmod>2017-05-31T16:53:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -58,8 +65,22 @@
   </url>
   
   <url>
+    <loc>http://blog.chatops.in/tags/acm/</loc>
+    <lastmod>2018-07-08T21:28:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.chatops.in/categories/automation/</loc>
     <lastmod>2017-05-30T01:50:49+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.chatops.in/tags/aws/</loc>
+    <lastmod>2018-07-08T21:28:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -72,8 +93,29 @@
   </url>
   
   <url>
+    <loc>http://blog.chatops.in/tags/blog/</loc>
+    <lastmod>2018-07-08T21:28:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.chatops.in/categories/blog/</loc>
+    <lastmod>2018-07-08T21:28:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.chatops.in/categories/</loc>
     <lastmod>2017-05-30T01:50:49+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.chatops.in/tags/cloudfrount/</loc>
+    <lastmod>2018-07-08T21:28:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -93,6 +135,34 @@
   </url>
   
   <url>
+    <loc>http://blog.chatops.in/tags/github/</loc>
+    <lastmod>2018-07-08T21:28:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.chatops.in/categories/github/</loc>
+    <lastmod>2018-07-08T21:28:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.chatops.in/tags/https/</loc>
+    <lastmod>2018-07-08T21:28:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.chatops.in/categories/https/</loc>
+    <lastmod>2018-07-08T21:28:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.chatops.in/categories/learn/</loc>
     <lastmod>2017-05-31T16:53:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -101,7 +171,7 @@
   
   <url>
     <loc>http://blog.chatops.in/post/</loc>
-    <lastmod>2017-05-31T16:53:02+08:00</lastmod>
+    <lastmod>2018-07-08T21:28:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -122,13 +192,14 @@
   
   <url>
     <loc>http://blog.chatops.in/tags/</loc>
+    <lastmod>2018-07-08T21:28:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://blog.chatops.in/</loc>
-    <lastmod>2017-05-31T16:53:02+08:00</lastmod>
+    <lastmod>2018-07-08T21:28:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

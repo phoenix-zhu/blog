@@ -6,10 +6,19 @@
     <description>Recent content on chAtOPS.in</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 31 May 2017 16:53:02 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 08 Jul 2018 21:28:53 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.chatops.in/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>使用AWS给GitHub Blog加上HTTPS</title>
+      <link>http://blog.chatops.in/post/https-for-your-github-blog/</link>
+      <pubDate>Sun, 08 Jul 2018 21:28:53 +0800</pubDate>
+      
+      <guid>http://blog.chatops.in/post/https-for-your-github-blog/</guid>
+      <description>虽然用GitHub当做自己的Blog也没有写几篇内容，但没事了折腾一下Theme（虽然很丑，我是当不了一个好的前端了），留言（虽然到目前为止</description>
+    </item>
     
     <item>
       <title>Git学习网站</title>

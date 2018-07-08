@@ -30,6 +30,15 @@
     </item>
     
     <item>
+      <title>Blog</title>
+      <link>http://blog.chatops.in/categories/blog/</link>
+      <pubDate>Sun, 08 Jul 2018 21:28:53 +0800</pubDate>
+      
+      <guid>http://blog.chatops.in/categories/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Devops</title>
       <link>http://blog.chatops.in/categories/devops/</link>
       <pubDate>Mon, 29 May 2017 03:14:32 +0800</pubDate>
@@ -44,6 +53,24 @@
       <pubDate>Wed, 31 May 2017 16:53:02 +0800</pubDate>
       
       <guid>http://blog.chatops.in/categories/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Github</title>
+      <link>http://blog.chatops.in/categories/github/</link>
+      <pubDate>Sun, 08 Jul 2018 21:28:53 +0800</pubDate>
+      
+      <guid>http://blog.chatops.in/categories/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Https</title>
+      <link>http://blog.chatops.in/categories/https/</link>
+      <pubDate>Sun, 08 Jul 2018 21:28:53 +0800</pubDate>
+      
+      <guid>http://blog.chatops.in/categories/https/</guid>
       <description></description>
     </item>
     

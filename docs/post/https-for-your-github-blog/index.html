@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Git学习网站 - chAtOPS.in</title>
+  <title>使用AWS给GitHub Blog加上HTTPS - chAtOPS.in</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -17,9 +17,9 @@
 
 
 <meta name="author" content="Phoenix" />
-  <meta name="description" content="以前一个同事推荐的学习git的，基础性的操作和知识点都包含了。 http://learngitbranching.js.org/" />
+  <meta name="description" content="虽然用GitHub当做自己的Blog也没有写几篇内容，但没事了折腾一下Theme（虽然很丑，我是当不了一个好的前端了），留言（虽然到目前为止" />
+<meta name="keywords" content="aws, cloudfrount, acm, https, github, blog" />
 
-  <meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -29,7 +29,7 @@
 <meta name="generator" content="Hugo 0.40.2" />
 
 
-<link rel="canonical" href="http://blog.chatops.in/post/learn-git/" />
+<link rel="canonical" href="http://blog.chatops.in/post/https-for-your-github-blog/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -49,20 +49,16 @@
 
 
 
-<meta property="og:title" content="Git学习网站" />
-<meta property="og:description" content="以前一个同事推荐的学习git的，基础性的操作和知识点都包含了。 http://learngitbranching.js.org/" />
+<meta property="og:title" content="使用AWS给GitHub Blog加上HTTPS" />
+<meta property="og:description" content="虽然用GitHub当做自己的Blog也没有写几篇内容，但没事了折腾一下Theme（虽然很丑，我是当不了一个好的前端了），留言（虽然到目前为止" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://blog.chatops.in/post/learn-git/" />
+<meta property="og:url" content="http://blog.chatops.in/post/https-for-your-github-blog/" />
 
 
 
-<meta property="article:published_time" content="2017-05-31T16:53:02&#43;08:00"/>
+<meta property="article:published_time" content="2018-07-08T21:28:53&#43;08:00"/>
 
-<meta property="article:modified_time" content="2017-05-31T16:53:02&#43;08:00"/>
-
-
-
-
+<meta property="article:modified_time" content="2018-07-08T21:28:53&#43;08:00"/>
 
 
 
@@ -70,20 +66,24 @@
 
 
 
-<meta itemprop="name" content="Git学习网站">
-<meta itemprop="description" content="以前一个同事推荐的学习git的，基础性的操作和知识点都包含了。 http://learngitbranching.js.org/">
-
-
-<meta itemprop="datePublished" content="2017-05-31T16:53:02&#43;08:00" />
-<meta itemprop="dateModified" content="2017-05-31T16:53:02&#43;08:00" />
-<meta itemprop="wordCount" content="32">
 
 
 
-<meta itemprop="keywords" content="" />
+
+<meta itemprop="name" content="使用AWS给GitHub Blog加上HTTPS">
+<meta itemprop="description" content="虽然用GitHub当做自己的Blog也没有写几篇内容，但没事了折腾一下Theme（虽然很丑，我是当不了一个好的前端了），留言（虽然到目前为止">
+
+
+<meta itemprop="datePublished" content="2018-07-08T21:28:53&#43;08:00" />
+<meta itemprop="dateModified" content="2018-07-08T21:28:53&#43;08:00" />
+<meta itemprop="wordCount" content="1068">
+
+
+
+<meta itemprop="keywords" content="aws,cloudfrount,acm,https,github,blog," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Git学习网站"/>
-<meta name="twitter:description" content="以前一个同事推荐的学习git的，基础性的操作和知识点都包含了。 http://learngitbranching.js.org/"/>
+<meta name="twitter:title" content="使用AWS给GitHub Blog加上HTTPS"/>
+<meta name="twitter:description" content="虽然用GitHub当做自己的Blog也没有写几篇内容，但没事了折腾一下Theme（虽然很丑，我是当不了一个好的前端了），留言（虽然到目前为止"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -142,15 +142,17 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Git学习网站</h1>
+      <h1 class="post-title">使用AWS给GitHub Blog加上HTTPS</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2017-05-31 </span>
+        <span class="post-time"> 2018-07-08 </span>
         <div class="post-category">
             
-              <a href="/categories/git/"> git </a>
+              <a href="/categories/https/"> https </a>
             
-              <a href="/categories/learn/"> learn </a>
+              <a href="/categories/github/"> github </a>
+            
+              <a href="/categories/blog/"> blog </a>
             
           </div>
         
@@ -170,9 +172,17 @@
 
     
     <div class="post-content">
-      <p>以前一个同事推荐的学习git的，基础性的操作和知识点都包含了。</p>
+      <p>虽然用GitHub当做自己的Blog也没有写几篇内容，但没事了折腾一下Theme（虽然很丑，我是当不了一个好的前端了），留言（虽然到目前为止也没有什么人留言，#_#!）啊什么的还是挺爽的。今天突然难耐不住，想给它加上HTTPS，大家伙都知道，GitHub因为种种原因，不是很方便的能提供这样的服务。</p>
 
-<p><a href="http://learngitbranching.js.org/">http://learngitbranching.js.org/</a></p>
+<p>要干这样的事情，唯一能走的路子就是在前面再加上一层代理了，刚开始考虑使用AWS ALB的，因为据说它后端可以支持外部资源了，但是大概瞄了一下，发现这个基本上算是一个误传，目前来说，还是只能支持VPC内的Instance或者私网IP。嗯，私网IP。</p>
+
+<p>好吧，次优方案就是CloudFront了，闲话少说。因为想继续使用<code>blog.chatops.in</code>作为访问入口的，所以第一件事情就是准备一个origin的域名，登录去他爹(godaddy)的网站新增一条CNAME记录到我的github的地址，另外记得更新GitHub中的CNAME文件到这个新的域名上。第二件事情就是到ACM申请一个证书了，这个没有什么难度，照着流程走。这个过程中有个地方把自己小坑了一把，因为使用了域名验证，AWS提供的文档中是全域名的，没有多想就贴到去他爹的表单中，结果等了好一会也没有通过，自己本地解析也是失败的，才想起来去他爹那里是不需要自己的Apex那部分的。真的是去他爹的坑爹啊。</p>
+
+<p>接下来就是去配置一个CloudFront节点了，在Origin那里输入上面准备的新的origin的域名，选择使用自定义的证书(Custom SSL Certificate)，贴上上一步在ACM中申请的证书的ARN就可以了，另外在访问者策略(Viewer Protocol Policy)那里选上转发HTTP到HTTPS(Redirect HTTP to HTTPS)，其他大部分的地方保持默认，诸如什么安全策略的版本，支持的HTTP的版本，部署的范围之类的，随个人爱好和经济情况定了。这里唯一要说一下的是这玩意的部署和更新真的很慢，需要极大的耐心。</p>
+
+<p>在CloudFront部署完成后，当你能正常解析CloudFront的域名之后(类似于d3bmkjusa7yq2q.cloudfront.net这样的)，就需要到去他爹那里把入口的域名更新到这里了，等域名更新完成之后，再次访问一下，抬头看看地址栏是不是有小绿锁了。如果是的，那恭喜你。如果不是，嗯~回头再去想一想是不是哪一步忘了点什么，祝你好运。</p>
+
+<p>在更新域名的过程中，发现去他爹现在提供了对Apex记录的Forwarding功能，所以我把自己的转发到Blog上面了，oh~yeah。</p>
 
     </div>
 
@@ -183,19 +193,28 @@
     
 
     <footer class="post-footer">
-      
+      <div class="post-tags">
+          
+          <a href="/tags/aws/">aws</a>
+          
+          <a href="/tags/cloudfrount/">cloudfrount</a>
+          
+          <a href="/tags/acm/">acm</a>
+          
+          <a href="/tags/https/">https</a>
+          
+          <a href="/tags/github/">github</a>
+          
+          <a href="/tags/blog/">blog</a>
+          
+        </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/https-for-your-github-blog/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">使用AWS给GitHub Blog加上HTTPS</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
         
-          <a class="next" href="/post/best-cloud-tools-for-infrastructure-automation/">
-            <span class="next-text nav-default">自动化工具集合</span>
+          <a class="next" href="/post/learn-git/">
+            <span class="next-text nav-default">Git学习网站</span>
             <span class="prev-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
