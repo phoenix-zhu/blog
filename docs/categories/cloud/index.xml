@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cloud on chAtOPS.in</title>
+    <link>http://blog.chatops.in/categories/cloud/</link>
+    <description>Recent content in Cloud on chAtOPS.in</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 18 Jul 2018 11:45:50 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.chatops.in/categories/cloud/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SB阿里云</title>
+      <link>http://blog.chatops.in/post/stupid-aliyun/</link>
+      <pubDate>Wed, 18 Jul 2018 11:45:50 +0800</pubDate>
+      
+      <guid>http://blog.chatops.in/post/stupid-aliyun/</guid>
+      <description>就是一个无聊的无脑发泄而已，其实我真的不想这样的，但是真的不怕人比人，就怕货比货。虽然说他家经过多年奋斗，终于在今年好不容易被收入 高德纳魔力</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,13 +1,17 @@
 ---
 title: "使用AWS给GitHub Blog加上HTTPS"
-date: 2018-07-08T21:28:53+08:00
-lastmod: 2018-07-08T21:28:53+08:00
+date: 2017-07-08T21:28:53+08:00
+lastmod: 2018-07-18T21:28:53+08:00
 draft: false
 keywords: [aws, cloudfrount, acm, https, github, blog]
 description: ""
 tags: [aws, cloudfrount, acm, https, github, blog]
 categories: [https, github, blog]
 ---
+
+现在GitHub已经使用[Let's Encrypt](https://letsencrypt.org/)自动签发证书了，所以下面这个浪费时间的东西当做兴趣看看就行了。
+
+====================
 
 虽然用GitHub当做自己的Blog也没有写几篇内容，但没事了折腾一下Theme（虽然很丑，我是当不了一个好的前端了），留言（虽然到目前为止也没有什么人留言，#_#!）啊什么的还是挺爽的。今天突然难耐不住，想给它加上HTTPS，大家伙都知道，GitHub因为种种原因，不是很方便的能提供这样的服务。
 
