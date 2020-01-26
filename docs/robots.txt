@@ -1,2 +1,0 @@
-User-agent: *
-Sitemap: http://blog.chatops.in/sitemap.xml

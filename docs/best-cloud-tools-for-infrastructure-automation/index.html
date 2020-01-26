@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html><head>
+<title>自动化工具集合</title>
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+
+<script src="/vendor/js/jquery.min.js" ></script>
+<script src="/vendor/js/popper.min.js" ></script>
+<script src="/vendor/js/bootstrap.min.js" ></script>
+<script src="/vendor/js/smooth-scroll.polyfills.min.js" ></script>
+<link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+<script src="/vendor/js/vue.min.js" ></script>
+
+
+
+
+<link rel="stylesheet" href="http://blog.damnops.com/scss/journal.min.d1e46276e6b8b5f326abd9d28457b28f961c216847eae83bf95b8f28f1352ca4.css" integrity="sha256-0eRidua4tfMmq9nShFeyj5YcIWhH6ug7&#43;VuPKPE1LKQ=" media="screen">
+
+<script src="http://blog.damnops.com//js/loadCSS.js"></script>
+<script>
+    loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Noto+Serif+SC|Material+Icons");
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/vendor/js/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+  clientID: '7e7716d22bc7b477d0ce',
+  clientSecret: 'a50211cca027a925ea5f27c77a71fe7d78ba19fc',
+  repo: 'blog',
+  owner: 'phoenix-zhu',
+  admin: ['phoenix-zhu'],
+  id: md5(location.pathname),
+  distractionFreeMode: 'false'
+  });
+  window.onload = function () {
+        gitalk.render('gitalk-container')
+  }
+</script>
+
+</head><body>
+    	<div id="app"><div ref="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="http://blog.damnops.com/">
+    
+        <div class="nav-title">
+            dAmNOps
+        </div>
+        
+        <div class="nav-subtitle">
+            You DAMN Ops
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+                
+                
+                <a class="a-block nav-link-item false" href="/categories">
+                    Categories
+                </a>
+        
+            
+                
+                
+                <a class="a-block nav-link-item false" href="/chronologies">
+                    Chronologies
+                </a>
+        
+            
+                
+                
+                <a class="a-block nav-link-item false" href="/tags">
+                    Tags
+                </a>
+        
+            
+                
+                
+                <a class="a-block nav-link-item false" href="/about-me">
+                    About Me
+                </a>
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://amazingrise.net">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+&copy;
+	
+	dAmNOps.com
+	
+    </div>
+    
+</div><div ref="extraContainer" class="extra-container">
+    
+    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }"><script>
+  $(window).bind('scroll', function() {
+      var currentTop = $(window).scrollTop();
+      var currentBottom = $(window).scrollTop() + $(window).height();
+      var pageBottom = $('#EOF').offset().top;
+      var elems = $(":header");
+      elems.each(function(idx){
+        var elemTop = $(this).offset().top;
+        var id = $(this).attr('id');
+        var navElem = $('a[href="#' + id+ '"]');
+        if(currentTop >= elemTop || currentBottom >= pageBottom){
+      	  navElem.addClass('toc-active');
+        } else {
+          navElem.removeClass('toc-active');
+        }
+      })
+  }); 
+</script>
+<div class="toc-content">
+
+	
+	
+	
+	
+</div></div>
+    
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+    </div>
+</div><div class="single-column-drawer-container" ref="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+                
+                    
+                    
+                    <a class="a-block drawer-menu-item false" href="/categories">
+                        Categories
+                    </a>
+            
+                
+                    
+                    
+                    <a class="a-block drawer-menu-item false" href="/chronologies">
+                        Chronologies
+                    </a>
+            
+                
+                    
+                    
+                    <a class="a-block drawer-menu-item false" href="/tags">
+                        Tags
+                    </a>
+            
+                
+                    
+                    
+                    <a class="a-block drawer-menu-item false" href="/about-me">
+                        About Me
+                    </a>
+            
+            
+            <div class="toc"><script>
+  $(window).bind('scroll', function() {
+      var currentTop = $(window).scrollTop();
+      var currentBottom = $(window).scrollTop() + $(window).height();
+      var pageBottom = $('#EOF').offset().top;
+      var elems = $(":header");
+      elems.each(function(idx){
+        var elemTop = $(this).offset().top;
+        var id = $(this).attr('id');
+        var navElem = $('a[href="#' + id+ '"]');
+        if(currentTop >= elemTop || currentBottom >= pageBottom){
+      	  navElem.addClass('toc-active');
+        } else {
+          navElem.removeClass('toc-active');
+        }
+      })
+  }); 
+</script>
+<div class="toc-content">
+
+	
+	
+	
+	
+</div></div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav ref="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div ref="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a ref="navTitle" class="navbar-brand" href="http://blog.damnops.com/">
+            dAmNOps
+        </a>
+    </div>
+</nav>
+<div class="single-column-header-container" ref="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="http://blog.damnops.com/">
+        <div class="single-column-header-title">dAmNOps</div>
+        
+        <div class="single-column-header-subtitle">You DAMN Ops</div>
+        
+
+    </a>
+</div>
+            <div id="content">
+<div ref="streamContainer" class="stream-container">
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                 style="background-image: url('/')">
+                <div class="post-title">
+                    自动化工具集合
+                    <div class="post-meta">
+                        <time itemprop="datePublished">
+                            2017-05-30 01:50
+                        </time>
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/">[devops]</a>
+                                &nbsp;
+                        
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                <div class="post-body">
+                    <p>瞎逛看到这个非常全面的自动化工具集，按照字母顺序排列，原文请见<a href="http://stackifyblog.sys-con.com/node/4079796"><strong>Best Cloud Tools for Infrastructure Automation</strong></a></p>
+<p>There are two main reasons for infrastructure automation. First, system administrators, IT professionals and DevOps engineers need to automate as many routine tasks as possible. That's why we build tools at Stackify to help developers automate processes like <a href="https://stackify.com/application-performance-management-solution/">application performance management</a>, <a href="https://stackify.com/error-monitoring/">error monitoring</a>, and <a href="https://stackify.com/log-management/">log management</a>; automation means you have more time for mission-critical tasks. Second, automation makes the management of complex, diverse environments possible and allows rapid scaling.</p>
+<p>Whether you are using a public cloud, private cloud or hybrid cloud, infrastructure automation tools will come in handy. The following is a look at the 50 best cloud infrastructure automation tools available today, which we've listed below in alphabetical order.</p>
+<p><em><strong>1.</strong></em> <a href="https://www.ansible.com/"><strong>Ansible</strong></a>
+<a href="https://twitter.com/ansible">@ansible</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/ansible.jpg" alt="Ansible"></p>
+<p>Ansible is a relatively simple infrastructure automation engine that automates application deployment, configuration management, cloud provisioning and intra-service orchestration. It has hundreds of modules that ensure the support of multiple integrations including Google Cloud Platform, Amazon Web Services, Splunk, and NetApp. Ansible allows you to centralize your infrastructure through a role-based permissions, job scheduling, and a visual dashboard.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Designed for multi-tier deployments</li>
+<li>Uses simple language that approaches everyday English</li>
+<li>Does not require additional security infrastructure</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<ul>
+<li><em>Ansible Tower Self Support</em> - Ideal for smaller deployments. Costs $5,000 a year for up to 100 nodes and $10,000 for up to 250 nodes</li>
+<li><em>Ansible Tower Enterprise</em> - Perfect for Enterprises and includes 8to5 support. Costs $10,000 per annum for up to 100 nodes. Contact for a price quote if more than 100 nodes</li>
+<li><em>Ansible Tower Premium</em> - Best for mission-critical DevOps and provides 24×7 support. $14,000 per year for up to 100 nodes. Contact for a price quote if more than 100 nodes</li>
+</ul>
+<p><em><strong>2.</strong></em> <a href="http://www.appcore.com/"><strong>Appcore</strong></a>
+<a href="https://twitter.com/appcore">@appcore</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/appcore.jpg" alt="Appcore"></p>
+<p>Appcore is a comprehensive cloud management tool that simplifies resource management, automated provisioning, and cloud infrastructure configuration.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Simple user interface provides an insightful view of the cloud</li>
+<li>Functionality that ensures true on-demand capability</li>
+<li>Provides telemetry and event data for both virtual and physical devices</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Request a quote</p>
+<p><em><strong>3.</strong></em> <a href="http://www.networkautomation.com/automate/"><strong>Automate</strong></a>
+<a href="https://twitter.com/netauto">@netauto</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/automate.jpg" alt="Automate"></p>
+<p>Automate delivers desktop and server automation that builds on years of experience across thousands of customers. It integrates with cloud-based and virtual computing environments and is both flexible and cost friendly. It makes easy work of schedule management, trigger management, and task scheduling.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Dynamic, drag-and-drop and easy-to-deploy tasks</li>
+<li>Friendly interface</li>
+<li>Multi-document support, efficient action search, stack viewer support</li>
+<li>Event-driven task triggering</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<ul>
+<li><em>Automate Trial Version</em> - Free (expires after 30 days)</li>
+<li><em>Automate Premium</em> - Request a quote</li>
+</ul>
+<p><em><strong>4.</strong></em> <a href="http://bcfg2.org/"><strong>Bcfg2</strong></a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/bcfg2.jpg" alt="Bcfg2"></p>
+<p>Bcfg2 allows system administrators to create verifiable, reproducible and consistent descriptions of their infrastructure environment. It has reporting and visualization tools to support everyday administrative tasks.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Runs on multiple environments including Mac OS X, Solaris, FreeBSD, AIX, and Ubuntu</li>
+<li>Allows a client's response to provide an objective assessment of a specification&rsquo; completeness</li>
+<li>Facilitates manual system modification</li>
+<li>Enables complex deployment and change management strategies</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free</p>
+<p><em><strong>5.</strong></em> <a href="http://www.bmc.com/it-solutions/bladelogic-server-automation.html"><strong>BladeLogic Server Automation</strong></a>
+<a href="https://twitter.com/bmcsoftware/">@bmcsoftware</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/bladelogicserverautomation.jpg" alt="BladeLogic Server Automation"></p>
+<p>BladeLogic Server Automation eases the speedy and secure provision, configuration, patching and maintenance of cloud, virtual and physical servers.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Integrates access control and pre-configured policies for SCAP, NIST, SOX, PCI, HIPAA, DISA and CIS, remediation and documentation</li>
+<li>Supports automated installs as well as template-based, script-based and image-based provisioning</li>
+<li>Manage configuration and change activities across a wide range of server environments using a single tool</li>
+<li>Multi-dashboard views</li>
+<li>Embed maintenance window recommendations to ensure timely patching</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Request a quote</p>
+<p><em><strong>6.</strong></em> <a href="https://www.ca.com/us/products/automation.html"><strong>CA Technologies Automation</strong></a>
+<a href="https://twitter.com/CAInc">@CAInc</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/ca.jpg" alt="CA Technologies Automation"></p>
+<p>CA's automation solutions simplify and accelerate the transition from manual to automated service delivery. It ensures full capability across both physical and virtual infrastructure, services and applications. The automation drives innovation, reduces costs and speeds up business processes.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Intelligent technological automation that adapts to ever-changing business requirements</li>
+<li>Accelerate and streamline transition to the cloud</li>
+<li>Exceptional control, visibility, productivity and speed</li>
+<li>Industry-tested scalability to manage complex workloads</li>
+<li>Continuous compliance via automated configuration error remediation</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Request a quote</p>
+<p><em><strong>7.</strong></em> <a href="https://cfengine.com/"><strong>CFEngine</strong></a>
+<a href="https://twitter.com/cfengine">@cfengine</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/cfengine.jpg" alt="CFEngine"></p>
+<p>One of the oldest configuration engines in the market, CFEngine was first rolled out in 1993. It automates complex, large-scale and mission critical infrastructure. Global changes are made consistently and securely while ensuring compliance. It is used by major brands including Intel, LinkedIn, Panasonic, Samsung, Chevron, Comcast and Deutsche Telekom.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Written in C which ensures one of the leanest and fastest executing tools available. A configuration change can be deployed across 50,000 servers in just 5 minutes</li>
+<li>Stable, mature solution tested in a diverse range of large enterprise environments</li>
+<li>Compliance reports and real-time dashboard</li>
+<li>Encrypted communication</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<ul>
+<li><em>CFEngine Community Edition</em> (Free) - Includes compliance &amp; reporting function</li>
+<li><em>CFEngine Enterprise Edition</em> (Request a quote) - The <em>Community Edition</em> plus support and a graphical user interface</li>
+</ul>
+<p><em><strong>8.</strong></em> <a href="https://www.chef.io/chef/"><strong>Chef</strong></a>
+<a href="https://twitter.com/chef">@chef</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/chef.jpg" alt="Chef"></p>
+<p>Chef is one of oldest and best-known infrastructure automation tools out there. It scales easily and can be used to manage 5 servers or 5,000. It facilitates continuous delivery and configuration management. By converting infrastructure to code, Chef enables IT professionals and cloud engineers to automate the building, deployment, and management of infrastructure.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Automation of tasks by employing reusable definitions</li>
+<li>You can use the predefined resources as building blocks or define your own</li>
+<li>Test code on a local workstation or isolated environment before deploying into production</li>
+<li>Automated testing for security and compliance</li>
+<li>Dashboards for infrastructure management, auditing, and troubleshooting</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<ul>
+<li><em>Chef Basics</em> - Free. Comes with Chef Server, Client and Development Kit, Supermarket Content and 8-to-5 support for the first 30 days</li>
+<li><em>Hosted Chef</em> - $72 per node per year (minimum of 20 nodes). <em>Chef Basics</em> plus Chef Server hosting services, Supported Content, High Availability and unlimited 8-5 support</li>
+<li><em>Chef Automate</em> - $137 per node per year. <em>Hosted Chef</em> plus workflow, compliance, visibility and 24-7 support (excludes server hosting services)</li>
+</ul>
+<p><em><strong>9.</strong></em> <a href="http://www.cirba.com/"><strong>Cirba</strong></a>
+<a href="https://twitter.com/cirba">@cirba</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/cirba.jpg" alt="Cirba"></p>
+<p>Cirba provides several options for cloud environment integration, routing automation, densification, and reservation. It enables smart, automated demand management whether through the analysis of existing applications or integration with third-party portals.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Provides complete picture of the network, storage and compute resources available including current workloads</li>
+<li>Allows balancing of resources to meet service levels, and match compliance requirements</li>
+<li>Multidimensional analysis to ensure capacity reservation and accurate forecasting</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Request a quote</p>
+<p><em><strong>10.</strong></em> <a href="https://www.cisco.com/c/en/us/solutions/service-provider/prime-cloud-automation/index.html"><strong>Cisco Intelligent Automation for Cloud</strong></a>
+<a href="https://twitter.com/CiscoSP360">@CiscoSP360</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/cisco.jpg" alt="Cisco Intelligent Automation for Cloud"></p>
+<p>Cisco Intelligent Automation for Cloud delivers operational efficiency, responsiveness, speed and user satisfaction. Whereas this solution blends well with other Cisco products and technological solutions, it can be integrated into an enterprise's existing non-Cisco infrastructure, systems, operational processes and service management tools.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>User-friendly portal and service catalog</li>
+<li>Convenient dashboard for lifecycle management, resource status, and consumption control</li>
+<li>Enhanced visibility and discovery means a greater ability to make real-time changes</li>
+<li>Simplified provisioning for complex cloud environments</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Request a quote</p>
+<p><em><strong>11.</strong></em> <a href="https://www.citrix.com/products/cloudportal-services-manager/"><strong>Citrix Cloudportal Services Manager</strong></a>
+<a href="https://twitter.com/citrix">@citrix</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/citrix.jpg" alt="Citrix Cloudportal Services Manager"></p>
+<p>Citrix CloudPortal Services Manager is a detailed control panel used to simplify scaling and provisioning of hosted workspaces, improve operational efficiency and minimize management costs.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Manage hosted services at scale including cloud desktops and business applications</li>
+<li>Single interface to simplify scaling, provision services and see customers</li>
+<li>Delegate routine cloud-based administration</li>
+<li>Customize views and functions for diverse business needs or specific users</li>
+<li>Streamlined processes via workflow approval while controlling costs and retaining approval rights</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Request a quote</p>
+<p><em><strong>12.</strong></em> <a href="http://getcloudify.org/"><strong>Cloudify</strong></a>
+<a href="https://twitter.com/CloudifySource">@CloudifySource</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/cloudify.jpg" alt="Cloudify"></p>
+<p>Cloudify allows you to manage your complete application lifecycle using hybrid infrastructure via a single pane. It monitors applications in the cloud and scales them as required.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Cloud native support for containerized and non-containerized workloads</li>
+<li>Out of the box integration with leading infrastructure, clouds, and tools</li>
+<li>Event-driven workflows</li>
+<li>Automatic triggering and reaction to predefined events including intelligent auto-scaling and auto-healing</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<ul>
+<li><em>Cloudify Community</em> - Free</li>
+<li>*Cloudify Premium *- Request a quote</li>
+</ul>
+<p><em><strong>13.</strong></em> <a href="https://github.com/cobbler/cobbler"><strong>Cobbler</strong></a>
+<a href="https://twitter.com/cobblerista">@cobblerista</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/cobbler.jpg" alt="Cobbler"></p>
+<p>Cobbler is an installation server that allows the quick setup of installation environments. It joins and automates numerous tasks, so network administrators do not need to jump between multiple applications and commands when deploying or changing systems. It may be used for configuration orchestration, power management, package updates, DHCP, DNS and overall installation.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Interacts with <em>koan</em> for virtualization and re-installation support</li>
+<li>Installation profiles that can be applied to one or thousands of machines</li>
+<li>Combination of snippets, profiles, and ksmeta ensures high flexibility</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free</p>
+<p><em><strong>14.</strong></em> <a href="https://commando.io/"><strong>Commando</strong></a>
+<a href="https://twitter.com/commando_io">@commando_io</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/commando.jpg" alt="Commando"></p>
+<p>Commando is a distributed online SSH platform that provides a simple way to manage servers. It enables users to improve their workflow, increase efficiency and eliminate uncertainty over server provisioning, deployment, and maintenance.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Github integration</li>
+<li>Import servers across multiple infrastructure providers</li>
+<li>Native SSH means quick setup with no external dependencies</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<ul>
+<li><em>Pico Plan</em> ($12 per month) - Add up to 3 servers and 2 users</li>
+<li><em>Nano Plan</em> ($24 per month) - Add up to 5 servers and 3 users</li>
+<li><em>Micro Plan</em> ($49 per month) - Add up to 10 servers and 4 users</li>
+<li><em>Mega Plan</em> ($99 per month) - Add up to 20 servers and 5 users</li>
+<li><em>Giga Plan</em> ($199 per month) - Add up to 40 servers and 6 users</li>
+</ul>
+<p><em><strong>15.</strong></em> <a href="https://crowbar.github.io/"><strong>Crowbar</strong></a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/crowbar.jpg" alt="Crowbar"></p>
+<p>Crowbar is an Apache-2 licensed tool that allows one to build complete and easy-to-use operational deployments. Groups of network nodes can be converted into a production-ready cluster in a matter of hours.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Completely automated deployment</li>
+<li>Extensible and mature architecture</li>
+<li>Scalable and well suited for large organizations</li>
+<li>Supports wide range of cloud environments including Ceph, OpenStack, and CloudFoundry</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free</p>
+<p><em><strong>16.</strong></em> <a href="https://github.com/sebastien/cuisine"><strong>Cuisine</strong></a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/cuisine.jpg" alt="Cuisine"></p>
+<p>Fabric's functions are fairly basic. If you need greater and more sophisticated functionality running on Fabric, Cuisine is what you might want to look at.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>It consists of several high-level functions such as upgrade/installation packages, addition/removal of users/groups as well as broader file and directory operations than are possible using basic Fabric.</li>
+<li>A single file API that's not only small but also easy to read</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free</p>
+<p><em><strong>17.</strong></em> <a href="https://www.distelli.com/"><strong>Distelli</strong></a>
+<a href="https://twitter.com/distelli">@distelli</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/distelli.jpg" alt="Distelli"></p>
+<p>Distelli enables the rapid deployment of applications to any server. Releases are created automatically each time you deploy using Distelli.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Create new clusters on any cloud or connect existing clusters</li>
+<li>Group servers based on cloud provider, geography, role, and more</li>
+<li>View on a single dashboard</li>
+<li>Automated build and deploy pipelines</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<ul>
+<li><em>Free Plan</em> - 5 concurrent builds, 1 user and 1 Distelli agent</li>
+<li><em>Developer Plan</em> ($7 per month) - 10 concurrent builds, 1 user, and 10 Distelli agents</li>
+<li><em>Team Plan</em> ($39 per month) - 25 concurrent builds, 10 users, and 10 Distelli agents</li>
+<li><em>Start Up Plan</em> ($79 per month) - 25 concurrent builds, 20 users, and 20 Distelli agents</li>
+<li><em>Business Plan</em> ($119 per month) - 100 concurrent builds, 30 users, and 30 Distelli agents</li>
+<li><em>Enterprise Plan</em> (Request a quote)</li>
+</ul>
+<p><em><strong>18.</strong></em> <a href="http://divvycloud.com/"><strong>DivvyCloud BotFactory</strong></a>
+<a href="https://twitter.com/DivvyCloud">@DivvyCloud</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/divvycloud.jpg" alt="DivvyCloud BotFactory"></p>
+<p>DivvyCloud BotFactory is an engine for automated policy enforcement on cloud infrastructure. It works on the principle of pervasive cloud discovery. It connects to cloud APIs to extract data on cloud resources irrespective of how they're provisioned or where they're running. It ensures a near real-time inventory of infrastructure via a single pane of glass.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Security rule audit by inspecting access lists for insecure protocols/ports and non-compliant rules</li>
+<li>Identification and deletion of orphaned resources</li>
+<li>Cost savings by scheduling instances to stop on holidays, weekends and at night when not in use</li>
+<li>Inspect global root cloud accounts to ensure multi-factor authentication</li>
+<li>Delete stale compute volume snapshots</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<ul>
+<li>Hosted (Free) - Unlimited instances, 500 actions, 1 cloud account, 1 user</li>
+<li>On-premise ($999 per month) - Up to 125 instances, unlimited actions, unlimited cloud accounts, unlimited users</li>
+<li>On-premise ($3,150 per month) - Up to 500 instances, unlimited actions, unlimited cloud accounts, unlimited users</li>
+</ul>
+<p><em><strong>19.</strong></em> <a href="https://www.dynatrace.com/technologies/virtualization/"><strong>Dynatrace Virtualization Monitoring</strong></a>
+<a href="https://twitter.com/Dynatrace">@Dynatrace</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/dynatrace.jpg" alt="Dynatrace Virtualization"></p>
+<p>Dynatrace monitors the virtualized environment of your private data center. Technology professionals can see the complete picture of their infrastructure in real time and keep up with the changes including machine migration.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Interactive map of network environment showing applications, processes, and dependencies</li>
+<li>Keep tabs on critical metrics including throughput and read/write</li>
+<li>Pinpoint and analyze application and virtualization performance problems</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Request a quote</p>
+<p><em><strong>20.</strong></em> <a href="http://www.fabfile.org/"><strong>Fabric Website</strong></a>
+<a href="https://twitter.com/pyfabric">@pyfabric</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/fabric.jpg" alt="Fabric Website"></p>
+<p>Fabric streamlines SSH use in system administrator tasks and application deployment. It is a command line tool and Python library that provides a suite of basic operations for the execution of remote or local shell commands. Fabric is most often used for the upload and download of files.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Execute Python functions through the command line</li>
+<li>A library of subroutines that make the execution of shell commands easy</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free</p>
+<p><em><strong>21.</strong></em> <a href="https://theforeman.org/"><strong>Foreman</strong></a>
+<a href="https://twitter.com/foremanproject">@foremanproject</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/foreman.jpg" alt="Foreman"></p>
+<p>Foreman is a server lifecycle management tool. It makes it easier for system administrators to automate routine tasks, deploy applications quickly and proactively manage virtual or physical servers.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Compatible with a wide range of environments including Google Compute Engine, Libvirt, OpenStack, VMware, oVirt and Amazon EC2.</li>
+<li>Dashboard showing which nodes are healthy and which ones are out of date</li>
+<li>Has a comprehensive, interactive interface</li>
+<li>Extensive plugin library</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free</p>
+<p><em><strong>22.</strong></em> <a href="https://github.com/pongasoft/glu"><strong>Glu</strong></a>
+<a href="https://twitter.com/pongasoft">@pongasoft</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/glu.jpg" alt="Glu"></p>
+<p>Glu is an open source monitoring and deployment automation engine.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Deployment and monitoring of applications across a large and arbitrary set of nodes</li>
+<li>Efficient, secure, reproducible and little/no need for human interaction</li>
+<li>Consistency over the long-term</li>
+<li>Quick troubleshooting of problems when they arise</li>
+<li>Compute actions to upgrade/deploy applications</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free</p>
+<p><em><strong>23.</strong></em> <a href="http://www8.hp.com/us/en/software-solutions/cloud-service-automation/"><strong>HP Cloud Service Automation</strong></a>
+<a href="https://twitter.com/hpe">@hpe</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/hp.jpg" alt="HP Cloud Service Automation"></p>
+<p>HP Cloud Service Automation suite makes it easy for businesses to benefit from compliant, secure cloud services. IT professionals can simplify and automate the management and deployment of hybrid infrastructure environment. Jumpstart hybrid or private cloud implementations with several quick options.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Self-service, intuitive and customizable portal with mash up capabilities and modern shopping experience</li>
+<li>Unified, comprehensive and highly automated lifecycle management</li>
+<li>Extensible, open architecture with one-touch provisioning of applications, operating systems, and infrastructure</li>
+<li>Reduced risk and increased deployment quality with HPE Cloud Maps</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Request a quote</p>
+<p><em><strong>24.</strong></em> <a href="http://www.incontinuum.com/"><strong>InContinuum's CloudController</strong></a>
+<a href="https://twitter.com/InContinuum">@InContinuum</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/incontinuum.jpg" alt="InContinuum's CloudController"></p>
+<p>CloudController delivers consistency and coherence to back office and customer-facing technology infrastructure operations. Standardized workflows mean significant improvements in operations efficiency. It flawlessly integrates existing cloud infrastructure.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Flexible, hands-free deployment and configuration</li>
+<li>Single pane of glass dashboard</li>
+<li>Control, monitor and manage multi-vendor cloud environments</li>
+<li>6-level account permissions ranging from End-User to Cloud Administrator</li>
+<li>Rapid, automatic decommissioning or deployment of data protection agents, private nested VLANs, virtual storage, streaming applications and VMs</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Request a quote</p>
+<p><em><strong>25.</strong></em> <a href="https://github.com/stevegt/isconf4"><strong>ISconf</strong></a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/isconf.jpg" alt="ISconf"></p>
+<p>ISconf is a tool for managing infrastructure configuration and build. It is somewhat a cross between sudo and Git, Bitkeeper or other distributed version control tool. All changes made via ISconf are not only journaled but also added to a repository where they are queued for execution on target machines.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Target machines do not need to be online or built at the time of queuing the changes. Once the machine is turned on and built, ISconf will consult the journal and execute the required changes in the set order.</li>
+<li>Peer-to-peer. No single point of failure such as a central server.</li>
+<li>Manages hosts over their lifecycle</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free</p>
+<p><em><strong>26.</strong></em> <a href="https://jujucharms.com/"><strong>Juju</strong></a>
+<a href="https://twitter.com/ubuntucloud">@ubuntucloud</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/juju.jpg" alt="Juju"></p>
+<p>Using just a few commands, Juju enables the modeling, configuration, and management of deployments to all major private and public clouds.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>‘Charms&rsquo; (a charm is a set of scripts meant for the deployment and management of services) available for more than 300 services</li>
+<li>Create your own charms. Charms can be written in any language and may adapt existing scripts</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free</p>
+<p><em><strong>27.</strong></em> <a href="http://www.magnicomp.com/products/rdist/rdist.shtml"><strong>MagniComp RDist</strong></a><a href="https://twitter.com/magnicomp">@magnicomp</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/magnicomp-rdist.jpg" alt="MagniComp RDist"></p>
+<p>MagniComp RDist is an open source application for maintaining identical copies of files across multiple hosts. It preserves details of the file including owner, mode, group and mtime. MagniComp RDist differs from older rdist versions in that the server and client portions are separated into two programs.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Instead of making the connection to remote hosts directly, it uses ssh or rsh thus eliminating the need to setuid to root</li>
+<li>Can perform encrypted and secure updates</li>
+<li>Supports automated system configuration and therefore works on many Linux/Unix based systems</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free</p>
+<p><em><strong>28.</strong></em> <a href="https://www.manageengine.com/products/applications_manager/"><strong>ManageEngine Applications Manager</strong></a>
+<a href="https://twitter.com/apm_ME">@apm_ME</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/ManageEngine.jpg" alt="ManageEngine Applications Manager"></p>
+<p>The ManageEngine Applications Manager allows you to run your business applications confidently as well as find and fix any arising issues.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Single, integrated tool to monitor application ecosystem including end users, servers, applications, databases, middleware, data stores, web services, cloud resources and virtual systems</li>
+<li>Single database and installation architecture</li>
+<li>Use custom scripts to monitor homegrown applications</li>
+<li>User-friendly interface</li>
+<li>Visualize dependencies and auto-discover software and infrastructure topology</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Request a quote</p>
+<p><em><strong>29.</strong></em> <a href="https://mist.io/"><strong>mist.io</strong></a>
+<a href="https://twitter.com/mist_io">@mist_io</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/mist_io.jpg" alt="mist.io"></p>
+<p>Mist.io is a secure cloud management engine for orchestration and automation, as well as usage and cost monitoring. It targets system administrators, developers and any IT professionals engaged in remote, on-premise or hybrid computing.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Simplifies cloud management by abstracting infrastructure layer to ease replication across multiple providers</li>
+<li>Supports private clouds, public clouds, bare metal machines and Docker containers</li>
+<li>Unified interface for automation, orchestration, monitoring and provisioning</li>
+<li>Easily integrates into existing workflow</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<ul>
+<li><em>Free</em> - Up to 5 machines</li>
+<li><em>Small</em> ($150 per month) - Up to 50 machines</li>
+<li><em>Medium</em> ($400 per month) - Up to 150 machines</li>
+<li><em>Large</em> ($750 per month) - Up to 300 machines</li>
+<li><em>Enterprise</em> (Request a quote) - More than 300 machines</li>
+</ul>
+<p><em><strong>30.</strong></em> <a href="https://nexenta.com/products/nexentastor"><strong>NexentaStor</strong></a>
+<a href="https://twitter.com/nexenta">@nexenta</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/nexenta.jpg" alt="NexentaStor"></p>
+<p>NexentaStor is an easy to use, full-featured, and unified storage solution. It allows the execution, management, and analysis of routine storage tasks. NexentaStor has an impressive track record of deployment across a wide range of industries. It helps enterprises increase performance, flexibility, and agility while lowering overall costs by 50% or more.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Unified File and Block Services</li>
+<li>Enterprise-grade performance and data integrity that includes the ability to scale from tens of terabytes to petabytes</li>
+<li>Unlimited file system sizes</li>
+<li>Cost savings via inline data reduction</li>
+<li>Unlimited space optimized clones and snapshots</li>
+<li>Continuous or periodic long-distance asynchronous replication</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Request a quote</p>
+<p><em><strong>31.</strong></em> <a href="https://nixos.org/"><strong>NixOS</strong></a>
+<a href="https://twitter.com/nixos_org">@nixos_org</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/NixOS.jpg" alt="NixOS"></p>
+<p>NixOS is a Linux distribution that provides a unique approach to configuration and package management. The operating system is built from a description in a wholly functional build language. Wholly functional means new configuration builds cannot overwrite previous ones.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Reliable upgrades</li>
+<li>Atomic upgrades means system remains in a consistent state if upgrade is interrupted e.g. due to a power interruption</li>
+<li>Fast atomic rollback to a previous configuration</li>
+<li>Easily reproducible system configuration</li>
+<li>Safe testing of potential system changes</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free</p>
+<p><em><strong>32.</strong></em> <a href="https://www.openfiler.com/"><strong>Openfiler</strong></a>
+<a href="https://twitter.com/TeamOpenfiler">@TeamOpenfiler</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/openfiler.jpg" alt="Openfiler"></p>
+<p>Openfiler converts x86_64 architecture to full-fledged SAN/NAS appliance of IP storage gateway. It is a powerful tool for storage administrators to cope with rapidly growing storage demands. It addresses all the key data storage indicators i.e. availability, reliability, scalability, and performance. Openfiler ensures administrators make the most use of storage capacity and system performance resources when managing and allocating storage on a multi-platform network.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Block storage visualization</li>
+<li>Extensive share management functionality</li>
+<li>In-depth account management</li>
+<li>Resource/Quota allocation</li>
+<li>Complete industry-standard protocol suite</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Request a quote</p>
+<p><em><strong>33.</strong></em> <a href="http://palletops.com/"><strong>Pallet</strong></a>
+<a href="https://twitter.com/palletops">@palletops</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/pallet.jpg" alt="Pallet"></p>
+<p>Pallet is an open source DevOps platform for agile and programmatic infrastructure automation. Well-known brands already using Pallet include Twitter, EMI Music, and WalmartLabs.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Supports a wide range of infrastructure providers</li>
+<li>By ensuring operating system and cloud provider independence, Pallet provides a deep level of customization.</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free</p>
+<p><em><strong>34.</strong></em> <a href="http://www.heiho.net/pconsole/"><strong>pconsole</strong></a>
+<a href="https://twitter.com/walterheiho">@walterheiho</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/pconsole.jpg" alt="pconsole"></p>
+<p>Pconsole is a system administration tool for working with machine clusters. It allows one to simultaneously connect to multiple nodes of a cluster. Administrative commands typed in a specialized window are ‘multiplied&rsquo; to each opened connection. It can be run in either X Windows or in console mode and need only be installed on one machine in the cluster.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Parallel access to each node in the cluster</li>
+<li>Unlimited simultaneous connections</li>
+<li>Secure access by using SSH by default</li>
+<li>Easy install (only needs to be on one machine)</li>
+<li>Friendly user interface</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free</p>
+<p><em><strong>35.</strong></em> <a href="http://pikt.org/"><strong>PIKT</strong></a>
+<a href="https://twitter.com/RobertOsterlund">@RobertOsterlund</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/PIKT.jpg" alt="PIKT"></p>
+<p>PIKT is short for &ldquo;Problem Informant/Killer Tool&rdquo;. It is a multipurpose, cross-categorical software for configuring and monitoring computer systems, organizing security, administering networks and plenty more. Whereas it is primarily meant for system monitoring and configuration management, its extensibility and versatility mean it has numerous other uses. It excels at handling a diverse set of machines, saving time and eliminating repetition.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Feature-rich, sophisticated macro preprocessor</li>
+<li>Scripting language with unique, innovative labor-saving features</li>
+<li>Centrally-directed and flexible process scheduler</li>
+<li>Customizing file installer</li>
+<li>Command line extensions for remote and local execution</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free</p>
+<p><em><strong>36.</strong></em> <a href="http://www.pontusvision.com/"><strong>PontusVision Thread Manager</strong></a>
+<a href="https://twitter.com/PontusVision">@PontusVision</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/pontusvision.jpg" alt="PontusVision Thread Manager"></p>
+<p>PontusVision Thread Manager reduces the time required for system performance improvement from several weeks of unpredictable experiments to just seconds of simulations. It banks on industry-tested templates to automate software and hardware deployment.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Improves performance by as much as 270%</li>
+<li>Simulation results can be applied to any modern multi-CPU server, operating system, and computer language</li>
+<li>Optimal thread allocation</li>
+<li>Can be run in passive-modeling mode or self-tuning mode</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<ul>
+<li><em>PontusVision Trial Edition</em> - Free</li>
+<li><em>PontusVision Enterprise Edition</em> - Request a quote</li>
+</ul>
+<p><em><strong>37.</strong></em> <a href="https://www.profitbricks.com/help/The_Data_Center_Designer_%28DCD%29"><strong>ProfitBricks Data Center Designer</strong></a>
+<a href="https://twitter.com/ProfitBricksUSA">@ProfitBricksUSA</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/profitbricks.jpg" alt="ProfitBricks Data Center Designer"></p>
+<p>ProfitBricks Data Center Designer (DCD) is a graphical user interface or API that makes it easy for system and network administrators to manage, configure and design virtual data centers in the cloud.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Click, drag and drop to configure and deploy cloud servers, cloud networks, and cloud storage</li>
+<li>DCD is built on the ProfitBricks API ensuring deployment customization</li>
+<li>Attach one or many server load distributions to the virtual data center</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free with a ProfitBricks cloud account</p>
+<p><em><strong>38.</strong></em> <a href="https://puppet.com/"><strong>Puppet</strong></a>
+<a href="https://twitter.com/puppetize">@puppetize</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/puppet.jpg" alt="Puppet"></p>
+<p>A major player in the automation marketplace, Puppet's client list features some big names including NASA, Salesforce, Intel, Gettyimages, Verizon, Uber, and Sony. Puppet provides a standard means of delivering and operating software. Its easy-to-read language simplifies the process of defining what your infrastructure and apps should look like.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Write your own code or select from the thousands of freely available modules</li>
+<li>Manage the control, visibility, and automation of changes to your applications and infrastructure</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<ul>
+<li><em>Puppet Enterprise Free</em> - Limited to 10 nodes. Includes access to product updates and numerous pre-built modules</li>
+<li>*Puppet Enterprise Standard *- Starts at $120 per node per year. <em>Puppet Enterprise Free</em> plus bug fixes and private knowledge base</li>
+<li>*Puppet Enterprise Premium *- Contact Puppet for pricing. *Puppet Enterprise Standard *plus free training and 24/7 support</li>
+</ul>
+<p><em><strong>39.</strong></em> <a href="http://www.quali.com/"><strong>Quali's Cloudshell Cloud Sandboxing Solution</strong></a>
+<a href="https://twitter.com/qualisystems">@qualisystems</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/quali.jpg" alt="Quali's Cloudshell Cloud Sandboxing Solution"></p>
+<p>Cloudshell Cloud Sandboxing solution is designed to speed up the development of hybrid applications for the cloud. Automate cloud environments testing and deployment to production on both public and private cloud infrastructure. It provides a common working environment for even the most complex hybrid cloud setups.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Application blueprints and templates are cloud agnostic</li>
+<li>Can contain all cloud components including infrastructure, applications, network components, databases and virtual services</li>
+<li>Cost optimization and efficient resource utilization</li>
+<li>Visual interface with drag and drop capability simplifies the process</li>
+<li>Dashboards and reports provide comprehensive business intelligence</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Request a quote</p>
+<p><em><strong>40.</strong></em> <a href="https://www.qualys.com/suite/policy-compliance/"><strong>Qualys Policy Compliance</strong></a>
+<a href="https://twitter.com/qualys/">@qualys</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/qualys.jpg" alt="Qualys Policy Compliance"></p>
+<p>Qualys Policy Compliance (QPC) is a cloud management tool that facilitates the automation of IT security configuration assessment. It reduces risk and ensures continuous compliance with external regulations and internal policies.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Automated high volume identification, tracking, and scanning of network assets</li>
+<li>Assessment goes beyond just the operating system and includes databases, applications, and network devices</li>
+<li>Interactive controls library and policy editor</li>
+<li>Detailed non-compliance evidence and exception documentation</li>
+<li>Automated ticketing for efficient risk management</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Request a quote</p>
+<p><em><strong>41.</strong></em> <a href="http://www.quattor.org/"><strong>Quattor</strong></a>
+<a href="https://twitter.com/quattortoolkit">@quattortoolkit</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/quattor.jpg" alt="Quattor"></p>
+<p>Quattor is a system administration platform that provides a modular, portable and powerful tool set for the automated management, configuration, and installation of clouds, grids, farms, and clusters. Quattor has three key building blocks: Configuration Management Database (CMDB) server, the Automated Installation Infrastructure (AII) server, and Managed Clients.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Clearly defined tool interfaces allow flexible integration with existing tools</li>
+<li>Proven scalability in large-scale enterprise environments with more than 30,000 systems</li>
+<li>Comprehensive system description validation features ensure configuration errors are caught before deployment</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free</p>
+<p><em><strong>42.</strong></em> <a href="https://support.quest.com/cloud-manager/11.0"><strong>Quest Cloud Manager</strong></a>
+<a href="https://twitter.com/QuestExperts">@QuestExperts</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/quest-cloud-manager.jpg" alt="Quest Cloud Manager"></p>
+<p>Quest Cloud Manager is an enterprise solution that provides choice, governance, and agility in cloud management. The manager serves as a single portal for the control and implementation of governance policies.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>API facilitates integration of automation tools and back-end systems</li>
+<li>Can be implemented as SaaS for the management of public clouds</li>
+<li>Supports multiple cloud environments and instances</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Request a quote</p>
+<p><em><strong>43.*** </strong>(R)?ex</em>*<a href="http://www.rexify.org/"></a>
+<a href="https://twitter.com/RexOps">@RexOps</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/Rex.jpg" alt="(R)?ex"></p>
+<p>Rex is a server orchestration engine that uses SSH to execute commands. Perl knowledge is not necessary at the beginning though knowing at least the basics can help later on.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Uses SSH meaning no agent is required</li>
+<li>User friendly</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free</p>
+<p><em><strong>44.</strong></em> <a href="https://www.normation.com/en/"><strong>Rudder</strong></a>
+<a href="https://twitter.com/Normation">@Normation</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/rudder.jpg" alt="Rudder"></p>
+<p>Rudder by Normation is a tool for infrastructure automation and compliance verification. It seamlessly handles machine deployment (cloud, virtual, physical instances), configuration management and compliance monitoring (including ISO 27001, PCI-DSS, Corporate Policy, etc.).</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>The only open source automation tool with a web management interface</li>
+<li>An extensive library of ready to use rules</li>
+<li>Easy to use, codeless graphical creation module</li>
+<li>Comprehensive compliance dashboard</li>
+<li>Highly scalable and can manage networks with 100,000 machines</li>
+<li>Low resource utilization (developed in C)</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free</p>
+<p><em><strong>45.</strong></em> <a href="http://rundeck.org/"><strong>Rundeck</strong></a>
+<a href="https://twitter.com/Rundeck">@Rundeck</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/rundeck.jpg" alt="Rundeck"></p>
+<p>Rundeck is open source software that automates routine and ad-hoc procedures for cloud environments. It is used by organizations keen on improving control of daily operations, reduce errors and improve auditability/visibility. Standardize operating procedures, define access controls and view activity reports on a single dashboard.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Jobs can be on-demand via API or web interface or triggered by a scheduler</li>
+<li>End-to-end infrastructure orchestration across servers by using queries, filters, tags, and attributes</li>
+<li>Can be executed across Unix and Windows platforms</li>
+<li>Interested parties are automatically notified of the start, success or failure of a job</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<ul>
+<li><em>Rundeck Community Edition</em> - Free</li>
+<li><em>Rundeck Pro</em> - Starts at $8,000 per year</li>
+</ul>
+<p><em><strong>46.</strong></em> <a href="https://saltstack.com/"><strong>SaltStack</strong></a>
+<a href="https://twitter.com/SaltStack">@SaltStack</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/saltstack.jpg" alt="SaltStack"></p>
+<p>SaltStack is an established name in infrastructure automation. It approaches IT management by creating software that is easy to use, fast and scalable. SaltStack provides a dynamic communication bus for orchestration, configuration management, and remote execution. Since it was launched in 2011, SaltStack is one of the most active and fastest growing infrastructure automation projects in the world.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Multi-cloud orchestration</li>
+<li>Instant audit of security policies</li>
+<li>Continuous code integration and deployment</li>
+<li>Data filtering and event aggregation ensures efficient data management</li>
+<li>Can run agentless or with a resilient agent</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<ul>
+<li><em>Salt Open</em> - Free</li>
+<li><em>SaltStack Enterprise</em> - Request a quote</li>
+</ul>
+<p><em><strong>47.</strong></em> <a href="http://www.scalr.com/"><strong>Scalr</strong></a>
+<a href="https://twitter.com/scalr">@scalr</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/scalr.jpg" alt="Scalr"></p>
+<p>Scalr is an enterprise cloud management tool that facilitates the successful delivery of a standardized, automated, and cost-effective enterprise cloud. It uses a top-down, hierarchical approach that equips administrators with the requisite tools to balance development, security and finance needs.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Builds hierarchical process where provisioning is put through a policy layer. The policy layer incorporates orchestration, placement, security, permissions, cost management and integration</li>
+<li>Application-level visibility into budgeting reports, tools and cloud spend</li>
+<li>Automate cleanup and waste reduction by identifying unutilized resources and preventing needless spending</li>
+<li>Modular and plugable means easy integration with a wide range of existing systems</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<ul>
+<li><em>Open Source Scalr</em> - Free</li>
+<li><em>Hosted Scalr</em> - Starts at $99 per month</li>
+<li><em>Enterprise Scalr</em> - Request a quote</li>
+</ul>
+<p><em><strong>48.</strong></em> <a href="https://www.servicenow.com/products/orchestration/cloud-management.html"><strong>ServiceNow Cloud Management</strong></a>
+<a href="https://twitter.com/servicenow">@servicenow</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/servicenow.jpg" alt="ServiceNow Cloud Management"></p>
+<p>ServiceNow Cloud Management simplifies and automates the full cloud services lifecycle. It creates an environment that optimizes resource utilization and drives down costs. Accelerate provisioning, approval and service requests. Manage cloud environment efficiently and consistently, while ensuring security and compliance.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Cloud-agnostic and can be extended to manage multiple private and public cloud environments</li>
+<li>Full control of cloud services and resources including key metrics, business costs, and usage visibility</li>
+<li>Single system of record for consistent configuration of cloud resources, business services, and data</li>
+<li>Users can self-manage and self-provision predefined configurations</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Request a quote</p>
+<p><em><strong>49.</strong></em> <a href="https://github.com/crafterm/sprinkle"><strong>Sprinkle</strong></a>
+<a href="https://twitter.com/crafterm">@crafterm</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/sprinkle.jpg" alt="Sprinkle"></p>
+<p>Sprinkle is a scalable, provisioning tool for building remote servers.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>State-based approach specifies provisioning of remote systems</li>
+<li>Intelligent support of dependencies, remote installation and multiple types of installers</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free</p>
+<p><em><strong>50.</strong></em> <a href="https://github.com/softwareloop/tstconfig"><strong>Tstconfig</strong></a>
+<a href="https://twitter.com/softwareloop">@softwareloop</a></p>
+<p><img src="https://stackify.com/wp-content/uploads/2017/05/tstconfig.jpg" alt="Tstconfig"></p>
+<p>Tstconfig allows system administrators to automatically test a large set of configuration files. It provides assurance on a system's level of integrity.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Enforce good configuration standards across multiple systems</li>
+<li>It examines the existing configuration and confirms that specified attributes have the expected values</li>
+<li>Notifies SysAdmins of discrepancies</li>
+</ul>
+<p><strong>Pricing:</strong></p>
+<p>Free</p>
+<p>Remember that this list is in alphabetical order and is not ranked in terms of importance. Note that the same tool will have different importance and relevance from one organization to another. It will all depend on the complexity of the infrastructure environment the tool is meant for, the ease of integrating with existing systems and the acquiring organization's budget.</p>
+
+                    <HR width="100%" id="EOF">
+                    <p style="color:#777;">Last modified on 2017-05-30</p>
+                </div>
+                
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="http://blog.damnops.com/learn-git/">
+                    Next<br>Git学习网站
+                </a>
+                
+                
+                
+                <a class="older-posts" href="http://blog.damnops.com/about-development-provisioning-orchestration/">
+                    Previous<br>关于Deployment，Provisioning和Orchestration的区别
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+<div id="gitalk-container"></div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div><div id="single-column-footer">Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://amazingrise.net">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+&copy;
+	
+	dAmNOps.com
+	</div>
+    	</div>
+    <script src="http://blog.damnops.com//js/journal.js"></script>
+    </body>
+</html>

@@ -1,67 +1,68 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on chAtOPS.in</title>
-    <link>http://blog.chatops.in/tags/</link>
-    <description>Recent content in Tags on chAtOPS.in</description>
+    <title>Tags on dAmNOps</title>
+    <link>http://blog.damnops.com/tags/</link>
+    <description>Recent content in Tags on dAmNOps</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>en-us</language>
+    <copyright>dAmNOps.com</copyright>
     <lastBuildDate>Sat, 08 Jul 2017 21:28:53 +0800</lastBuildDate>
     
-	<atom:link href="http://blog.chatops.in/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.damnops.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Acm</title>
-      <link>http://blog.chatops.in/tags/acm/</link>
+      <title>acm</title>
+      <link>http://blog.damnops.com/tags/acm/</link>
       <pubDate>Sat, 08 Jul 2017 21:28:53 +0800</pubDate>
       
-      <guid>http://blog.chatops.in/tags/acm/</guid>
+      <guid>http://blog.damnops.com/tags/acm/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Aws</title>
-      <link>http://blog.chatops.in/tags/aws/</link>
+      <title>aws</title>
+      <link>http://blog.damnops.com/tags/aws/</link>
       <pubDate>Sat, 08 Jul 2017 21:28:53 +0800</pubDate>
       
-      <guid>http://blog.chatops.in/tags/aws/</guid>
+      <guid>http://blog.damnops.com/tags/aws/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Blog</title>
-      <link>http://blog.chatops.in/tags/blog/</link>
+      <title>blog</title>
+      <link>http://blog.damnops.com/tags/blog/</link>
       <pubDate>Sat, 08 Jul 2017 21:28:53 +0800</pubDate>
       
-      <guid>http://blog.chatops.in/tags/blog/</guid>
+      <guid>http://blog.damnops.com/tags/blog/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Cloudfrount</title>
-      <link>http://blog.chatops.in/tags/cloudfrount/</link>
+      <title>cloudfrount</title>
+      <link>http://blog.damnops.com/tags/cloudfrount/</link>
       <pubDate>Sat, 08 Jul 2017 21:28:53 +0800</pubDate>
       
-      <guid>http://blog.chatops.in/tags/cloudfrount/</guid>
+      <guid>http://blog.damnops.com/tags/cloudfrount/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Github</title>
-      <link>http://blog.chatops.in/tags/github/</link>
+      <title>github</title>
+      <link>http://blog.damnops.com/tags/github/</link>
       <pubDate>Sat, 08 Jul 2017 21:28:53 +0800</pubDate>
       
-      <guid>http://blog.chatops.in/tags/github/</guid>
+      <guid>http://blog.damnops.com/tags/github/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Https</title>
-      <link>http://blog.chatops.in/tags/https/</link>
+      <title>https</title>
+      <link>http://blog.damnops.com/tags/https/</link>
       <pubDate>Sat, 08 Jul 2017 21:28:53 +0800</pubDate>
       
-      <guid>http://blog.chatops.in/tags/https/</guid>
+      <guid>http://blog.damnops.com/tags/https/</guid>
       <description></description>
     </item>
     

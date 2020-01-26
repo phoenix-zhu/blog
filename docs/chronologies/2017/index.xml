@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2017 on dAmNOps</title>
+    <link>http://blog.damnops.com/chronologies/2017/</link>
+    <description>Recent content in 2017 on dAmNOps</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>dAmNOps.com</copyright>
+    <lastBuildDate>Wed, 18 Jul 2018 11:45:50 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.damnops.com/chronologies/2017/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SB阿里云</title>
+      <link>http://blog.damnops.com/stupid-aliyun/</link>
+      <pubDate>Wed, 18 Jul 2018 11:45:50 +0800</pubDate>
+      
+      <guid>http://blog.damnops.com/stupid-aliyun/</guid>
+      <description>就是一个无聊的无脑发泄而已，其实我真的不想这样的，但是真的不怕人比人，就怕货比货。虽然说他家经过多年奋斗，终于在今年好不容易被收入 高德纳魔力象限，并挤进了Visionaries。是件高兴的事情没错，但是在国际化的同时，以前那种强盗方式的做事思路是不是得改改啊？
+其实也没有什么大事，就是混互联网的日子长了，会在各种平台上注册账号。然后呢，估计大家也清楚，这些平台呢都会推送一些什么乱七八糟的信息给你，虽然我已经很小心的有一个专门用来干这个事情的邮箱。但是有一些时候还是会用常用的邮箱来注册的。这不最近发现常用的那个邮箱收到的这种邮件有点多么，实在是很烦啊，就在看到类似的邮件的时候去做取消订阅这件事情，一般来说，点了链接后会跳到一个页面告诉你取消成功了，稍微烦一点的也就是给一个确认页面，问你是否确认要取消，或者说是只取消某一些类型的消息。但不管怎么样，其他的网站都表现的很友好，点选确定就是了。唯独这个阿里云啊，非要登录！你咋不上天呢。就这流氓作风，老实说，我在选择的时候都会退避三舍的。</description>
+    </item>
+    
+    <item>
+      <title>Git学习网站</title>
+      <link>http://blog.damnops.com/learn-git/</link>
+      <pubDate>Wed, 31 May 2017 16:53:02 +0800</pubDate>
+      
+      <guid>http://blog.damnops.com/learn-git/</guid>
+      <description>以前一个同事推荐的学习git的，基础性的操作和知识点都包含了。
+http://learngitbranching.js.org/</description>
+    </item>
+    
+    <item>
+      <title>自动化工具集合</title>
+      <link>http://blog.damnops.com/best-cloud-tools-for-infrastructure-automation/</link>
+      <pubDate>Tue, 30 May 2017 01:50:49 +0800</pubDate>
+      
+      <guid>http://blog.damnops.com/best-cloud-tools-for-infrastructure-automation/</guid>
+      <description>瞎逛看到这个非常全面的自动化工具集，按照字母顺序排列，原文请见Best Cloud Tools for Infrastructure Automation
+There are two main reasons for infrastructure automation. First, system administrators, IT professionals and DevOps engineers need to automate as many routine tasks as possible. That&#39;s why we build tools at Stackify to help developers automate processes like application performance management, error monitoring, and log management; automation means you have more time for mission-critical tasks. Second, automation makes the management of complex, diverse environments possible and allows rapid scaling.</description>
+    </item>
+    
+    <item>
+      <title>关于Deployment，Provisioning和Orchestration的区别</title>
+      <link>http://blog.damnops.com/about-development-provisioning-orchestration/</link>
+      <pubDate>Mon, 29 May 2017 14:07:21 +0800</pubDate>
+      
+      <guid>http://blog.damnops.com/about-development-provisioning-orchestration/</guid>
+      <description>这几个词并不是什么新鲜词，但我们在读英文文档的时候经常会碰到，它们之间的区别是什么其实也是一直困扰我的一个问题，尤其是 Deployment 和 Provisioning ，我曾经问过一个英语是母语的外国友人这两个之间的区别，他的解释是 Provisioning 是 Deployment 的一部分，不过今天看到一篇Blog(What&#39;s Deployment Versus Provisioning Versus Orchestration?)详细的解释了三者之间的区别，就顺便转过来帮助大家理解一下三者的定义。
+Deployment 是指把一个全新的或者新版本的应用(Application)安装/更新到一台已经配置好的服务器上。开发人员喜欢使用这个词，而且他们会把前期的配置服务器环境以及安装应用所需的依赖包的过程也认为是 deploy 的环节，也就是说 Deployment 包含了 Provisioning。 Deployment 的时候多使用 Capistrano or Mina。运维人员会用 Provisioning 这个词来表示前期业务环境的准备过程，比如购买服务或者虚拟机，设备的网络接入，系统安装和相关的环境配置等。对于运维人员来讲，Deployment 就是前面狭义上定义的应用安装的过程而已，并不包含 Provisioning。Provisioning 的时候多使用 Chef, Ansible or Puppet。
+这么看来，Deployment 和 Provisioning 是母语系国家开发和运维人员因为角色不同对于 基础环境配置 和 部署 概念大小理解上的细微差异而偏好使用的两个词。刚好我问的那位外国友人刚好是一个开发人员，所以也不难理解他为什么解释说 Provisioning 是 Deployment 的一个部分。话说作为一个苦逼的非母语系的运维人员，我个人有限的英语词库里面对于 部署 的理解就是 Deployment，而 基础环境配置 这种事情可能会用 Environment setup 这种直接的表述，这也是我为什么在看到 Provisioning 这个词的时候迷惑的地方了。
+最后来说说 Orchestration 这个词，这个词源于交响乐队的乐曲编排，在IT行业中，被用来抽象的描述指以一种规律性运行或者可以自制的东西，更接地气的解释是大规模系统的部署和控制方式。我个人更多的理解为根据系统的特性按照既定的策略安装配置所需的环境。这个词我们看到的基本上都是把它译为 编排 了，也算是比较表意的了。相对而言，不同角色在这个词理解上的差异没有那么大。文章中举了一些例子来帮助理解这个词，顺便摘过来：
+ 在所有的数据库服务器上运行最新的数据迁移脚本，但不包含应用服务器 在应用服务器上检查当前的软件版本并安装所需的补丁，最后汇报结果 在所有的服务器上使用ps命令检查并确认Daemontools进程在运行 干掉所有的Node.js进程  通常来讲，上面所提及的那些用来做用来做 Deployment 和 Provisioning 的都可以算是 Orchestration 工具，另外还有一些常用的 Orchestration 工具，比如Fabric, MCollective, Salt等也都是可以用来做 Deployment 和 Provisioning 的。</description>
+    </item>
+    
+    <item>
+      <title>关于devops的拼写</title>
+      <link>http://blog.damnops.com/the-name-of-devops/</link>
+      <pubDate>Mon, 29 May 2017 03:14:32 +0800</pubDate>
+      
+      <guid>http://blog.damnops.com/the-name-of-devops/</guid>
+      <description>在看《Effective DevOps》这本书的时候，前言那里有一段关于devops的拼写的说法。
+&amp;quot;Devops&amp;quot;, &amp;quot;devops&amp;quot;, or &amp;quot;DevOps&amp;quot;?
+We have had many discussions over the capitalization(or lack thereof) of the term &amp;quot;devops&amp;quot;, A simple online poll showed overwhelming support for &amp;quot;DevOps&amp;quot;. We also found a focus on the &amp;quot;Dev&amp;quot; and &amp;quot;Ops&amp;quot; within organizations, This has lead to the creation of &amp;quot;DevSecOps&amp;quot; and &amp;quot;DevQAOps&amp;quot;, as &amp;quot;DevOps&amp;quot; implies an exclusivity of just &amp;quot;Dev&amp;quot; and &amp;quot;Ops&amp;quot;.
+Ultimately, this is why we&#39;ve chosen &amp;quot;devops&amp;quot; - it reflects the original hashtag on Twitter used to connect people who want to help change conversations from *us versus them* to *enabling the business* with sustainable work practices that focus on people.</description>
+    </item>
+    
+  </channel>
+</rss>
