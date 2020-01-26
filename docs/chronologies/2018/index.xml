@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2018 on dAmNOps</title>
-    <link>http://blog.damnops.com/chronologies/2018/</link>
+    <link>https://blog.damnops.com/chronologies/2018/</link>
     <description>Recent content in 2018 on dAmNOps</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>dAmNOps.com</copyright>
     <lastBuildDate>Sat, 08 Jul 2017 21:28:53 +0800</lastBuildDate>
     
-	<atom:link href="http://blog.damnops.com/chronologies/2018/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.damnops.com/chronologies/2018/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>使用AWS给GitHub Blog加上HTTPS</title>
-      <link>http://blog.damnops.com/https-for-your-github-blog/</link>
+      <link>https://blog.damnops.com/https-for-your-github-blog/</link>
       <pubDate>Sat, 08 Jul 2017 21:28:53 +0800</pubDate>
       
-      <guid>http://blog.damnops.com/https-for-your-github-blog/</guid>
+      <guid>https://blog.damnops.com/https-for-your-github-blog/</guid>
       <description>现在GitHub已经使用Let&#39;s Encrypt自动签发证书了，所以下面这个浪费时间的东西当做兴趣看看就行了。
 ====================
 虽然用GitHub当做自己的Blog也没有写几篇内容，但没事了折腾一下Theme（虽然很丑，我是当不了一个好的前端了），留言（虽然到目前为止也没有什么人留言，#_#!）啊什么的还是挺爽的。今天突然难耐不住，想给它加上HTTPS，大家伙都知道，GitHub因为种种原因，不是很方便的能提供这样的服务。

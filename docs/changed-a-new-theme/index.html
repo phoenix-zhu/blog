@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head>
-<title>2017</title>
+<title>换个新主题</title>
 
 <meta charset="utf-8">
 <meta name="X-UA-Compatible" content="IE=edge">
@@ -28,6 +28,24 @@
 <script src="https://blog.damnops.com/js/loadCSS.js"></script>
 <script>
     loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Noto+Serif+SC|Material+Icons");
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/vendor/js/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+  clientID: '7e7716d22bc7b477d0ce',
+  clientSecret: 'a50211cca027a925ea5f27c77a71fe7d78ba19fc',
+  repo: 'blog',
+  owner: 'phoenix-zhu',
+  admin: ['phoenix-zhu'],
+  id: md5(location.pathname),
+  distractionFreeMode: 'false'
+  });
+  window.onload = function () {
+        gitalk.render('gitalk-container')
+  }
 </script>
 
 </head><body>
@@ -58,9 +76,7 @@
             
                 
                 
-                    
-                
-                <a class="a-block nav-link-item active" href="/chronologies">
+                <a class="a-block nav-link-item false" href="/chronologies">
                     Chronologies
                 </a>
         
@@ -95,14 +111,38 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
     
 </div><div ref="extraContainer" class="extra-container">
     
+    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }"><script>
+  $(window).bind('scroll', function() {
+      var currentTop = $(window).scrollTop();
+      var currentBottom = $(window).scrollTop() + $(window).height();
+      var pageBottom = $('#EOF').offset().top;
+      var elems = $(":header");
+      elems.each(function(idx){
+        var elemTop = $(this).offset().top;
+        var id = $(this).attr('id');
+        var navElem = $('a[href="#' + id+ '"]');
+        if(currentTop >= elemTop || currentBottom >= pageBottom){
+      	  navElem.addClass('toc-active');
+        } else {
+          navElem.removeClass('toc-active');
+        }
+      })
+  }); 
+</script>
+<div class="toc-content">
+
+	
+	
+	
+	
+</div></div>
+    
     <div class="pagination">
         <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
             <i class="material-icons pagination-action-icon">
                 keyboard_arrow_up
             </i>
         </a>
-        
-        
         
     </div>
 </div><div class="single-column-drawer-container" ref="drawer"
@@ -121,9 +161,7 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
                 
                     
                     
-                        
-                    
-                    <a class="a-block drawer-menu-item active" href="/chronologies">
+                    <a class="a-block drawer-menu-item false" href="/chronologies">
                         Chronologies
                     </a>
             
@@ -141,6 +179,32 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
                         About Me
                     </a>
             
+            
+            <div class="toc"><script>
+  $(window).bind('scroll', function() {
+      var currentTop = $(window).scrollTop();
+      var currentBottom = $(window).scrollTop() + $(window).height();
+      var pageBottom = $('#EOF').offset().top;
+      var elems = $(":header");
+      elems.each(function(idx){
+        var elemTop = $(this).offset().top;
+        var id = $(this).attr('id');
+        var navElem = $('a[href="#' + id+ '"]');
+        if(currentTop >= elemTop || currentBottom >= pageBottom){
+      	  navElem.addClass('toc-active');
+        } else {
+          navElem.removeClass('toc-active');
+        }
+      })
+  }); 
+</script>
+<div class="toc-content">
+
+	
+	
+	
+	
+</div></div>
             
         </div>
     </div>
@@ -174,90 +238,64 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
             <div id="content">
 <div ref="streamContainer" class="stream-container">
     <div class="post-list-container post-list-container-shadow">
-        <div class="post-item-wrapper post-item-wrapper-no-hover">
-            <div class="post-item post-item-no-gaps">
-                <div class="post-item-info-wrapper">
-                    <div class="post-item-title  post-item-title-small">
-                        <a href="https://blog.damnops.com/chronologies/">Chronologies</a> / 2017
-                    </div>
-                </div>
-            </div>
-        </div><a href="/stupid-aliyun/" class="a-block">
-            <div class="post-item-wrapper">
-                <div class="post-item post-item-no-gaps">
-                    <div class="post-item-info-wrapper">
-                        <div class="post-item-title">
-                            SB阿里云
-                        </div>
-                        <div class="post-item-meta">
-                            Jul 18, 2018
+        <div class="post">
+            
+            
+            
 
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a><a href="/learn-git/" class="a-block">
-            <div class="post-item-wrapper">
-                <div class="post-item post-item-no-gaps">
-                    <div class="post-item-info-wrapper">
-                        <div class="post-item-title">
-                            Git学习网站
-                        </div>
-                        <div class="post-item-meta">
-                            May 31, 2017
+            <div class="post-head-wrapper-text-only"
+                 style="background-image: url('/')">
+                <div class="post-title">
+                    换个新主题
+                    <div class="post-meta">
+                        <time itemprop="datePublished">
+                            2020-01-27 02:45
+                        </time>
 
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a><a href="/best-cloud-tools-for-infrastructure-automation/" class="a-block">
-            <div class="post-item-wrapper">
-                <div class="post-item post-item-no-gaps">
-                    <div class="post-item-info-wrapper">
-                        <div class="post-item-title">
-                            自动化工具集合
-                        </div>
-                        <div class="post-item-meta">
-                            May 30, 2017
+                        
 
-                            
-                        </div>
+                        
                     </div>
                 </div>
             </div>
-        </a><a href="/about-development-provisioning-orchestration/" class="a-block">
-            <div class="post-item-wrapper">
-                <div class="post-item post-item-no-gaps">
-                    <div class="post-item-info-wrapper">
-                        <div class="post-item-title">
-                            关于Deployment，Provisioning和Orchestration的区别
-                        </div>
-                        <div class="post-item-meta">
-                            May 29, 2017
+            
+            <div class="post-body-wrapper">
+                <div class="post-body">
+                    <p>本来只想换个主题的，因为域名换了，原来的主题有一些资源不见了，但是发布的时候犯了点小小的错误，在配置文件中把<code>baseURL</code>写成一个http的地址了，导致一些静态资源被浏览器给<code>blocked:mixed-content</code>，gitpages应该也是使用了CDN的，所以首页被缓存了，导致访问到的一直是http的地址，只能试试看重新发布一个页面能不能强制刷一下了。</p>
+<p>2019年竟然连一个字都没有写，哈哈。</p>
+<p>BTW，愿老天保佑武汉。</p>
 
-                            
-                        </div>
-                    </div>
+                    <HR width="100%" id="EOF">
+                    <p style="color:#777;">Last modified on 2020-01-27</p>
                 </div>
+                
             </div>
-        </a><a href="/the-name-of-devops/" class="a-block">
-            <div class="post-item-wrapper">
-                <div class="post-item post-item-no-gaps">
-                    <div class="post-item-info-wrapper">
-                        <div class="post-item-title">
-                            关于devops的拼写
-                        </div>
-                        <div class="post-item-meta">
-                            May 29, 2017
+            
+            
+            <nav class="post-pagination">
 
-                            
-                        </div>
-                    </div>
-                </div>
+                
+                <a class="newer-posts">
+                    Next<br>No newer posts.
+                </a>
+                
+                
+                
+                <a class="older-posts" href="https://blog.damnops.com/stupid-aliyun/">
+                    Previous<br>SB阿里云
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+<div id="gitalk-container"></div>
+
+
             </div>
-        </a></div>
+        </div>
+    </div>
 </div>
 
             </div><div id="single-column-footer">Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://amazingrise.net">Rise</a>

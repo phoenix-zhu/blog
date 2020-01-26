@@ -3,137 +3,147 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://blog.damnops.com/chronologies/2017/</loc>
+    <loc>https://blog.damnops.com/chronologies/2020/</loc>
+    <lastmod>2020-01-27T02:45:34+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.damnops.com/chronologies/</loc>
+    <lastmod>2020-01-27T02:45:34+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.damnops.com/</loc>
+    <lastmod>2020-01-27T02:45:34+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.damnops.com/changed-a-new-theme/</loc>
+    <lastmod>2020-01-27T02:45:34+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.damnops.com/chronologies/2017/</loc>
     <lastmod>2018-07-18T11:45:50+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/categories/</loc>
+    <loc>https://blog.damnops.com/categories/</loc>
     <lastmod>2018-07-18T21:28:53+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/chronologies/</loc>
-    <lastmod>2018-07-18T21:28:53+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.damnops.com/categories/cloud/</loc>
+    <loc>https://blog.damnops.com/categories/cloud/</loc>
     <lastmod>2018-07-18T11:45:50+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/</loc>
-    <lastmod>2018-07-18T21:28:53+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.damnops.com/stupid-aliyun/</loc>
+    <loc>https://blog.damnops.com/stupid-aliyun/</loc>
     <lastmod>2018-07-18T11:45:50+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/chronologies/2018/</loc>
+    <loc>https://blog.damnops.com/chronologies/2018/</loc>
     <lastmod>2018-07-18T21:28:53+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/tags/acm/</loc>
+    <loc>https://blog.damnops.com/tags/acm/</loc>
     <lastmod>2018-07-18T21:28:53+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/tags/aws/</loc>
+    <loc>https://blog.damnops.com/tags/aws/</loc>
     <lastmod>2018-07-18T21:28:53+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/tags/blog/</loc>
+    <loc>https://blog.damnops.com/tags/blog/</loc>
     <lastmod>2018-07-18T21:28:53+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/tags/cloudfrount/</loc>
+    <loc>https://blog.damnops.com/tags/cloudfrount/</loc>
     <lastmod>2018-07-18T21:28:53+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/tags/github/</loc>
+    <loc>https://blog.damnops.com/tags/github/</loc>
     <lastmod>2018-07-18T21:28:53+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/tags/https/</loc>
+    <loc>https://blog.damnops.com/tags/https/</loc>
     <lastmod>2018-07-18T21:28:53+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/tags/</loc>
+    <loc>https://blog.damnops.com/tags/</loc>
     <lastmod>2018-07-18T21:28:53+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/categories/tech/</loc>
+    <loc>https://blog.damnops.com/categories/tech/</loc>
     <lastmod>2018-07-18T21:28:53+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/https-for-your-github-blog/</loc>
+    <loc>https://blog.damnops.com/https-for-your-github-blog/</loc>
     <lastmod>2018-07-18T21:28:53+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/learn-git/</loc>
+    <loc>https://blog.damnops.com/learn-git/</loc>
     <lastmod>2017-05-31T16:53:02+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/categories/devops/</loc>
+    <loc>https://blog.damnops.com/categories/devops/</loc>
     <lastmod>2017-05-30T01:50:49+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/best-cloud-tools-for-infrastructure-automation/</loc>
+    <loc>https://blog.damnops.com/best-cloud-tools-for-infrastructure-automation/</loc>
     <lastmod>2017-05-30T01:50:49+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/categories/automation/</loc>
+    <loc>https://blog.damnops.com/categories/automation/</loc>
     <lastmod>2017-05-29T14:07:21+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/about-development-provisioning-orchestration/</loc>
+    <loc>https://blog.damnops.com/about-development-provisioning-orchestration/</loc>
     <lastmod>2017-05-29T14:07:21+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/the-name-of-devops/</loc>
+    <loc>https://blog.damnops.com/the-name-of-devops/</loc>
     <lastmod>2017-05-29T03:14:32+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/chronologies/2016/</loc>
+    <loc>https://blog.damnops.com/chronologies/2016/</loc>
     <lastmod>2016-07-08T15:56:46+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/fix-old-ruby-ssl-issue/</loc>
+    <loc>https://blog.damnops.com/fix-old-ruby-ssl-issue/</loc>
     <lastmod>2016-07-08T15:56:46+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/categories/grocery/</loc>
+    <loc>https://blog.damnops.com/categories/grocery/</loc>
     <lastmod>2016-06-26T01:48:56+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/hello-world/</loc>
+    <loc>https://blog.damnops.com/hello-world/</loc>
     <lastmod>2016-06-26T01:48:56+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.damnops.com/about-me/</loc>
+    <loc>https://blog.damnops.com/about-me/</loc>
     <lastmod>2015-05-29T14:07:21+08:00</lastmod>
   </url>
   

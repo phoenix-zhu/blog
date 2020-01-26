@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cloud on dAmNOps</title>
-    <link>http://blog.damnops.com/categories/cloud/</link>
+    <link>https://blog.damnops.com/categories/cloud/</link>
     <description>Recent content in cloud on dAmNOps</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>dAmNOps.com</copyright>
     <lastBuildDate>Wed, 18 Jul 2018 11:45:50 +0800</lastBuildDate>
     
-	<atom:link href="http://blog.damnops.com/categories/cloud/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.damnops.com/categories/cloud/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>SB阿里云</title>
-      <link>http://blog.damnops.com/stupid-aliyun/</link>
+      <link>https://blog.damnops.com/stupid-aliyun/</link>
       <pubDate>Wed, 18 Jul 2018 11:45:50 +0800</pubDate>
       
-      <guid>http://blog.damnops.com/stupid-aliyun/</guid>
+      <guid>https://blog.damnops.com/stupid-aliyun/</guid>
       <description>就是一个无聊的无脑发泄而已，其实我真的不想这样的，但是真的不怕人比人，就怕货比货。虽然说他家经过多年奋斗，终于在今年好不容易被收入 高德纳魔力象限，并挤进了Visionaries。是件高兴的事情没错，但是在国际化的同时，以前那种强盗方式的做事思路是不是得改改啊？
 其实也没有什么大事，就是混互联网的日子长了，会在各种平台上注册账号。然后呢，估计大家也清楚，这些平台呢都会推送一些什么乱七八糟的信息给你，虽然我已经很小心的有一个专门用来干这个事情的邮箱。但是有一些时候还是会用常用的邮箱来注册的。这不最近发现常用的那个邮箱收到的这种邮件有点多么，实在是很烦啊，就在看到类似的邮件的时候去做取消订阅这件事情，一般来说，点了链接后会跳到一个页面告诉你取消成功了，稍微烦一点的也就是给一个确认页面，问你是否确认要取消，或者说是只取消某一些类型的消息。但不管怎么样，其他的网站都表现的很友好，点选确定就是了。唯独这个阿里云啊，非要登录！你咋不上天呢。就这流氓作风，老实说，我在选择的时候都会退避三舍的。</description>
     </item>

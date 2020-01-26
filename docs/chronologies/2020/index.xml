@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2020 on dAmNOps</title>
+    <link>https://blog.damnops.com/chronologies/2020/</link>
+    <description>Recent content in 2020 on dAmNOps</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>dAmNOps.com</copyright>
+    <lastBuildDate>Mon, 27 Jan 2020 02:45:34 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.damnops.com/chronologies/2020/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>换个新主题</title>
+      <link>https://blog.damnops.com/changed-a-new-theme/</link>
+      <pubDate>Mon, 27 Jan 2020 02:45:34 +0800</pubDate>
+      
+      <guid>https://blog.damnops.com/changed-a-new-theme/</guid>
+      <description>本来只想换个主题的，因为域名换了，原来的主题有一些资源不见了，但是发布的时候犯了点小小的错误，在配置文件中把baseURL写成一个http的地址了，导致一些静态资源被浏览器给blocked:mixed-content，gitpages应该也是使用了CDN的，所以首页被缓存了，导致访问到的一直是http的地址，只能试试看重新发布一个页面能不能强制刷一下了。
+2019年竟然连一个字都没有写，哈哈。
+BTW，愿老天保佑武汉。</description>
+    </item>
+    
+  </channel>
+</rss>
