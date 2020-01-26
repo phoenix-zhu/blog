@@ -7,8 +7,6 @@ theme = "diary"
 # googleAnalytics = "UA-123-45"
 #googleAnalytics = ""      # UA-XXXXXXXX-X
 
-
-
 [params]
 subtitle = "You DAMN Ops"
 enableGitalk = true
