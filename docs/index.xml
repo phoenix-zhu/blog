@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>dAmNOps</title>
-    <link>http://blog.damnops.com/</link>
+    <link>/</link>
     <description>Recent content on dAmNOps</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>dAmNOps.com</copyright>
     <lastBuildDate>Wed, 18 Jul 2018 11:45:50 +0800</lastBuildDate>
     
-	<atom:link href="http://blog.damnops.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>SB阿里云</title>
-      <link>http://blog.damnops.com/stupid-aliyun/</link>
+      <link>/stupid-aliyun/</link>
       <pubDate>Wed, 18 Jul 2018 11:45:50 +0800</pubDate>
       
-      <guid>http://blog.damnops.com/stupid-aliyun/</guid>
+      <guid>/stupid-aliyun/</guid>
       <description>就是一个无聊的无脑发泄而已，其实我真的不想这样的，但是真的不怕人比人，就怕货比货。虽然说他家经过多年奋斗，终于在今年好不容易被收入 高德纳魔力象限，并挤进了Visionaries。是件高兴的事情没错，但是在国际化的同时，以前那种强盗方式的做事思路是不是得改改啊？
 其实也没有什么大事，就是混互联网的日子长了，会在各种平台上注册账号。然后呢，估计大家也清楚，这些平台呢都会推送一些什么乱七八糟的信息给你，虽然我已经很小心的有一个专门用来干这个事情的邮箱。但是有一些时候还是会用常用的邮箱来注册的。这不最近发现常用的那个邮箱收到的这种邮件有点多么，实在是很烦啊，就在看到类似的邮件的时候去做取消订阅这件事情，一般来说，点了链接后会跳到一个页面告诉你取消成功了，稍微烦一点的也就是给一个确认页面，问你是否确认要取消，或者说是只取消某一些类型的消息。但不管怎么样，其他的网站都表现的很友好，点选确定就是了。唯独这个阿里云啊，非要登录！你咋不上天呢。就这流氓作风，老实说，我在选择的时候都会退避三舍的。</description>
     </item>
     
     <item>
       <title>使用AWS给GitHub Blog加上HTTPS</title>
-      <link>http://blog.damnops.com/https-for-your-github-blog/</link>
+      <link>/https-for-your-github-blog/</link>
       <pubDate>Sat, 08 Jul 2017 21:28:53 +0800</pubDate>
       
-      <guid>http://blog.damnops.com/https-for-your-github-blog/</guid>
+      <guid>/https-for-your-github-blog/</guid>
       <description>现在GitHub已经使用Let&#39;s Encrypt自动签发证书了，所以下面这个浪费时间的东西当做兴趣看看就行了。
 ====================
 虽然用GitHub当做自己的Blog也没有写几篇内容，但没事了折腾一下Theme（虽然很丑，我是当不了一个好的前端了），留言（虽然到目前为止也没有什么人留言，#_#!）啊什么的还是挺爽的。今天突然难耐不住，想给它加上HTTPS，大家伙都知道，GitHub因为种种原因，不是很方便的能提供这样的服务。
@@ -40,30 +40,30 @@
     
     <item>
       <title>Git学习网站</title>
-      <link>http://blog.damnops.com/learn-git/</link>
+      <link>/learn-git/</link>
       <pubDate>Wed, 31 May 2017 16:53:02 +0800</pubDate>
       
-      <guid>http://blog.damnops.com/learn-git/</guid>
+      <guid>/learn-git/</guid>
       <description>以前一个同事推荐的学习git的，基础性的操作和知识点都包含了。
 http://learngitbranching.js.org/</description>
     </item>
     
     <item>
       <title>自动化工具集合</title>
-      <link>http://blog.damnops.com/best-cloud-tools-for-infrastructure-automation/</link>
+      <link>/best-cloud-tools-for-infrastructure-automation/</link>
       <pubDate>Tue, 30 May 2017 01:50:49 +0800</pubDate>
       
-      <guid>http://blog.damnops.com/best-cloud-tools-for-infrastructure-automation/</guid>
+      <guid>/best-cloud-tools-for-infrastructure-automation/</guid>
       <description>瞎逛看到这个非常全面的自动化工具集，按照字母顺序排列，原文请见Best Cloud Tools for Infrastructure Automation
 There are two main reasons for infrastructure automation. First, system administrators, IT professionals and DevOps engineers need to automate as many routine tasks as possible. That&#39;s why we build tools at Stackify to help developers automate processes like application performance management, error monitoring, and log management; automation means you have more time for mission-critical tasks. Second, automation makes the management of complex, diverse environments possible and allows rapid scaling.</description>
     </item>
     
     <item>
       <title>关于Deployment，Provisioning和Orchestration的区别</title>
-      <link>http://blog.damnops.com/about-development-provisioning-orchestration/</link>
+      <link>/about-development-provisioning-orchestration/</link>
       <pubDate>Mon, 29 May 2017 14:07:21 +0800</pubDate>
       
-      <guid>http://blog.damnops.com/about-development-provisioning-orchestration/</guid>
+      <guid>/about-development-provisioning-orchestration/</guid>
       <description>这几个词并不是什么新鲜词，但我们在读英文文档的时候经常会碰到，它们之间的区别是什么其实也是一直困扰我的一个问题，尤其是 Deployment 和 Provisioning ，我曾经问过一个英语是母语的外国友人这两个之间的区别，他的解释是 Provisioning 是 Deployment 的一部分，不过今天看到一篇Blog(What&#39;s Deployment Versus Provisioning Versus Orchestration?)详细的解释了三者之间的区别，就顺便转过来帮助大家理解一下三者的定义。
 Deployment 是指把一个全新的或者新版本的应用(Application)安装/更新到一台已经配置好的服务器上。开发人员喜欢使用这个词，而且他们会把前期的配置服务器环境以及安装应用所需的依赖包的过程也认为是 deploy 的环节，也就是说 Deployment 包含了 Provisioning。 Deployment 的时候多使用 Capistrano or Mina。运维人员会用 Provisioning 这个词来表示前期业务环境的准备过程，比如购买服务或者虚拟机，设备的网络接入，系统安装和相关的环境配置等。对于运维人员来讲，Deployment 就是前面狭义上定义的应用安装的过程而已，并不包含 Provisioning。Provisioning 的时候多使用 Chef, Ansible or Puppet。
 这么看来，Deployment 和 Provisioning 是母语系国家开发和运维人员因为角色不同对于 基础环境配置 和 部署 概念大小理解上的细微差异而偏好使用的两个词。刚好我问的那位外国友人刚好是一个开发人员，所以也不难理解他为什么解释说 Provisioning 是 Deployment 的一个部分。话说作为一个苦逼的非母语系的运维人员，我个人有限的英语词库里面对于 部署 的理解就是 Deployment，而 基础环境配置 这种事情可能会用 Environment setup 这种直接的表述，这也是我为什么在看到 Provisioning 这个词的时候迷惑的地方了。
@@ -73,10 +73,10 @@ Deployment 是指把一个全新的或者新版本的应用(Application)安装/�
     
     <item>
       <title>关于devops的拼写</title>
-      <link>http://blog.damnops.com/the-name-of-devops/</link>
+      <link>/the-name-of-devops/</link>
       <pubDate>Mon, 29 May 2017 03:14:32 +0800</pubDate>
       
-      <guid>http://blog.damnops.com/the-name-of-devops/</guid>
+      <guid>/the-name-of-devops/</guid>
       <description>在看《Effective DevOps》这本书的时候，前言那里有一段关于devops的拼写的说法。
 &amp;quot;Devops&amp;quot;, &amp;quot;devops&amp;quot;, or &amp;quot;DevOps&amp;quot;?
 We have had many discussions over the capitalization(or lack thereof) of the term &amp;quot;devops&amp;quot;, A simple online poll showed overwhelming support for &amp;quot;DevOps&amp;quot;. We also found a focus on the &amp;quot;Dev&amp;quot; and &amp;quot;Ops&amp;quot; within organizations, This has lead to the creation of &amp;quot;DevSecOps&amp;quot; and &amp;quot;DevQAOps&amp;quot;, as &amp;quot;DevOps&amp;quot; implies an exclusivity of just &amp;quot;Dev&amp;quot; and &amp;quot;Ops&amp;quot;.
@@ -85,10 +85,10 @@ Ultimately, this is why we&#39;ve chosen &amp;quot;devops&amp;quot; - it reflect
     
     <item>
       <title>解决老版本Ruby安装时的openssl问题</title>
-      <link>http://blog.damnops.com/fix-old-ruby-ssl-issue/</link>
+      <link>/fix-old-ruby-ssl-issue/</link>
       <pubDate>Fri, 08 Jul 2016 15:56:46 +0800</pubDate>
       
-      <guid>http://blog.damnops.com/fix-old-ruby-ssl-issue/</guid>
+      <guid>/fix-old-ruby-ssl-issue/</guid>
       <description>今天要用一个老的Ruby repo，同步下来发现用的Ruby的版本是1.9.3-p484。安装了ruby之后安装bundler提示如下错误：
 /Users/home/.rbenv/versions/1.9.3-p484/lib/ruby/1.9.1/rubygems/remote_fetcher.rb:329:in `rescue in connection_for&amp;#39;: cannot load such file -- openssl (LoadError) 经过一番研究，发现需要在安装的时候指定openssl的路径，在Mac上面找到openssl目录的方法如下：
 brew list openssl
@@ -100,10 +100,10 @@ RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/Cellar/openssl/1.0.2h_1 rbenv 
     
     <item>
       <title>Hello, world!</title>
-      <link>http://blog.damnops.com/hello-world/</link>
+      <link>/hello-world/</link>
       <pubDate>Sun, 26 Jun 2016 01:48:56 +0800</pubDate>
       
-      <guid>http://blog.damnops.com/hello-world/</guid>
+      <guid>/hello-world/</guid>
       <description>非常技术人员的方式来宣告我在这里的第一篇东西，哈哈。
 话说很久很久都没有想过要写Blog这种东西了，以前自己还是挺喜欢把自己的一些想法或者解决过的问题什么的写下来的，但是互联网的兴灭总是出乎你的意料，自己以前所写的东西伴随着个人空间，免费的或者商用的Blog提供者的消亡统统的都成为过眼云烟，慢慢的就没有写下去的念头。后来虽然有twitter和微博的火爆，但发现自己对于这些很容易暴露隐私的东西很难提的起太多的兴趣，也就没有和年轻人去赶时髦玩朋友圈之类的了。现在Github有这样的服务，想着总归不会像以前的那些服务商那么悲催的随随便便的说没有就没有了吧？虽然说Github和我们伟大的GFW有点过节，但是对于数据什么的总归还是相对安全和有保障的吧。
 很长时间没有写东西了，发现自己现在都不会写了，先这样吧，且行且写且看。</description>
@@ -111,10 +111,10 @@ RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/Cellar/openssl/1.0.2h_1 rbenv 
     
     <item>
       <title>About Me</title>
-      <link>http://blog.damnops.com/about-me/</link>
+      <link>/about-me/</link>
       <pubDate>Fri, 29 May 2015 14:07:21 +0800</pubDate>
       
-      <guid>http://blog.damnops.com/about-me/</guid>
+      <guid>/about-me/</guid>
       <description>Zhu Ye Thoughtworks Senior Consultant
  Focused on cloud native tech. Devoted in devops &amp;amp; SRE practice. 15+ years work experience in OPS field. Extensive knowledge of OPS things. Good at large scale plan, architecture design. Excellent troubleshooting skills.  </description>
     </item>

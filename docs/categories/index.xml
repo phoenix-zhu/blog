@@ -2,58 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on dAmNOps</title>
-    <link>http://blog.damnops.com/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on dAmNOps</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>dAmNOps.com</copyright>
     <lastBuildDate>Wed, 18 Jul 2018 11:45:50 +0800</lastBuildDate>
     
-	<atom:link href="http://blog.damnops.com/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>cloud</title>
-      <link>http://blog.damnops.com/categories/cloud/</link>
+      <link>/categories/cloud/</link>
       <pubDate>Wed, 18 Jul 2018 11:45:50 +0800</pubDate>
       
-      <guid>http://blog.damnops.com/categories/cloud/</guid>
+      <guid>/categories/cloud/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tech</title>
-      <link>http://blog.damnops.com/categories/tech/</link>
+      <link>/categories/tech/</link>
       <pubDate>Sat, 08 Jul 2017 21:28:53 +0800</pubDate>
       
-      <guid>http://blog.damnops.com/categories/tech/</guid>
+      <guid>/categories/tech/</guid>
       <description></description>
     </item>
     
     <item>
       <title>devops</title>
-      <link>http://blog.damnops.com/categories/devops/</link>
+      <link>/categories/devops/</link>
       <pubDate>Tue, 30 May 2017 01:50:49 +0800</pubDate>
       
-      <guid>http://blog.damnops.com/categories/devops/</guid>
+      <guid>/categories/devops/</guid>
       <description></description>
     </item>
     
     <item>
       <title>automation</title>
-      <link>http://blog.damnops.com/categories/automation/</link>
+      <link>/categories/automation/</link>
       <pubDate>Mon, 29 May 2017 14:07:21 +0800</pubDate>
       
-      <guid>http://blog.damnops.com/categories/automation/</guid>
+      <guid>/categories/automation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>grocery</title>
-      <link>http://blog.damnops.com/categories/grocery/</link>
+      <link>/categories/grocery/</link>
       <pubDate>Sun, 26 Jun 2016 01:48:56 +0800</pubDate>
       
-      <guid>http://blog.damnops.com/categories/grocery/</guid>
+      <guid>/categories/grocery/</guid>
       <description></description>
     </item>
     

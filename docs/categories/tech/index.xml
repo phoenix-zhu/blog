@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tech on dAmNOps</title>
-    <link>http://blog.damnops.com/categories/tech/</link>
+    <link>/categories/tech/</link>
     <description>Recent content in tech on dAmNOps</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>dAmNOps.com</copyright>
     <lastBuildDate>Sat, 08 Jul 2017 21:28:53 +0800</lastBuildDate>
     
-	<atom:link href="http://blog.damnops.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>使用AWS给GitHub Blog加上HTTPS</title>
-      <link>http://blog.damnops.com/https-for-your-github-blog/</link>
+      <link>/https-for-your-github-blog/</link>
       <pubDate>Sat, 08 Jul 2017 21:28:53 +0800</pubDate>
       
-      <guid>http://blog.damnops.com/https-for-your-github-blog/</guid>
+      <guid>/https-for-your-github-blog/</guid>
       <description>现在GitHub已经使用Let&#39;s Encrypt自动签发证书了，所以下面这个浪费时间的东西当做兴趣看看就行了。
 ====================
 虽然用GitHub当做自己的Blog也没有写几篇内容，但没事了折腾一下Theme（虽然很丑，我是当不了一个好的前端了），留言（虽然到目前为止也没有什么人留言，#_#!）啊什么的还是挺爽的。今天突然难耐不住，想给它加上HTTPS，大家伙都知道，GitHub因为种种原因，不是很方便的能提供这样的服务。
@@ -30,20 +30,20 @@
     
     <item>
       <title>Git学习网站</title>
-      <link>http://blog.damnops.com/learn-git/</link>
+      <link>/learn-git/</link>
       <pubDate>Wed, 31 May 2017 16:53:02 +0800</pubDate>
       
-      <guid>http://blog.damnops.com/learn-git/</guid>
+      <guid>/learn-git/</guid>
       <description>以前一个同事推荐的学习git的，基础性的操作和知识点都包含了。
 http://learngitbranching.js.org/</description>
     </item>
     
     <item>
       <title>解决老版本Ruby安装时的openssl问题</title>
-      <link>http://blog.damnops.com/fix-old-ruby-ssl-issue/</link>
+      <link>/fix-old-ruby-ssl-issue/</link>
       <pubDate>Fri, 08 Jul 2016 15:56:46 +0800</pubDate>
       
-      <guid>http://blog.damnops.com/fix-old-ruby-ssl-issue/</guid>
+      <guid>/fix-old-ruby-ssl-issue/</guid>
       <description>今天要用一个老的Ruby repo，同步下来发现用的Ruby的版本是1.9.3-p484。安装了ruby之后安装bundler提示如下错误：
 /Users/home/.rbenv/versions/1.9.3-p484/lib/ruby/1.9.1/rubygems/remote_fetcher.rb:329:in `rescue in connection_for&amp;#39;: cannot load such file -- openssl (LoadError) 经过一番研究，发现需要在安装的时候指定openssl的路径，在Mac上面找到openssl目录的方法如下：
 brew list openssl
