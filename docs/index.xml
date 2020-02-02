@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>dAmNOps</title>
+    <title>dAmN Ooooooops</title>
     <link>https://blog.damnops.com/</link>
-    <description>Recent content on dAmNOps</description>
+    <description>Recent content on dAmN Ooooooops</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>dAmNOps.com</copyright>
@@ -121,13 +121,13 @@ RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/Cellar/openssl/1.0.2h_1 rbenv 
     </item>
     
     <item>
-      <title>About Me</title>
+      <title>A damn OPS</title>
       <link>https://blog.damnops.com/about-me/</link>
-      <pubDate>Fri, 29 May 2015 14:07:21 +0800</pubDate>
+      <pubDate>Sun, 29 May 2016 14:07:21 +0800</pubDate>
       
       <guid>https://blog.damnops.com/about-me/</guid>
-      <description>Zhu Ye Thoughtworks Senior Consultant
- Focused on cloud native tech. Devoted in devops &amp;amp; SRE practice. 15+ years work experience in OPS field. Extensive knowledge of OPS things. Good at large scale plan, architecture design. Excellent troubleshooting skills.  </description>
+      <description>Zhu Ye Thoughtworks Lead Consultant
+ 15+ years work experience in OPS field. Focused on cloud native technologies. Devoted in devops &amp;amp; SRE practices. CCIE - Routing and Switching. AWS Certified Solutions Architect - Professional. AWS Certified Security - Specialty.  </description>
     </item>
     
   </channel>

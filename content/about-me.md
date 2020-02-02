@@ -1,16 +1,17 @@
 +++
-title = "About Me"
-date = "2015-05-29T14:07:21+08:00"
+title = "A damn OPS"
+date = "2016-05-29T14:07:21+08:00"
+lastmod = "2020-01-27T02:45:34+08:00"
 
 +++
 
 ## Zhu Ye
 
-***Thoughtworks Senior Consultant***
+***Thoughtworks Lead Consultant***
 
-- Focused on cloud native tech.
-- Devoted in devops & SRE practice.
 - 15+ years work experience in OPS field.
-- Extensive knowledge of OPS things.
-- Good at large scale plan, architecture design.
-- Excellent troubleshooting skills.
+- Focused on cloud native technologies.
+- Devoted in devops & SRE practices.
+- CCIE - Routing and Switching.
+- AWS Certified Solutions Architect - Professional.
+- AWS Certified Security - Specialty.

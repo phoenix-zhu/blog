@@ -1,14 +1,13 @@
 baseURL = "https://blog.damnops.com"
 languageCode = "en-us"
-title = "dAmNOps"
+title = "dAmN Ooooooops"
 copyright = "dAmNOps.com"
 disableKinds = ["section"]
 theme = "diary"
 
 [params]
-subtitle = "You DAMN Ops"
 enableGitalk = true
-favicon = "favicon.ico"
+favicon = "/favicon.ico"
 
 [params.gitalk]
   owner = "phoenix-zhu"
