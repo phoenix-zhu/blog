@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html><head>
+<title>爱扯淡 - 监控报警的那点事</title>
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+
+<script src="/vendor/js/jquery.min.js" ></script>
+<script src="/vendor/js/popper.min.js" ></script>
+<script src="/vendor/js/bootstrap.min.js" ></script>
+<script src="/vendor/js/smooth-scroll.polyfills.min.js" ></script>
+<link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+<script src="/vendor/js/vue.min.js" ></script>
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+
+
+<link rel="stylesheet" href="https://blog.damnops.com/scss/journal.min.d1e46276e6b8b5f326abd9d28457b28f961c216847eae83bf95b8f28f1352ca4.css" integrity="sha256-0eRidua4tfMmq9nShFeyj5YcIWhH6ug7&#43;VuPKPE1LKQ=" media="screen">
+
+<script src="https://blog.damnops.com/js/loadCSS.js"></script>
+<script>
+    loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Noto+Serif+SC|Material+Icons");
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/vendor/js/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+  clientID: '7e7716d22bc7b477d0ce',
+  clientSecret: 'a50211cca027a925ea5f27c77a71fe7d78ba19fc',
+  repo: 'blog',
+  owner: 'phoenix-zhu',
+  admin: ['phoenix-zhu'],
+  id: md5(location.pathname),
+  distractionFreeMode: 'false'
+  });
+  window.onload = function () {
+        gitalk.render('gitalk-container')
+  }
+</script>
+
+</head><body>
+    	<div id="app"><div ref="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://blog.damnops.com">
+    
+        <div class="nav-title">
+            dAmN Ooooooops
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+                
+                
+                <a class="a-block nav-link-item false" href="/categories">
+                    Categories
+                </a>
+        
+            
+                
+                
+                <a class="a-block nav-link-item false" href="/chronologies">
+                    Chronologies
+                </a>
+        
+            
+                
+                
+                <a class="a-block nav-link-item false" href="/tags">
+                    Tags
+                </a>
+        
+            
+                
+                
+                <a class="a-block nav-link-item false" href="/about-me">
+                    About Me
+                </a>
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://amazingrise.net">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+&copy;
+	
+	dAmNOps.com
+	
+    </div>
+    
+</div><div ref="extraContainer" class="extra-container">
+    
+    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }"><script>
+  $(window).bind('scroll', function() {
+      var currentTop = $(window).scrollTop();
+      var currentBottom = $(window).scrollTop() + $(window).height();
+      var pageBottom = $('#EOF').offset().top;
+      var elems = $(":header");
+      elems.each(function(idx){
+        var elemTop = $(this).offset().top;
+        var id = $(this).attr('id');
+        var navElem = $('a[href="#' + id+ '"]');
+        if(currentTop >= elemTop || currentBottom >= pageBottom){
+      	  navElem.addClass('toc-active');
+        } else {
+          navElem.removeClass('toc-active');
+        }
+      })
+  }); 
+</script>
+<div class="toc-content">
+
+	
+	
+	
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e5%bc%95%e5%ad%90" v-on:click="closeDrawer">
+										 引子
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e7%9b%91%e6%8e%a7%e7%9a%84%e5%8e%9f%e5%88%99" v-on:click="closeDrawer">
+										 监控的原则
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e6%8a%a5%e8%ad%a6%e9%80%9a%e7%9f%a5%e5%92%8c%e5%93%8d%e5%ba%94" v-on:click="closeDrawer">
+										 报警通知和响应
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e4%b8%80%e4%b8%aa%e7%be%8e%e5%a5%bd%e7%9a%84%e7%9b%91%e6%8e%a7%e7%b3%bb%e7%bb%9f" v-on:click="closeDrawer">
+										 一个美好的监控系统
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#ofc%e7%9a%84%e9%87%8e%e6%9c%9b" v-on:click="closeDrawer">
+										 OFC的野望
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e5%85%b3%e4%ba%8e%e6%99%ba%e8%83%bd%e7%9b%91%e6%8e%a7" v-on:click="closeDrawer">
+										 关于智能监控
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+	
+</div></div>
+    
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+    </div>
+</div><div class="single-column-drawer-container" ref="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+                
+                    
+                    
+                    <a class="a-block drawer-menu-item false" href="/categories">
+                        Categories
+                    </a>
+            
+                
+                    
+                    
+                    <a class="a-block drawer-menu-item false" href="/chronologies">
+                        Chronologies
+                    </a>
+            
+                
+                    
+                    
+                    <a class="a-block drawer-menu-item false" href="/tags">
+                        Tags
+                    </a>
+            
+                
+                    
+                    
+                    <a class="a-block drawer-menu-item false" href="/about-me">
+                        About Me
+                    </a>
+            
+            
+            <div class="toc"><script>
+  $(window).bind('scroll', function() {
+      var currentTop = $(window).scrollTop();
+      var currentBottom = $(window).scrollTop() + $(window).height();
+      var pageBottom = $('#EOF').offset().top;
+      var elems = $(":header");
+      elems.each(function(idx){
+        var elemTop = $(this).offset().top;
+        var id = $(this).attr('id');
+        var navElem = $('a[href="#' + id+ '"]');
+        if(currentTop >= elemTop || currentBottom >= pageBottom){
+      	  navElem.addClass('toc-active');
+        } else {
+          navElem.removeClass('toc-active');
+        }
+      })
+  }); 
+</script>
+<div class="toc-content">
+
+	
+	
+	
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e5%bc%95%e5%ad%90" v-on:click="closeDrawer">
+										 引子
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e7%9b%91%e6%8e%a7%e7%9a%84%e5%8e%9f%e5%88%99" v-on:click="closeDrawer">
+										 监控的原则
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e6%8a%a5%e8%ad%a6%e9%80%9a%e7%9f%a5%e5%92%8c%e5%93%8d%e5%ba%94" v-on:click="closeDrawer">
+										 报警通知和响应
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e4%b8%80%e4%b8%aa%e7%be%8e%e5%a5%bd%e7%9a%84%e7%9b%91%e6%8e%a7%e7%b3%bb%e7%bb%9f" v-on:click="closeDrawer">
+										 一个美好的监控系统
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#ofc%e7%9a%84%e9%87%8e%e6%9c%9b" v-on:click="closeDrawer">
+										 OFC的野望
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e5%85%b3%e4%ba%8e%e6%99%ba%e8%83%bd%e7%9b%91%e6%8e%a7" v-on:click="closeDrawer">
+										 关于智能监控
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+	
+</div></div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav ref="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div ref="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a ref="navTitle" class="navbar-brand" href="https://blog.damnops.com">
+            dAmN Ooooooops
+        </a>
+    </div>
+</nav>
+<div class="single-column-header-container" ref="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://blog.damnops.com">
+        <div class="single-column-header-title">dAmN Ooooooops</div>
+        
+
+    </a>
+</div>
+            <div id="content">
+<div ref="streamContainer" class="stream-container">
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                 style="background-image: url('/')">
+                <div class="post-title">
+                    爱扯淡 - 监控报警的那点事
+                    <div class="post-meta">
+                        <time itemprop="datePublished">
+                            2020-03-24 11:30
+                        </time>
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/">[爱扯淡]</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/%E7%88%B1%E6%89%AF%E6%B7%A1">爱扯淡</a>
+                                &nbsp;
+                            
+                                <a href="/tags/%E7%9B%91%E6%8E%A7">监控</a>
+                                &nbsp;
+                            
+                                <a href="/tags/%E6%8A%A5%E8%AD%A6">报警</a>
+                                &nbsp;
+                            
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                <div class="post-body">
+                    <h2 id="引子">引子</h2>
+<p>想和大家聊这个话题是因为我最近在帮客户梳理他自己的关于监控的一些想法，虽然我自己算是有一套体系，但是客户想站在更高的一个抽象的层面去推销他自己的理念，觉得我的那个太过于技术化，于是乎，我就想听听大家关于这一方面的见解，然后就有了今天的这个话题。</p>
+<h2 id="监控的原则">监控的原则</h2>
+<p>我自己关于监控的原则改变是从13年接触云服务开始，基于基础设施和平台变成了服务带来的关于架构设计思路变化导致的监控方式的连锁反应形成的。毕竟以前ops是要管物理设备的，但是当这些东西变成服务的时候，我们就不需要再去操心这些东西了，这也是我觉得devops理念在那之后才能有快速发展的基础。所以当我们的基础设施和平台具有自动伸缩的能力，虚拟化成为成熟的服务，以及随着容器化和编排的进一步成熟，<a href="https://www.youtube.com/watch?v=zWgq6sd1Ols">牲口模式</a>也成为架构设计所采用的通用原则，我们的监控的理念也进一步升级，更多的是去站在业务的角度关注可用性和性能，典型的就是Google SRE实践里面推行的，而不再关注具体资源的状态和性能。但是我们并不是说完全不要这些了，我们还是会尽可能的去监控和记录我们能需要的一切东西，毕竟这些在发生问题时定位根因是非常有用的。</p>
+<p>但是中间有同学提到了，我们的一些项目还是需要去管理物理设备的，对于这种东西，我们的设计分层原则基本上就是经典的IPS(A)分层，I(nfrastructure)层面更多的关注设备的存活状态，性能，容量等，P(latform)层去看系统和基础服务本身的状态，是需要关注的最多的一个地方，除了系统和服务本身的存活状态，性能，容量等之外还需要关注他们高可用的状态，其本身对于资源的利用情况等等，以确保服务在稳定的基础上最大化的利用资源，并能为可伸缩提供支撑，Software/Service/Application这个基本上就是我上面说的关注点，但是没有devops之前，ops在这一块更多的是关心业务的存活性，而且还是基于具体资源的业务存活性，很少会整体去评估业务的状态。至于业务方面的东西，就看产品和开发的博弈结果了。但是随着devops的成熟，使用业务相关指标已经成为团队的共识了。</p>
+<p>监控我们常用的工具有：Zabbix, Nagios, Prometheus, NewRelic, Cloudwatch, ELK等。</p>
+<h2 id="报警通知和响应">报警通知和响应</h2>
+<p>当拥有一个完备的监控系统的时候，我们还需要报警通知和响应机制来把最后这一步给完善了，毕竟，我们要确保服务尽可能的高可用，还是需要在发生无法自我修复问题的时候及时的感知到并作出响应的。这个包含两个内容：1. 通知值守人员；2. 接到消息之后如何应对。</p>
+<p>报警通知是一个非常恼人的话题，它又包含多个小的点。第一，噪音消除，毕竟我们很大程度上会监控非常多的东西，对于一个资源或者服务我们在不同的层面监控了不同的内容，或者使用多个工具做交叉监控以避免监控工具的单点故障。所以当某个东西有问题的时候，所有的对应的监控都会发生状态变化。如果不经过滤的把消息全发出去，可想而知会发生什么，所以如何消除报警噪音是一个永恒的话题，一般会采用尽可能的合并同类信息以及基于更低层的监控状态抑制的依赖失败的方式来消除不必要的噪音。第二，就是什么情况需要报警，这个要基于意义来出发，我们不想把有限的精力投入到意义不大的事情上去。我个人的原则是：如果这个问题如果不处理就会影响到业务可用性了，不管是外部的SLA还是内部使用的SLO，那就是需要报警的。如果这个事情并不是很紧急，比如说我的某个系统发生了高可用的主备切换，老的主设备有可能发生了故障，但是这个问题并不会直接影响到我的业务的性能和可用性，那我可能采用其他的渠道来感知，而不是报警的方式。所以，我的理念是：<strong>一旦接到报警，必须放下手头的事情，立即响应</strong>。因为如果说不是所有的报警是需要马上投入解决的内容，那有可能会让值守的人员造成懈怠，错过夹杂在连续的不用立即响应的报警中的需要立即响应的报警信息，这个比较绕，多读两遍吧。当然，你可以把一些实际中并非需要马上响应的事情在你在实践中强制值守人员马上响应，形成习惯。第三，报警信息的具体内容，报警内容携带足够多且明确的内容也是我们一直追求的，如果我们收到了一条类似于<code>Critical: Minimum HealthCheckStatus LessThanThreshold 1.0, Triggered by: Amazon Cloudwatch</code>这样的报警，我估计绝大部分值守人员也是一头雾水，不知道到底发生了什么事情，等到他登陆了AWS，从Cloudwatch里面找到一些有用的信息的时候，估摸也差不多浪费了3，5分钟了，起码这个月4个9的目标是没戏了。关于怎么结合业务和你的通知工具发送内容只能靠大家伙自己摸索了，毕竟这个并没有什么通用的标准，但是不管怎么样，确保值守人员能在看到消息的时候尽可能的获取到最多的有效信息是关键。有小伙伴在这里提到了某个项目采用了唯一错误编码的方式，可以用这个代码追踪到具体出错的代码所在的文件和行数，虽然他没有办法提供太多的架构设计和实现上的细节，但是听起来也挺高大上的。</p>
+<p>接到消息如何应对就是我们常说的IRP(Incident Response Plan)，这个东西也是各家有各家的玩法，毕竟做响应的团队组成的角色都是可能有很大的差异的，有一些只有单纯的ops，或者会加入dev，有一些可能会把业务人员也纳入进来，怎么让其他的成员了解面对的问题并加入响应是重点。另外这个Plan里面也需要覆盖如何升级(Escalate)这一块，毕竟有些问题可能不单纯的是技术问题，比如隐私，商业数据丢失或者泄漏等，需要更高层面的角色根据当地的法律来做应对措施的，简而言之，怎么<strong>有效的组织有相应能力的人员来解决实际的问题</strong>是核心。</p>
+<p>报警通知我们用的工具有：Pagerduty，常用的IM工具。</p>
+<h2 id="一个美好的监控系统">一个美好的监控系统</h2>
+<p>虽然监控系统里面很多的时候会包含一个展示台，但是这个不是我们今天要讨论的内容，所以就没有展开。但是轩在聊的时候描述了一个非常美好的画面，就是我们在接收到报警之后，能有一个地方，可以看到这个报警或者某个请求所有的相关的信息的，最好是可以图形化的，从这个请求进入我们系统的第一个地方比如说负载均衡器或者CDN开始，到最终这个请求出现问题或者处理完成，这中间不但有这个业务的调用链，也有对应的当时具体处理这个请求的资源的相关状态。抛开这个系统的复杂度不谈，只是所需要的基础信息的标准制定和收集就是一个很大的挑战，毕竟就目前我们碰到的现实情况，都是业务为导向，保证交付效率才是王道，除非真的要到了一定的体量，而且这一块的欠缺影响到整体商业推广和问题溯源了，需要高层次的角色来在整个公司内推动这个事情，否则，所有的一切都是一个美好的愿望而已。但就如Facebook，AWS，阿里等这些行业领头羊，我所了解到他们也只是部分实现，并没有完成这样一个完美的支撑系统，从我有限的使用AWS和阿里的技术支持的结果来看，AWS至少在信息收集和溯源上还是比较成熟了，阿里么，我只能遗憾的说，还处于散兵游勇状态。但是我觉得总有一天，这个东西一定会有，并且成为大型系统的监控工具基础组件。</p>
+<h2 id="ofc的野望">OFC的野望</h2>
+<p>OFC是Opportunities For Consistency的缩写，这个是我们一个客户的实践，旨在提炼出一些好的可通用的实践，推行到所有的项目组里面，这样的话，不同的人员转换项目的时候，在相应的方面有统一的上下文，降低一些学习成本。我们之后也会考虑把我们各个项目的一些好的实践可以抽离成一些OFC并推行开来，目前我们已经有的OFC文档里面包含了一篇关于监控的，所以就顺便提了下这个，如果各位小伙伴们项目中有自己觉得不错的可以推广的类似的实践，请联系我们哦。</p>
+<h2 id="关于智能监控">关于智能监控</h2>
+<p>这个话题其实其中一位小伙伴想听的内容，但是很可惜，我们参与讨论的人都只有有限的知识储备，所以并没有说太多。虽然我了解到BATJ有一些这方面的实践，但是看到的都是零星的介绍，并没有具体的技术类的资料。不过从大部分可见的信息和我们的需求来看，主要还是结合历史数据来做趋势预测和异常分析比较多。其中有小伙伴提到Nagios新版本有相关的功能，我简单的搜索一下，只找到这个<a href="https://assets.nagios.com/downloads/nagiosxi/docs/How_To_Use_Capacity_Planning.pdf">How To Use Capacity Planning</a>的文档。我比较熟悉的AWS Cloudwatch也有提供一个<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html">Anomaly Detection</a>的功能。总体来看，这一块如果自己做，是需要结合一些统计算法和ML算法来实现的，对于专业知识的依赖度还是比较高。但是好的一点是，平台和工具里面开始提供类似的功能，这个大大的降低了我们的门槛，如果你们有这方面的资料或者经验，也可以留言分享给大家。</p>
+
+                    <HR width="100%" id="EOF">
+                    <p style="color:#777;">Last modified on 2020-03-24</p>
+                </div>
+                
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts">
+                    Next<br>No newer posts.
+                </a>
+                
+                
+                
+                <a class="older-posts" href="https://blog.damnops.com/about-ichegg/">
+                    Previous<br>关于爱扯淡的事情
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+<div id="gitalk-container"></div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div><div id="single-column-footer">Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://amazingrise.net">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+&copy;
+	
+	dAmNOps.com
+	</div>
+    	</div>
+    <script src="https://blog.damnops.com/js/journal.js"></script>
+    </body>
+</html>
