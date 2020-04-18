@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html><head>
+<title>爱扯淡 - 再说devops</title>
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+
+<script src="/vendor/js/jquery.min.js" ></script>
+<script src="/vendor/js/popper.min.js" ></script>
+<script src="/vendor/js/bootstrap.min.js" ></script>
+<script src="/vendor/js/smooth-scroll.polyfills.min.js" ></script>
+<link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+<script src="/vendor/js/vue.min.js" ></script>
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+
+
+<link rel="stylesheet" href="https://blog.damnops.com/scss/journal.min.d1e46276e6b8b5f326abd9d28457b28f961c216847eae83bf95b8f28f1352ca4.css" integrity="sha256-0eRidua4tfMmq9nShFeyj5YcIWhH6ug7&#43;VuPKPE1LKQ=" media="screen">
+
+<script src="https://blog.damnops.com/js/loadCSS.js"></script>
+<script>
+    loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Noto+Serif+SC|Material+Icons");
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/vendor/js/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+  clientID: '7e7716d22bc7b477d0ce',
+  clientSecret: 'a50211cca027a925ea5f27c77a71fe7d78ba19fc',
+  repo: 'blog',
+  owner: 'phoenix-zhu',
+  admin: ['phoenix-zhu'],
+  id: md5(location.pathname),
+  distractionFreeMode: 'false'
+  });
+  window.onload = function () {
+        gitalk.render('gitalk-container')
+  }
+</script>
+
+</head><body>
+    	<div id="app"><div ref="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://blog.damnops.com">
+    
+        <div class="nav-title">
+            dAmN Ooooooops
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+                
+                
+                <a class="a-block nav-link-item false" href="/categories">
+                    Categories
+                </a>
+        
+            
+                
+                
+                <a class="a-block nav-link-item false" href="/chronologies">
+                    Chronologies
+                </a>
+        
+            
+                
+                
+                <a class="a-block nav-link-item false" href="/tags">
+                    Tags
+                </a>
+        
+            
+                
+                
+                <a class="a-block nav-link-item false" href="/about-me">
+                    About Me
+                </a>
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://amazingrise.net">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+&copy;
+	
+	dAmNOps.com
+	
+    </div>
+    
+</div><div ref="extraContainer" class="extra-container">
+    
+    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }"><script>
+  $(window).bind('scroll', function() {
+      var currentTop = $(window).scrollTop();
+      var currentBottom = $(window).scrollTop() + $(window).height();
+      var pageBottom = $('#EOF').offset().top;
+      var elems = $(":header");
+      elems.each(function(idx){
+        var elemTop = $(this).offset().top;
+        var id = $(this).attr('id');
+        var navElem = $('a[href="#' + id+ '"]');
+        if(currentTop >= elemTop || currentBottom >= pageBottom){
+      	  navElem.addClass('toc-active');
+        } else {
+          navElem.removeClass('toc-active');
+        }
+      })
+  }); 
+</script>
+<div class="toc-content">
+
+	
+	
+	
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e5%86%99%e5%9c%a8%e5%89%8d%e9%9d%a2" v-on:click="closeDrawer">
+										 写在前面
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e4%bb%80%e4%b9%88%e6%98%afdevops" v-on:click="closeDrawer">
+										 什么是devops
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e6%80%8e%e4%b9%88%e6%89%8d%e8%83%bd%e6%9b%b4%e5%a5%bd%e7%9a%84%e6%8e%a8%e5%8a%a8devops" v-on:click="closeDrawer">
+										 怎么才能更好的推动devops
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e5%9b%bd%e5%86%85%e5%a4%96devops%e5%ae%9e%e6%96%bd%e7%9a%84%e5%b7%ae%e5%88%ab" v-on:click="closeDrawer">
+										 国内外devops实施的差别
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e7%9b%b8%e5%85%b3%e8%b5%84%e6%96%99" v-on:click="closeDrawer">
+										 相关资料
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+	
+</div></div>
+    
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+    </div>
+</div><div class="single-column-drawer-container" ref="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+                
+                    
+                    
+                    <a class="a-block drawer-menu-item false" href="/categories">
+                        Categories
+                    </a>
+            
+                
+                    
+                    
+                    <a class="a-block drawer-menu-item false" href="/chronologies">
+                        Chronologies
+                    </a>
+            
+                
+                    
+                    
+                    <a class="a-block drawer-menu-item false" href="/tags">
+                        Tags
+                    </a>
+            
+                
+                    
+                    
+                    <a class="a-block drawer-menu-item false" href="/about-me">
+                        About Me
+                    </a>
+            
+            
+            <div class="toc"><script>
+  $(window).bind('scroll', function() {
+      var currentTop = $(window).scrollTop();
+      var currentBottom = $(window).scrollTop() + $(window).height();
+      var pageBottom = $('#EOF').offset().top;
+      var elems = $(":header");
+      elems.each(function(idx){
+        var elemTop = $(this).offset().top;
+        var id = $(this).attr('id');
+        var navElem = $('a[href="#' + id+ '"]');
+        if(currentTop >= elemTop || currentBottom >= pageBottom){
+      	  navElem.addClass('toc-active');
+        } else {
+          navElem.removeClass('toc-active');
+        }
+      })
+  }); 
+</script>
+<div class="toc-content">
+
+	
+	
+	
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e5%86%99%e5%9c%a8%e5%89%8d%e9%9d%a2" v-on:click="closeDrawer">
+										 写在前面
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e4%bb%80%e4%b9%88%e6%98%afdevops" v-on:click="closeDrawer">
+										 什么是devops
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e6%80%8e%e4%b9%88%e6%89%8d%e8%83%bd%e6%9b%b4%e5%a5%bd%e7%9a%84%e6%8e%a8%e5%8a%a8devops" v-on:click="closeDrawer">
+										 怎么才能更好的推动devops
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e5%9b%bd%e5%86%85%e5%a4%96devops%e5%ae%9e%e6%96%bd%e7%9a%84%e5%b7%ae%e5%88%ab" v-on:click="closeDrawer">
+										 国内外devops实施的差别
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e7%9b%b8%e5%85%b3%e8%b5%84%e6%96%99" v-on:click="closeDrawer">
+										 相关资料
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+	
+</div></div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav ref="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div ref="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a ref="navTitle" class="navbar-brand" href="https://blog.damnops.com">
+            dAmN Ooooooops
+        </a>
+    </div>
+</nav>
+<div class="single-column-header-container" ref="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://blog.damnops.com">
+        <div class="single-column-header-title">dAmN Ooooooops</div>
+        
+
+    </a>
+</div>
+            <div id="content">
+<div ref="streamContainer" class="stream-container">
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                 style="background-image: url('/')">
+                <div class="post-title">
+                    爱扯淡 - 再说devops
+                    <div class="post-meta">
+                        <time itemprop="datePublished">
+                            2020-04-18 14:18
+                        </time>
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/">[爱扯淡]</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/%E7%88%B1%E6%89%AF%E6%B7%A1">爱扯淡</a>
+                                &nbsp;
+                            
+                                <a href="/tags/devops">devops</a>
+                                &nbsp;
+                            
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                <div class="post-body">
+                    <h2 id="写在前面">写在前面</h2>
+<p>我也不知道为什么发cal的时候把话题起成了“再说devops”（至于为什么写成devops，请参考我的这篇blog《<a href="https://blog.damnops.com/the-name-of-devops/">关于devops的拼写</a>》），因为我们之前其实也没有说过这个。但是可能觉得我们其实平时在不停的说devops，所以就内心里面这个是一个再次重提的话题。</p>
+<h2 id="什么是devops">什么是devops</h2>
+<p><a href="https://zh.wikipedia.org/wiki/DevOps">Wiki上的定义</a>如下，这个也是我们能看到的绝大部分资料上的定义。</p>
+<pre><code>DevOps（Development和Operations的组合词）是一种重视“软件开发人员（Dev）”和“IT运维技术人员（Ops）”之间沟通合作的文化、运动或惯例。透过自动化“软件交付”和“架构变更”的流程，来使得构建、测试、发布软件能够更加地快捷、频繁和可靠。
+</code></pre><p>不过一千个人心中有一千个哈姆雷特，虽然我们都认同了这个定义，但是对于组成这个定义的那些词语的解释却是各自一表。</p>
+<p>今天的讨论中刚开始也是这样，有基于概念本身阐述的。</p>
+<pre><code>devops是一种打破dev和ops之间边界，把两个角色的工作磨合到一起，从计划制定开始，到需求分析，开发，测试，部署上线。使用一些自动化工具和项目管理实践，提升项目的交付质量和速度。
+</code></pre><p>也有结合自己经历过的<a href="https://web.devopstopologies.com/">devops组织结构模式</a>的变化，提出来自己对于devops深层的本质的理解。</p>
+<pre><code>1. 建立统一标准。
+2. 屏蔽技术壁垒。
+</code></pre><p>而在这个讨论过程中，就有一些更具体的问题，我们在devops实践过程中碰到的一些做法对不对？比如说：为什么我们能看到devops这个角色或者职位，到底devops是一个工种，他要去负责dev+ops的活，还是一种站在对方的角度思考问题的文化？如果我们不了解对方的专业领域的知识，我们又怎么去理解对方，打破壁垒？这个讨论中小伙伴们都拿出了自己的案例来说明自己的观点。在我看来，如同人类社会发展一样，从原始社会，奴隶社会到封建社会，再到我们今天的资本主义社会和社会主义社会，下一步是共产主义社会。目前我们能看到的这些不同的做法和组织形态，都可以算的上是devops，只不过是成熟度不同所在不同阶段而已。</p>
+<p>下面这张图是<a href="https://www.linkedin.com/in/jez-humble">Jez Humble</a>提出来的devops的5大基石/支柱，也算是在圈内认同度比较高的一个解释框架。</p>
+<p><img src="https://miro.medium.com/max/3200/1*ybLbkNosKN-5y_OzLnnmMw.png" alt="img"></p>
+<p>请注意最下面部分那句 “In DevOps, it&rsquo;s always <strong>people</strong> over <strong>process</strong> over <strong>tools</strong>&quot;，所以如同我上面的所述，当我们还知识关注于工具和实施自动化的时候，相对的还处于比较初级的阶段。之后再进一步开始引入精益，建立成熟的流程，就高级了一些。最后上升到关注人文，能够共担责任的时候，就可以称得上完美的devops实践了。hmm~这么说来，倒是更像<a href="https://zh.wikipedia.org/zh-hk/%E9%9C%80%E6%B1%82%E5%B1%82%E6%AC%A1%E7%90%86%E8%AE%BA">马斯洛的需求层次理论</a>，我们之后讨论的内容应该更能佐证我的这个观点吧。</p>
+<h2 id="怎么才能更好的推动devops">怎么才能更好的推动devops</h2>
+<p>这个是最现实也是最无力的问题，毕竟devops怎么听都是一个很美好的东西，但是为什么我们在推行devops的时候还是遇到了各种各样的阻力？</p>
+<p>大家用自己的亲身经历总结出来的最有效的方法是：切身的痛点(利益)才是内在驱动力。不论是从上向下的被动模式还是从下往上的主动模式，一定是驱动的人从中看到了这个事情能给他带来所谓的“价值”，也就是我前面括号里面赤果果的翻译：利益。</p>
+<p>至于什么是“价值”，讨论到最后终是变成了最正确的废话：对方真正看中的东西。不同的人和角色在不同的时段对于看重的东西是不一样的，了解他们在当前关注的能给他带来的“价值”的点，然后有对应的方案就比较好推动了。</p>
+<p>而另外一个切入点，就是有足够的权威，当对方足够信任你或者你有足够的威信的时候，你说的就是对的，即使它是错的。如果你不幸搞错了，可能实施的人觉得是自己哪里没做对，然后失败了。现实就是这么冰冷，无情而残酷。</p>
+<h2 id="国内外devops实施的差别">国内外devops实施的差别</h2>
+<p>这个是很有趣的一件事情。在国内做devops，最终十有八九就是以采用了一些devops工具或者开发了一个devops平台来宣告成功。而在国外，你要和行内人士说devops平台，他肯定不能理解，为什么有了一个平台就算是落地devops了？这个看起来更多的是我们主流的发展思路不同导致的，如同<a href="https://www.sohu.com/a/124962731_604484">我国在国际上的优势领域</a>多是效率驱动型的一样，我们在devops上也是以提升效率为主，很少讨论人文层面的比较虚无的东西。而国外很多的时候是反着来，所以也就如小伙伴笑称的：国内关注结果，国外享受过程。</p>
+<h2 id="相关资料">相关资料</h2>
+<ul>
+<li><a href="https://blog.damnops.com/the-name-of-devops/">关于devops的拼写</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/DevOps">Wiki上的devops的定义</a></li>
+<li><a href="https://web.devopstopologies.com/">devops组织结构模式</a></li>
+<li><a href="https://www.linkedin.com/in/jez-humble">Jez Humble</a></li>
+<li><a href="https://miro.medium.com/max/3200/1*ybLbkNosKN-5y_OzLnnmMw.png">devops的5大基石/支柱</a></li>
+<li><a href="https://zh.wikipedia.org/zh-hk/%E9%9C%80%E6%B1%82%E5%B1%82%E6%AC%A1%E7%90%86%E8%AE%BA">马斯洛的需求层次理论</a></li>
+<li><a href="https://www.sohu.com/a/124962731_604484">我国在国际上的优势领域</a></li>
+</ul>
+
+                    <HR width="100%" id="EOF">
+                    <p style="color:#777;">Last modified on 2020-04-18</p>
+                </div>
+                
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts">
+                    Next<br>No newer posts.
+                </a>
+                
+                
+                
+                <a class="older-posts" href="https://blog.damnops.com/ichegg-about-monitor-and-alert/">
+                    Previous<br>爱扯淡 - 监控报警的那点事
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+<div id="gitalk-container"></div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div><div id="single-column-footer">Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://amazingrise.net">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+&copy;
+	
+	dAmNOps.com
+	</div>
+    	</div>
+    <script src="https://blog.damnops.com/js/journal.js"></script>
+    </body>
+</html>
