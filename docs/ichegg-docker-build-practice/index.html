@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html><head>
+<title>爱扯淡 - docker build的好实践和坏实践</title>
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+
+<script src="/vendor/js/jquery.min.js" ></script>
+<script src="/vendor/js/popper.min.js" ></script>
+<script src="/vendor/js/bootstrap.min.js" ></script>
+<script src="/vendor/js/smooth-scroll.polyfills.min.js" ></script>
+<link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+<script src="/vendor/js/vue.min.js" ></script>
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+
+
+<link rel="stylesheet" href="https://blog.damnops.com/scss/journal.min.d1e46276e6b8b5f326abd9d28457b28f961c216847eae83bf95b8f28f1352ca4.css" integrity="sha256-0eRidua4tfMmq9nShFeyj5YcIWhH6ug7&#43;VuPKPE1LKQ=" media="screen">
+
+<script src="https://blog.damnops.com/js/loadCSS.js"></script>
+<script>
+    loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Noto+Serif+SC|Material+Icons");
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/vendor/js/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+  clientID: '7e7716d22bc7b477d0ce',
+  clientSecret: 'a50211cca027a925ea5f27c77a71fe7d78ba19fc',
+  repo: 'blog',
+  owner: 'phoenix-zhu',
+  admin: ['phoenix-zhu'],
+  id: md5(location.pathname),
+  distractionFreeMode: 'false'
+  });
+  window.onload = function () {
+        gitalk.render('gitalk-container')
+  }
+</script>
+
+</head><body>
+    	<div id="app"><div ref="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://blog.damnops.com">
+    
+        <div class="nav-title">
+            dAmN Ooooooops
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+                
+                
+                <a class="a-block nav-link-item false" href="/categories">
+                    Categories
+                </a>
+        
+            
+                
+                
+                <a class="a-block nav-link-item false" href="/chronologies">
+                    Chronologies
+                </a>
+        
+            
+                
+                
+                <a class="a-block nav-link-item false" href="/tags">
+                    Tags
+                </a>
+        
+            
+                
+                
+                <a class="a-block nav-link-item false" href="/about-me">
+                    About Me
+                </a>
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://amazingrise.net">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+&copy;
+	
+	dAmNOps.com
+	
+    </div>
+    
+</div><div ref="extraContainer" class="extra-container">
+    
+    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }"><script>
+  $(window).bind('scroll', function() {
+      var currentTop = $(window).scrollTop();
+      var currentBottom = $(window).scrollTop() + $(window).height();
+      var pageBottom = $('#EOF').offset().top;
+      var elems = $(":header");
+      elems.each(function(idx){
+        var elemTop = $(this).offset().top;
+        var id = $(this).attr('id');
+        var navElem = $('a[href="#' + id+ '"]');
+        if(currentTop >= elemTop || currentBottom >= pageBottom){
+      	  navElem.addClass('toc-active');
+        } else {
+          navElem.removeClass('toc-active');
+        }
+      })
+  }); 
+</script>
+<div class="toc-content">
+
+	
+	
+	
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e5%bc%95%e8%a8%80" v-on:click="closeDrawer">
+										 引言
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#best-practice" v-on:click="closeDrawer">
+										 Best Practice
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e5%ae%98%e6%96%b9%e7%9a%84best-practice" v-on:click="closeDrawer">
+										 官方的best practice
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e6%88%91%e4%bb%ac%e7%9a%84best-practice" v-on:click="closeDrawer">
+										 我们的best practice
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e5%85%b6%e4%bb%96" v-on:click="closeDrawer">
+										 其他
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99" v-on:click="closeDrawer">
+										 参考资料
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+	
+</div></div>
+    
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+    </div>
+</div><div class="single-column-drawer-container" ref="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+                
+                    
+                    
+                    <a class="a-block drawer-menu-item false" href="/categories">
+                        Categories
+                    </a>
+            
+                
+                    
+                    
+                    <a class="a-block drawer-menu-item false" href="/chronologies">
+                        Chronologies
+                    </a>
+            
+                
+                    
+                    
+                    <a class="a-block drawer-menu-item false" href="/tags">
+                        Tags
+                    </a>
+            
+                
+                    
+                    
+                    <a class="a-block drawer-menu-item false" href="/about-me">
+                        About Me
+                    </a>
+            
+            
+            <div class="toc"><script>
+  $(window).bind('scroll', function() {
+      var currentTop = $(window).scrollTop();
+      var currentBottom = $(window).scrollTop() + $(window).height();
+      var pageBottom = $('#EOF').offset().top;
+      var elems = $(":header");
+      elems.each(function(idx){
+        var elemTop = $(this).offset().top;
+        var id = $(this).attr('id');
+        var navElem = $('a[href="#' + id+ '"]');
+        if(currentTop >= elemTop || currentBottom >= pageBottom){
+      	  navElem.addClass('toc-active');
+        } else {
+          navElem.removeClass('toc-active');
+        }
+      })
+  }); 
+</script>
+<div class="toc-content">
+
+	
+	
+	
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e5%bc%95%e8%a8%80" v-on:click="closeDrawer">
+										 引言
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#best-practice" v-on:click="closeDrawer">
+										 Best Practice
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e5%ae%98%e6%96%b9%e7%9a%84best-practice" v-on:click="closeDrawer">
+										 官方的best practice
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e6%88%91%e4%bb%ac%e7%9a%84best-practice" v-on:click="closeDrawer">
+										 我们的best practice
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e5%85%b6%e4%bb%96" v-on:click="closeDrawer">
+										 其他
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99" v-on:click="closeDrawer">
+										 参考资料
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+	
+</div></div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav ref="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div ref="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a ref="navTitle" class="navbar-brand" href="https://blog.damnops.com">
+            dAmN Ooooooops
+        </a>
+    </div>
+</nav>
+<div class="single-column-header-container" ref="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://blog.damnops.com">
+        <div class="single-column-header-title">dAmN Ooooooops</div>
+        
+
+    </a>
+</div>
+            <div id="content">
+<div ref="streamContainer" class="stream-container">
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                 style="background-image: url('/')">
+                <div class="post-title">
+                    爱扯淡 - docker build的好实践和坏实践
+                    <div class="post-meta">
+                        <time itemprop="datePublished">
+                            2020-05-21 15:20
+                        </time>
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/">[爱扯淡]</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/%E7%88%B1%E6%89%AF%E6%B7%A1">爱扯淡</a>
+                                &nbsp;
+                            
+                                <a href="/tags/docker">docker</a>
+                                &nbsp;
+                            
+                                <a href="/tags/%E5%AE%9E%E8%B7%B5">实践</a>
+                                &nbsp;
+                            
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                <div class="post-body">
+                    <h2 id="引言">引言</h2>
+<p>Docker已经妥妥的成为了容器的业界标准，虽然不时的还有一些什么rkt, lxd将会是接下来的潮流之类的预言，但是至今也还未见能挑起大梁的后起之秀出现，我等俗人还是先顺应当前的潮流吧。而build镜像则是如何把docker使用好的占比非常大的一块内容，今天的话题也是始于群里面一个如何能更快的build docker image的问题。</p>
+<h2 id="best-practice">Best Practice</h2>
+<p>其实我们并没有讨论什么坏实践，更多的是在围绕我们觉得好的实践是什么和疑问来展开的，这次我就不按照讨论的节奏来总结了，直接上汇总的结果了。总体来讲，build镜像的目标就是尽可能的<strong>让镜像小并能兼顾高效和安全</strong>。</p>
+<h3 id="官方的best-practice">官方的best practice</h3>
+<p><a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">Docker官方有一个best practice的文档</a>，这个里面写了一些非常好的通用的实践，估摸着大部分人应该都看过了，我在这里摘抄一下核心的内容，鉴于文档里面都有详细的说明和例子，我简单的说一下我的理解。</p>
+<ul>
+<li><strong>构建可随时终止的容器(Create ephemeral containers)</strong>，这一点咋看起来似乎和build image没有什么关系，但是其实是一个大的宗旨，就是说在build镜像的时候，你要以镜像将来创建出来的容器是可随时终止和替换的为目标，就和<a href="https://12factor.net/zh_cn/">12因子</a>应用里面对于<a href="https://12factor.net/zh_cn/processes">进程</a>的定义类似，容器只是业务运行的一个临时栖所，你不应该把有状态或者需要传承的东西放在镜像里面。</li>
+<li><strong>使用.dockerignore排除不相干的文件(Exclude with .dockerignore)</strong>，docker是一个C/S架构的应用，build这个过程是在S端进行的，所以build的时候C端会把当前目录的文件当作<a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context">build context</a>传给S端，如果传了很多在build image的过程中用不到的文件，就会有无谓的性能和时间上的损失，所以合理的使用.dockerignore文件排除不相干的文件。</li>
+<li><strong>使用多阶段构建(Use multi-stage builds)</strong>，这个不多讲，很多的程序是或者业务最终需要的其实是一些编译的产出物，但是编译的过程会需要很多在运行时不会用到的依赖，多阶段构建就是为了解决这个问题的。</li>
+<li><strong>只安装必须的文件包(Don’t install unnecessary packages)</strong>，这个不解释。</li>
+<li><strong>解耦业务(Decouple applications)</strong>，这个说白了就是docker设计的核心理念，一个容器应该只有一个进程，现实中可的业务需求真的很难完全做到这个，但是尽量吧。</li>
+<li><strong>最小化层数(Minimize the number of layers)</strong>，这一点，我个人其实持保留态度，因为他和接下来的使用Cache这个在某种程度上是有冲突的，具体根据情况做取舍吧。</li>
+<li><strong>使用Cache(Leverage build cache)</strong>，这个作为如何快速的构建镜像的金律，人人都知道，不多说。</li>
+<li><strong>使用多行参数并排序(Sort multi-line arguments)</strong>，程序员的基础素养，写清晰易读的代码。</li>
+</ul>
+<h3 id="我们的best-practice">我们的best practice</h3>
+<p>除了官方的之外，我们在平时使用中也有一些适合自己的实践，列在下面供大家参考。</p>
+<ul>
+<li>
+<p><strong>尽可能使用Alpine版本的基础镜像</strong>，这个可以理解，小嘛，但是里面的工具和服务都是定制过的，通用性相对差一些，和其他的流行的版本还是有一些差别的，可能需要你对使用到的工具的参数，服务的配置做一些处理。</p>
+</li>
+<li>
+<p><strong>锁死镜像的版本</strong>，非精细化的版本tag其实是会随时更新的，比如<code>ruby:2</code>，你也不知道哪天它会从2.1升到2.2了，很可能这个变化就导致了不期望的或者和之前不一致的结果，所以有一个办法就是带上镜像的sha256签名，比如<code>ruby:2@sha256:15083783ce61a90002eb175a0de2c198afb74b49bd87d52d329e2f4a57b21562</code>，这样你永远拿到的都是那个唯一的版本，如果你需要知道某一个tag的最新的sha256，推荐一个小工具 <a href="https://github.com/realestate-com-au/dfresh">dfresh</a>。不过这个实践你要灵活使用，比如说我的项目需求是即使这个代码库已经没有新的feature开发了，但是还是需要定期的更新语言和依赖到最新的版本，以确保我的代码不是僵尸代码，而且是有最新的安全补丁的，这种情况下，你可能也需要类似于dfresh这样的工具更新基本镜像的实际版本，或者说如果你能有办法知道某一个workable的基础镜像的sha256也是可以的。</p>
+</li>
+<li>
+<p><strong>干净的依赖安装</strong>，这个可能是很多人都没有关注到一个点，比如说我们使用的是nodejs，大部分人的Dockerfile中相关的部分可能会是下面这样的。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> node:10</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> . .<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> yarn install<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>这个看起来好像没有什么问题，但是如果你的dockerignore文件如果没有处理好，有可能就会把本机的node_modules在安装之前就一起copy进去了，这样其实你就污染了build环境，同样的代码，别人打出来的包和你的包有可能是不一致的，即使看起来我们也使用了lock文件。推荐的写法是：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> node:10</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> yarn.lock .<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> yarn install<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> . .<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>甚至在有必要的时候使用Volume这个黑魔法。</p>
+</li>
+<li>
+<p><strong>必要的时候使用Volume</strong>，Volume是一个你掌握好了就像金手指开挂，掌握不好就给自己挖了一个大坑一样的东西，所以我个人建议你在使用之前去了解一下Volmue的原理，可以去看一下队长之前的<a href="https://drive.google.com/file/d/1cbqEHxQlvVqYXs5RLZ7f3gOCw0pfV2d-/view?usp=sharing">容器化的课程</a>中相关的部分，从大概1小时10分时开始。简单的来讲，在dockerfile中，你可以使用它锁死某个目录的状态，比如说下面的这个dockerfile，你猜你用它生成的镜像起一个容器的时候，/app目录下面都有什么文件，内容是什么？</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> alpine:3</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /app</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> echo <span style="color:#ae81ff">1</span> &gt; file<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">VOLUME</span><span style="color:#e6db74"> /app</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> echo <span style="color:#ae81ff">2</span> &gt; file <span style="color:#f92672">&amp;&amp;</span> touch new<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>如果不知道的话自己试一试吧，然后在需要的时候合理的利用这个黑魔法。</p>
+</li>
+<li>
+<p><strong>不要使用root帐号</strong>，这个其实是安全实践中的<a href="https://en.wikipedia.org/wiki/Principle_of_least_privilege">最小化权限原则</a>，在容器中使用root用户是有一定程度的安全风险，尤其是如果使用了privileged模式的情况下，<a href="https://medium.com/@mccode/processes-in-containers-should-not-run-as-root-2feae3f0df3b">这篇文章</a>给了一个栗子。</p>
+</li>
+<li>
+<p><strong>不要把ssh key保留在镜像中</strong>，这个也是一个安全方面的风险，私钥打包在镜像中和把密码明文放在代码库里面基本上是一个性质的。这个需求多是源于要连接一个私有的仓库之类做一些事情，一种解决方法是把本地的key文件或者目录绑到容器的对应目录，这种方式会受限于key文件的命名规则。另外一种方式是把key文件的内容当作arg传入，这种方式需要你在生成临时key文件并在同一层做完操作然后删除，否则这个文件就保留在镜像中了。还有一种办法是使用docker的<a href="https://docs.docker.com/develop/develop-images/build_enhancements/#using-ssh-to-access-private-data-in-builds">buildkit</a>来做，但是这个目前还处于测试阶段，另外注意在pipeline中使用时开启静默模式，否则你的pipeline的log会很难看。</p>
+</li>
+<li>
+<p><strong>慎用profile/rc文件</strong>，这类文件是在使用tty/pty/console，有用户session的时候才会加载的文件，所以这里面配置的东西在build的时候是不会有的，这种情况下，你可能会很迷惑，明明我用这个镜像起一个容器能看到这些配置生效了，为什么在build的时候就不生效呢？</p>
+</li>
+<li>
+<p><strong>慎用latest tag</strong>，latest是默认的一个tag，它代表的我最近一次打出来的镜像，并不是代表这个可用的最新的版本，因为有可能最新的这次build的image是有问题的，而且很大程度上说，也很难定位当前的latest对应的等价的tag是什么。如果造化弄人，那些小概率事件让你碰到，比如说有可能有一些粗心大意的小伙伴会每次都把latest镜像push到registry，而这个latest是有问题的，如果你的业务这个时候重新拉了latest tag的镜像，可能画面就会很美好了。</p>
+</li>
+<li>
+<p><strong>使用WORKDIR而非cd命令</strong>，cd用多了会产生混乱，尤其是使用相对目录的情况下，调整顺序绝大部分情况下会产生错误。</p>
+</li>
+</ul>
+<h2 id="其他">其他</h2>
+<ul>
+<li><strong>如何更快的build镜像</strong>，这个是最初引发这个讨论的让人头疼的主题，但是追根究底来讲其实是一个网速问题，因为我们在安装和编译过程中是会下载大量的依赖的。所以，目前用的比较多的方法有二。使用cache或私有仓库是一个方法，不论是docker的cache还是agent的cache，亦或是一个proxy的cache也可以，实在不行创建自己私有的包管理仓库吧，这也是很多企业最后的选择，省时间也省流量。另外一个办法就是做一个base image，但是这个取决于所需依赖和安装包的更新频率，很多的时候，一些团队采用的折衷策略就是把这个base image做一个nightly的更新，但是不管怎么样，都是有额外的管理成本在其中的，自己取舍吧。</li>
+<li><strong>一些操作到底是放在dockerfile中还是entrypoint的脚本中？</strong> 这个只能说是个人偏好了，没有所谓的对错，震宇举了一个很好的例子，就如同jenkinsfile一样，你是把命令直接写在step里面，还是写在一个脚本里面然后调用它。我个人坚持步骤和逻辑分离的原则，在dockerfile中我更倾向于尽量少的做逻辑处理和配置相关的操作，这些内容放在初始化的脚本里面更符合我的习惯，除了逻辑部分集中之外，另外一个好处是在测试改动的时候不需要重新build镜像，把这个文件挂载进容器就可以了，anyway，使用你自己舒服的方式来做事。</li>
+</ul>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">Best practices for writing Dockerfiles</a>, Docker官方的Best Practice</li>
+<li><a href="https://12factor.net/zh_cn/">12因子应用</a></li>
+<li><a href="https://github.com/realestate-com-au/dfresh">dfresh</a></li>
+<li><a href="https://slides.com/phoenix_zhu/deck">基于容器化的DevOps实践</a></li>
+<li><a href="https://drive.google.com/drive/folders/1oMAmflF8LVHkkGuLEHfnR6MOPeAxtcEm">TOC容器化课程</a></li>
+<li><a href="https://docs.docker.com/develop/develop-images/build_enhancements/">Build images with BuildKit</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Principle_of_least_privilege">最小化权限原则</a></li>
+<li><a href="https://medium.com/@mccode/processes-in-containers-should-not-run-as-root-2feae3f0df3b">Processes In Containers Should Not Run As Root</a></li>
+</ul>
+
+                    <HR width="100%" id="EOF">
+                    <p style="color:#777;">Last modified on 2020-05-21</p>
+                </div>
+                
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts">
+                    Next<br>No newer posts.
+                </a>
+                
+                
+                
+                <a class="older-posts" href="https://blog.damnops.com/ichegg-talk-about-devops/">
+                    Previous<br>爱扯淡 - 再说devops
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+<div id="gitalk-container"></div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div><div id="single-column-footer">Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://amazingrise.net">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+&copy;
+	
+	dAmNOps.com
+	</div>
+    	</div>
+    <script src="https://blog.damnops.com/js/journal.js"></script>
+    </body>
+</html>

@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>dAmNOps.com</copyright>
-    <lastBuildDate>Sat, 18 Apr 2020 14:18:32 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 21 May 2020 15:20:09 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.damnops.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>docker</title>
+      <link>https://blog.damnops.com/tags/docker/</link>
+      <pubDate>Thu, 21 May 2020 15:20:09 +0800</pubDate>
+      
+      <guid>https://blog.damnops.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>实践</title>
+      <link>https://blog.damnops.com/tags/%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Thu, 21 May 2020 15:20:09 +0800</pubDate>
+      
+      <guid>https://blog.damnops.com/tags/%E5%AE%9E%E8%B7%B5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>爱扯淡</title>
+      <link>https://blog.damnops.com/tags/%E7%88%B1%E6%89%AF%E6%B7%A1/</link>
+      <pubDate>Thu, 21 May 2020 15:20:09 +0800</pubDate>
+      
+      <guid>https://blog.damnops.com/tags/%E7%88%B1%E6%89%AF%E6%B7%A1/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>devops</title>
@@ -18,15 +45,6 @@
       <pubDate>Sat, 18 Apr 2020 14:18:32 +0800</pubDate>
       
       <guid>https://blog.damnops.com/tags/devops/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>爱扯淡</title>
-      <link>https://blog.damnops.com/tags/%E7%88%B1%E6%89%AF%E6%B7%A1/</link>
-      <pubDate>Sat, 18 Apr 2020 14:18:32 +0800</pubDate>
-      
-      <guid>https://blog.damnops.com/tags/%E7%88%B1%E6%89%AF%E6%B7%A1/</guid>
       <description></description>
     </item>
     

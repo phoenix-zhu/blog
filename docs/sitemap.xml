@@ -4,41 +4,56 @@
   
   <url>
     <loc>https://blog.damnops.com/chronologies/2020/</loc>
-    <lastmod>2020-04-18T14:18:32+08:00</lastmod>
+    <lastmod>2020-05-21T15:20:09+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.damnops.com/categories/</loc>
-    <lastmod>2020-04-18T14:18:32+08:00</lastmod>
+    <lastmod>2020-05-21T15:20:09+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.damnops.com/chronologies/</loc>
-    <lastmod>2020-04-18T14:18:32+08:00</lastmod>
+    <lastmod>2020-05-21T15:20:09+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.damnops.com/</loc>
-    <lastmod>2020-04-18T14:18:32+08:00</lastmod>
+    <lastmod>2020-05-21T15:20:09+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.damnops.com/tags/devops/</loc>
-    <lastmod>2020-04-18T14:18:32+08:00</lastmod>
+    <loc>https://blog.damnops.com/tags/docker/</loc>
+    <lastmod>2020-05-21T15:20:09+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.damnops.com/tags/</loc>
-    <lastmod>2020-04-18T14:18:32+08:00</lastmod>
+    <lastmod>2020-05-21T15:20:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.damnops.com/tags/%E5%AE%9E%E8%B7%B5/</loc>
+    <lastmod>2020-05-21T15:20:09+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.damnops.com/tags/%E7%88%B1%E6%89%AF%E6%B7%A1/</loc>
-    <lastmod>2020-04-18T14:18:32+08:00</lastmod>
+    <lastmod>2020-05-21T15:20:09+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.damnops.com/categories/%E7%88%B1%E6%89%AF%E6%B7%A1/</loc>
+    <lastmod>2020-05-21T15:20:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.damnops.com/ichegg-docker-build-practice/</loc>
+    <lastmod>2020-05-21T15:20:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.damnops.com/tags/devops/</loc>
     <lastmod>2020-04-18T14:18:32+08:00</lastmod>
   </url>
   
