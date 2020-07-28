@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head>
-<title>A damn OPS</title>
+<title>CloudWatch和Pagerduty集成的报警名字问题</title>
 
 <meta charset="utf-8">
 <meta name="X-UA-Compatible" content="IE=edge">
@@ -89,9 +89,7 @@
             
                 
                 
-                    
-                
-                <a class="a-block nav-link-item active" href="/about-me">
+                <a class="a-block nav-link-item false" href="/about-me">
                     About Me
                 </a>
         
@@ -136,35 +134,6 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
 	
 	
 	
-		
-		
-		
-		<center>- CATALOG -</center>
-			
-				
-				
-					
-						
-						
-							<ul>
-						
-							<ul>
-						
-						
-								<li>
-				 					<a href="#zhu-ye" v-on:click="closeDrawer">
-										 Zhu Ye
-									</a>
-								</li>
-						
-							</ul>
-						
-							</ul>
-						
-					
-				
-			
-	
 </div></div>
     
     <div class="pagination">
@@ -205,9 +174,7 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
                 
                     
                     
-                        
-                    
-                    <a class="a-block drawer-menu-item active" href="/about-me">
+                    <a class="a-block drawer-menu-item false" href="/about-me">
                         About Me
                     </a>
             
@@ -235,35 +202,6 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
 	
 	
 	
-	
-		
-		
-		
-		<center>- CATALOG -</center>
-			
-				
-				
-					
-						
-						
-							<ul>
-						
-							<ul>
-						
-						
-								<li>
-				 					<a href="#zhu-ye" v-on:click="closeDrawer">
-										 Zhu Ye
-									</a>
-								</li>
-						
-							</ul>
-						
-							</ul>
-						
-					
-				
-			
 	
 </div></div>
             
@@ -305,14 +243,30 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
             <div class="post-head-wrapper-text-only"
                  style="background-image: url('/')">
                 <div class="post-title">
-                    A damn OPS
+                    CloudWatch和Pagerduty集成的报警名字问题
                     <div class="post-meta">
                         <time itemprop="datePublished">
-                            2016-05-29 14:07
+                            2020-07-28 10:07
                         </time>
 
                         
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/">[tech cloud]</a>
+                                &nbsp;
+                        
 
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/cloudwatch">CloudWatch</a>
+                                &nbsp;
+                            
+                                <a href="/tags/pagerduty">Pagerduty</a>
+                                &nbsp;
+                            
+                                <a href="/tags/%E6%8A%A5%E8%AD%A6">报警</a>
+                                &nbsp;
+                            
                         
                     </div>
                 </div>
@@ -320,19 +274,36 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
             
             <div class="post-body-wrapper">
                 <div class="post-body">
-                    <h2 id="zhu-ye">Zhu Ye</h2>
-<p><em><strong>ThoughtWorks Lead Consultant</strong></em></p>
-<ul>
-<li>15+ years work experience in OPS field.</li>
-<li>Focused on cloud native technologies.</li>
-<li>Devoted in devops &amp; SRE practices.</li>
-<li>AWS Certified Solutions Architect - Professional.</li>
-<li>AWS Certified Security - Specialty.</li>
-<li>CCIE - Routing and Switching.</li>
-</ul>
+                    <p>CloudWatch和Pagerduty集成是一个非常常见的操作，但是默认情况下，两者集成之后CloudWatch发送给Pagerduty的消息大概长这样。</p>
+<pre><code>{
+  &quot;client&quot;: &quot;AWS Console&quot;,
+  &quot;client_url&quot;: &quot;https://console.aws.amazon.com/cloudwatch/home?region=ap-southeast-1#c=CloudWatch&amp;s=Alarms&amp;alarm=Response Time Abnormal&quot;,
+  &quot;description&quot;: &quot;GreaterThanUpperThreshold&quot;,
+  &quot;event_type&quot;: &quot;trigger&quot;,
+  &quot;incident_key&quot;: &quot;Response Time Abnormal&quot;,
+  &quot;service_key&quot;: &quot;08cfd976xxxxxxxd03b2753&quot;,
+  &quot;details&quot;: {
+    &quot;Trigger&quot;: {
+      ...
+      &quot;ComparisonOperator&quot;: &quot;GreaterThanUpperThreshold&quot;
+    },
+    &quot;OldStateValue&quot;: &quot;OK&quot;,
+    &quot;NewStateValue&quot;: &quot;ALARM&quot;,
+    &quot;NewStateReason&quot;: &quot;Thresholds Crossed: 5 out of the last 5 datapoints were greater than the upper thresholds. ....&quot;,
+    &quot;AlarmName&quot;: &quot;Response Time Abnormal&quot;,
+    &quot;AlarmDescription&quot;: &quot;Response Time higher than usual&quot;,
+    &quot;AlarmArn&quot;: &quot;arn:aws:cloudwatch:ap-southeast-1:123456789:alarm:Response Time Abnormal&quot;,
+    &quot;AWSAccountId&quot;: &quot;123456789&quot;
+  }
+}
+</code></pre><p>按照Pagerduty的定义，它会把<code>description</code>里面的内容当作报警的描述，收到这样的报警消息，这我根本不知道发生了什么好吧？</p>
+<p>考虑再三之后，我还是向AWS发了一个技术支持的工单，友善的询问他们为什么description选用的是ComparisonOperator这么一个并没有太多意义的内容，是否可以修改成其他更有意义的内容。然后回复工单的小哥很擅长的打了一个太极，告诉我说Pagerduty的网站上有一个关于<a href="https://support.pagerduty.com/docs/aws-cloudwatch-integration-guide#how-can-i-change-how-events-from-cloudwatch-are-deduplicated-into-pagerduty">如何处理CloudWatch重复消息的方法</a>。</p>
+<p>我……</p>
+<p>虽然这个回复根本不是我想要的，但是我还是怀着害死猫的心情点开了这个链接，去了里面说的地方，结果竟然让我发现了意想不到的东西，上面文档里面说的那个“Correlate events by”下面还有一个选项叫做“Derive name from”。哦，这个有点意思的东西里面除了“Default”之外还有“AlarmName”和“AlarmDescription”可以选择。赶紧测试了一下，终于解决了长久以来困扰我的问题。</p>
+<p>猛然间，我觉得AWS的技术支持小哥用心良苦，他是要把找到最终答案这样有意义和激励性的事情留给我亲自去完成，而不是直接告诉我，这才是真正的良师啊。于是，我回邮件告诉了他真正的解决方式。</p>
 
                     <HR width="100%" id="EOF">
-                    <p style="color:#777;">Last modified on 2020-01-27</p>
+                    <p style="color:#777;">Last modified on 2020-07-28</p>
                 </div>
                 
             </div>
@@ -341,14 +312,14 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
             <nav class="post-pagination">
 
                 
-                <a class="newer-posts" href="https://blog.damnops.com/hello-world/">
-                    Next<br>Hello, world!
+                <a class="newer-posts">
+                    Next<br>No newer posts.
                 </a>
                 
                 
                 
-                <a class="older-posts">
-                    Previous<br>No older posts.
+                <a class="older-posts" href="https://blog.damnops.com/ichegg-docker-build-practice/">
+                    Previous<br>爱扯淡 - docker build的好实践和坏实践
                 </a>
                 
             </nav>

@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>dAmNOps.com</copyright>
-    <lastBuildDate>Thu, 21 May 2020 15:20:09 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2020 10:07:33 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.damnops.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CloudWatch和Pagerduty集成的报警名字问题</title>
+      <link>https://blog.damnops.com/cloudwatch-pagerduty-intergration/</link>
+      <pubDate>Tue, 28 Jul 2020 10:07:33 +0800</pubDate>
+      
+      <guid>https://blog.damnops.com/cloudwatch-pagerduty-intergration/</guid>
+      <description>CloudWatch和Pagerduty集成是一个非常常见的操作，但是默认情况下，两者集成之后CloudWatch发送给Pagerduty的消息大概长这样。
+{ &amp;quot;client&amp;quot;: &amp;quot;AWS Console&amp;quot;, &amp;quot;client_url&amp;quot;: &amp;quot;https://console.aws.amazon.com/cloudwatch/home?region=ap-southeast-1#c=CloudWatch&amp;amp;s=Alarms&amp;amp;alarm=Response Time Abnormal&amp;quot;, &amp;quot;description&amp;quot;: &amp;quot;GreaterThanUpperThreshold&amp;quot;, &amp;quot;event_type&amp;quot;: &amp;quot;trigger&amp;quot;, &amp;quot;incident_key&amp;quot;: &amp;quot;Response Time Abnormal&amp;quot;, &amp;quot;service_key&amp;quot;: &amp;quot;08cfd976xxxxxxxd03b2753&amp;quot;, &amp;quot;details&amp;quot;: { &amp;quot;Trigger&amp;quot;: { ... &amp;quot;ComparisonOperator&amp;quot;: &amp;quot;GreaterThanUpperThreshold&amp;quot; }, &amp;quot;OldStateValue&amp;quot;: &amp;quot;OK&amp;quot;, &amp;quot;NewStateValue&amp;quot;: &amp;quot;ALARM&amp;quot;, &amp;quot;NewStateReason&amp;quot;: &amp;quot;Thresholds Crossed: 5 out of the last 5 datapoints were greater than the upper thresholds. ....&amp;quot;, &amp;quot;AlarmName&amp;quot;: &amp;quot;Response Time Abnormal&amp;quot;, &amp;quot;AlarmDescription&amp;quot;: &amp;quot;Response Time higher than usual&amp;quot;, &amp;quot;AlarmArn&amp;quot;: &amp;quot;arn:aws:cloudwatch:ap-southeast-1:123456789:alarm:Response Time Abnormal&amp;quot;, &amp;quot;AWSAccountId&amp;quot;: &amp;quot;123456789&amp;quot; } } 按照Pagerduty的定义，它会把description里面的内容当作报警的描述，收到这样的报警消息，这我根本不知道发生了什么好吧？
+考虑再三之后，我还是向AWS发了一个技术支持的工单，友善的询问他们为什么description选用的是ComparisonOperator这么一个并没有太多意义的内容，是否可以修改成其他更有意义的内容。然后回复工单的小哥很擅长的打了一个太极，告诉我说Pagerduty的网站上有一个关于如何处理CloudWatch重复消息的方法。
+我……
+虽然这个回复根本不是我想要的，但是我还是怀着害死猫的心情点开了这个链接，去了里面说的地方，结果竟然让我发现了意想不到的东西，上面文档里面说的那个“Correlate events by”下面还有一个选项叫做“Derive name from”。哦，这个有点意思的东西里面除了“Default”之外还有“AlarmName”和“AlarmDescription”可以选择。赶紧测试了一下，终于解决了长久以来困扰我的问题。</description>
+    </item>
     
     <item>
       <title>爱扯淡 - docker build的好实践和坏实践</title>
@@ -21,7 +34,7 @@
       <description>引言 Docker已经妥妥的成为了容器的业界标准，虽然不时的还有一些什么rkt, lxd将会是接下来的潮流之类的预言，但是至今也还未见能挑起大梁的后起之秀出现，我等俗人还是先顺应当前的潮流吧。而build镜像则是如何把docker使用好的占比非常大的一块内容，今天的话题也是始于群里面一个如何能更快的build docker image的问题。
 Best Practice 其实我们并没有讨论什么坏实践，更多的是在围绕我们觉得好的实践是什么和疑问来展开的，这次我就不按照讨论的节奏来总结了，直接上汇总的结果了。总体来讲，build镜像的目标就是尽可能的让镜像小并能兼顾高效和安全。
 官方的best practice Docker官方有一个best practice的文档，这个里面写了一些非常好的通用的实践，估摸着大部分人应该都看过了，我在这里摘抄一下核心的内容，鉴于文档里面都有详细的说明和例子，我简单的说一下我的理解。
- 构建可随时终止的容器(Create ephemeral containers)，这一点咋看起来似乎和build image没有什么关系，但是其实是一个大的宗旨，就是说在build镜像的时候，你要以镜像将来创建出来的容器是可随时终止和替换的为目标，就和12因子应用里面对于进程的定义类似，容器只是业务运行的一个临时栖所，你不应该把有状态或者需要传承的东西放在镜像里面。 使用.dockerignore排除不相干的文件(Exclude with .dockerignore)，docker是一个C/S架构的应用，build这个过程是在S端进行的，所以build的时候C端会把当前目录的文件当作build context传给S端，如果传了很多在build image的过程中用不到的文件，就会有无谓的性能和时间上的损失，所以合理的使用.dockerignore文件排除不相干的文件。 使用多阶段构建(Use multi-stage builds)，这个不多讲，很多的程序是或者业务最终需要的其实是一些编译的产出物，但是编译的过程会需要很多在运行时不会用到的依赖，多阶段构建就是为了解决这个问题的。 只安装必须的文件包(Don’t install unnecessary packages)，这个不解释。 解耦业务(Decouple applications)，这个说白了就是docker设计的核心理念，一个容器应该只有一个进程，现实中可的业务需求真的很难完全做到这个，但是尽量吧。 最小化层数(Minimize the number of layers)，这一点，我个人其实持保留态度，因为他和接下来的使用Cache这个在某种程度上是有冲突的，具体根据情况做取舍吧。 使用Cache(Leverage build cache)，这个作为如何快速的构建镜像的金律，人人都知道，不多说。 使用多行参数并排序(Sort multi-line arguments)，程序员的基础素养，写清晰易读的代码。  我们的best practice 除了官方的之外，我们在平时使用中也有一些适合自己的实践，列在下面供大家参考。
+ 构建可随时终止的容器(Create ephemeral containers)，这一点咋看起来似乎和build image没有什么关系，但是其实是一个大的宗旨，就是说在build镜像的时候，你要以镜像将来创建出来的容器是可随时终止和替换的为目标，就和12因子应用里面对于进程的定义类似，容器只是业务运行的一个临时栖所，你不应该把有状态或者需要共享和传承的东西放在镜像里面。 使用.dockerignore排除不相干的文件(Exclude with .dockerignore)，docker是一个C/S架构的应用，build这个过程是在S端进行的，所以build的时候C端会把当前目录的文件当作build context传给S端，如果传了很多在build image的过程中用不到的文件，就会有无谓的性能和时间上的损失，所以合理的使用.dockerignore文件排除不相干的文件。 使用多阶段构建(Use multi-stage builds)，这个不多讲，很多的程序是或者业务最终需要的其实是一些编译的产出物，但是编译的过程会需要很多在运行时不会用到的依赖，多阶段构建就是为了解决这个问题的。 只安装必须的文件包(Don’t install unnecessary packages)，这个不解释。 解耦业务(Decouple applications)，这个说白了就是docker设计的核心理念，一个容器应该只有一个进程，现实中可的业务需求真的很难完全做到这个，但是尽量吧。 最小化层数(Minimize the number of layers)，这一点，我个人其实持保留态度，因为他和接下来的使用Cache这个在某种程度上是有冲突的，具体根据情况做取舍吧。 使用Cache(Leverage build cache)，这个作为如何快速的构建镜像的金律，人人都知道，不多说。 使用多行参数并排序(Sort multi-line arguments)，程序员的基础素养，写清晰易读的代码。  我们的best practice 除了官方的之外，我们在平时使用中也有一些适合自己的实践，列在下面供大家参考。
   尽可能使用Alpine版本的基础镜像，这个可以理解，小嘛，但是里面的工具和服务都是定制过的，通用性相对差一些，和其他的流行的版本还是有一些差别的，可能需要你对使用到的工具的参数，服务的配置做一些处理。
   锁死镜像的版本，非精细化的版本tag其实是会随时更新的，比如ruby:2，你也不知道哪天它会从2.1升到2.2了，很可能这个变化就导致了不期望的或者和之前不一致的结果，所以有一个办法就是带上镜像的sha256签名，比如ruby:2@sha256:15083783ce61a90002eb175a0de2c198afb74b49bd87d52d329e2f4a57b21562，这样你永远拿到的都是那个唯一的版本，如果你需要知道某一个tag的最新的sha256，推荐一个小工具 dfresh。不过这个实践你要灵活使用，比如说我的项目需求是即使这个代码库已经没有新的feature开发了，但是还是需要定期的更新语言和依赖到最新的版本，以确保我的代码不是僵尸代码，而且是有最新的安全补丁的，这种情况下，你可能也需要类似于dfresh这样的工具更新基本镜像的实际版本，或者说如果你能有办法知道某一个workable的基础镜像的sha256也是可以的。
   干净的依赖安装，这个可能是很多人都没有关注到一个点，比如说我们使用的是nodejs，大部分人的Dockerfile中相关的部分可能会是下面这样的。
@@ -193,8 +206,8 @@ RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/Cellar/openssl/1.0.2h_1 rbenv 
       <pubDate>Sun, 29 May 2016 14:07:21 +0800</pubDate>
       
       <guid>https://blog.damnops.com/about-me/</guid>
-      <description>Zhu Ye Thoughtworks Lead Consultant
- 15+ years work experience in OPS field. Focused on cloud native technologies. Devoted in devops &amp;amp; SRE practices. CCIE - Routing and Switching. AWS Certified Solutions Architect - Professional. AWS Certified Security - Specialty.  </description>
+      <description>Zhu Ye ThoughtWorks Lead Consultant
+ 15+ years work experience in OPS field. Focused on cloud native technologies. Devoted in devops &amp;amp; SRE practices. AWS Certified Solutions Architect - Professional. AWS Certified Security - Specialty. CCIE - Routing and Switching.  </description>
     </item>
     
   </channel>

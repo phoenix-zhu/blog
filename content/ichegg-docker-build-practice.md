@@ -20,7 +20,7 @@ Docker已经妥妥的成为了容器的业界标准，虽然不时的还有一�
 
 [Docker官方有一个best practice的文档](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)，这个里面写了一些非常好的通用的实践，估摸着大部分人应该都看过了，我在这里摘抄一下核心的内容，鉴于文档里面都有详细的说明和例子，我简单的说一下我的理解。
 
-- **构建可随时终止的容器(Create ephemeral containers)**，这一点咋看起来似乎和build image没有什么关系，但是其实是一个大的宗旨，就是说在build镜像的时候，你要以镜像将来创建出来的容器是可随时终止和替换的为目标，就和[12因子](https://12factor.net/zh_cn/)应用里面对于[进程](https://12factor.net/zh_cn/processes)的定义类似，容器只是业务运行的一个临时栖所，你不应该把有状态或者需要传承的东西放在镜像里面。
+- **构建可随时终止的容器(Create ephemeral containers)**，这一点咋看起来似乎和build image没有什么关系，但是其实是一个大的宗旨，就是说在build镜像的时候，你要以镜像将来创建出来的容器是可随时终止和替换的为目标，就和[12因子](https://12factor.net/zh_cn/)应用里面对于[进程](https://12factor.net/zh_cn/processes)的定义类似，容器只是业务运行的一个临时栖所，你不应该把有状态或者需要共享和传承的东西放在镜像里面。
 - **使用.dockerignore排除不相干的文件(Exclude with .dockerignore)**，docker是一个C/S架构的应用，build这个过程是在S端进行的，所以build的时候C端会把当前目录的文件当作[build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context)传给S端，如果传了很多在build image的过程中用不到的文件，就会有无谓的性能和时间上的损失，所以合理的使用.dockerignore文件排除不相干的文件。
 - **使用多阶段构建(Use multi-stage builds)**，这个不多讲，很多的程序是或者业务最终需要的其实是一些编译的产出物，但是编译的过程会需要很多在运行时不会用到的依赖，多阶段构建就是为了解决这个问题的。
 - **只安装必须的文件包(Don’t install unnecessary packages)**，这个不解释。

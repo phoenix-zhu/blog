@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>dAmNOps.com</copyright>
-    <lastBuildDate>Thu, 21 May 2020 15:20:09 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2020 10:07:33 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.damnops.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cloud</title>
+      <link>https://blog.damnops.com/categories/cloud/</link>
+      <pubDate>Tue, 28 Jul 2020 10:07:33 +0800</pubDate>
+      
+      <guid>https://blog.damnops.com/categories/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tech</title>
+      <link>https://blog.damnops.com/categories/tech/</link>
+      <pubDate>Tue, 28 Jul 2020 10:07:33 +0800</pubDate>
+      
+      <guid>https://blog.damnops.com/categories/tech/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>爱扯淡</title>
@@ -22,20 +40,11 @@
     </item>
     
     <item>
-      <title>cloud</title>
-      <link>https://blog.damnops.com/categories/cloud/</link>
-      <pubDate>Wed, 18 Jul 2018 11:45:50 +0800</pubDate>
+      <title>grocery</title>
+      <link>https://blog.damnops.com/categories/grocery/</link>
+      <pubDate>Tue, 24 Mar 2020 11:13:33 +0800</pubDate>
       
-      <guid>https://blog.damnops.com/categories/cloud/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tech</title>
-      <link>https://blog.damnops.com/categories/tech/</link>
-      <pubDate>Sat, 08 Jul 2017 21:28:53 +0800</pubDate>
-      
-      <guid>https://blog.damnops.com/categories/tech/</guid>
+      <guid>https://blog.damnops.com/categories/grocery/</guid>
       <description></description>
     </item>
     
@@ -54,15 +63,6 @@
       <pubDate>Mon, 29 May 2017 14:07:21 +0800</pubDate>
       
       <guid>https://blog.damnops.com/categories/automation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>grocery</title>
-      <link>https://blog.damnops.com/categories/grocery/</link>
-      <pubDate>Sun, 26 Jun 2016 01:48:56 +0800</pubDate>
-      
-      <guid>https://blog.damnops.com/categories/grocery/</guid>
       <description></description>
     </item>
     

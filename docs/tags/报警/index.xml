@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>dAmNOps.com</copyright>
-    <lastBuildDate>Tue, 24 Mar 2020 11:30:33 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2020 10:07:33 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.damnops.com/tags/%E6%8A%A5%E8%AD%A6/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CloudWatch和Pagerduty集成的报警名字问题</title>
+      <link>https://blog.damnops.com/cloudwatch-pagerduty-intergration/</link>
+      <pubDate>Tue, 28 Jul 2020 10:07:33 +0800</pubDate>
+      
+      <guid>https://blog.damnops.com/cloudwatch-pagerduty-intergration/</guid>
+      <description>CloudWatch和Pagerduty集成是一个非常常见的操作，但是默认情况下，两者集成之后CloudWatch发送给Pagerduty的消息大概长这样。
+{ &amp;quot;client&amp;quot;: &amp;quot;AWS Console&amp;quot;, &amp;quot;client_url&amp;quot;: &amp;quot;https://console.aws.amazon.com/cloudwatch/home?region=ap-southeast-1#c=CloudWatch&amp;amp;s=Alarms&amp;amp;alarm=Response Time Abnormal&amp;quot;, &amp;quot;description&amp;quot;: &amp;quot;GreaterThanUpperThreshold&amp;quot;, &amp;quot;event_type&amp;quot;: &amp;quot;trigger&amp;quot;, &amp;quot;incident_key&amp;quot;: &amp;quot;Response Time Abnormal&amp;quot;, &amp;quot;service_key&amp;quot;: &amp;quot;08cfd976xxxxxxxd03b2753&amp;quot;, &amp;quot;details&amp;quot;: { &amp;quot;Trigger&amp;quot;: { ... &amp;quot;ComparisonOperator&amp;quot;: &amp;quot;GreaterThanUpperThreshold&amp;quot; }, &amp;quot;OldStateValue&amp;quot;: &amp;quot;OK&amp;quot;, &amp;quot;NewStateValue&amp;quot;: &amp;quot;ALARM&amp;quot;, &amp;quot;NewStateReason&amp;quot;: &amp;quot;Thresholds Crossed: 5 out of the last 5 datapoints were greater than the upper thresholds. ....&amp;quot;, &amp;quot;AlarmName&amp;quot;: &amp;quot;Response Time Abnormal&amp;quot;, &amp;quot;AlarmDescription&amp;quot;: &amp;quot;Response Time higher than usual&amp;quot;, &amp;quot;AlarmArn&amp;quot;: &amp;quot;arn:aws:cloudwatch:ap-southeast-1:123456789:alarm:Response Time Abnormal&amp;quot;, &amp;quot;AWSAccountId&amp;quot;: &amp;quot;123456789&amp;quot; } } 按照Pagerduty的定义，它会把description里面的内容当作报警的描述，收到这样的报警消息，这我根本不知道发生了什么好吧？
+考虑再三之后，我还是向AWS发了一个技术支持的工单，友善的询问他们为什么description选用的是ComparisonOperator这么一个并没有太多意义的内容，是否可以修改成其他更有意义的内容。然后回复工单的小哥很擅长的打了一个太极，告诉我说Pagerduty的网站上有一个关于如何处理CloudWatch重复消息的方法。
+我……
+虽然这个回复根本不是我想要的，但是我还是怀着害死猫的心情点开了这个链接，去了里面说的地方，结果竟然让我发现了意想不到的东西，上面文档里面说的那个“Correlate events by”下面还有一个选项叫做“Derive name from”。哦，这个有点意思的东西里面除了“Default”之外还有“AlarmName”和“AlarmDescription”可以选择。赶紧测试了一下，终于解决了长久以来困扰我的问题。</description>
+    </item>
     
     <item>
       <title>爱扯淡 - 监控报警的那点事</title>

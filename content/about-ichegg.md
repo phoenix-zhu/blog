@@ -4,7 +4,7 @@ date: 2020-03-24T11:13:33+08:00
 lastmod: 2020-03-24T11:13:33+08:00
 description: ""
 tags: ["爱扯淡"]
-categories: ["爱扯淡"]
+categories: ["爱扯淡", "grocery"]
 chronologies: ["2020"]
 author: ""
 ---
