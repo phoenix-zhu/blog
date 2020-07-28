@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head>
-<title>CloudWatch和Pagerduty集成的报警名字问题</title>
+<title>什么是Reliability, Availability和Maintainability</title>
 
 <meta charset="utf-8">
 <meta name="X-UA-Compatible" content="IE=edge">
@@ -243,28 +243,31 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
             <div class="post-head-wrapper-text-only"
                  style="background-image: url('/')">
                 <div class="post-title">
-                    CloudWatch和Pagerduty集成的报警名字问题
+                    什么是Reliability, Availability和Maintainability
                     <div class="post-meta">
                         <time itemprop="datePublished">
-                            2020-07-28 10:07
+                            2020-07-28 23:52
                         </time>
 
                         
                             <i class="material-icons" style="">folder</i>
-                                <a href="/categories/">[tech cloud]</a>
+                                <a href="/categories/">[tech]</a>
                                 &nbsp;
                         
 
                         
                             <i class="material-icons" style="">label</i>
                             
-                                <a href="/tags/cloudwatch">CloudWatch</a>
+                                <a href="/tags/reliability">Reliability</a>
                                 &nbsp;
                             
-                                <a href="/tags/pagerduty">Pagerduty</a>
+                                <a href="/tags/availability">Availability</a>
                                 &nbsp;
                             
-                                <a href="/tags/%E6%8A%A5%E8%AD%A6">报警</a>
+                                <a href="/tags/maintainability">Maintainability</a>
+                                &nbsp;
+                            
+                                <a href="/tags/tech">tech</a>
                                 &nbsp;
                             
                         
@@ -274,33 +277,12 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
             
             <div class="post-body-wrapper">
                 <div class="post-body">
-                    <p>CloudWatch和Pagerduty集成是一个非常常见的操作，但是默认情况下，两者集成之后CloudWatch发送给Pagerduty的消息大概长这样。</p>
-<pre><code>{
-  &quot;client&quot;: &quot;AWS Console&quot;,
-  &quot;client_url&quot;: &quot;https://console.aws.amazon.com/cloudwatch/home?region=ap-southeast-1#c=CloudWatch&amp;s=Alarms&amp;alarm=Response Time Abnormal&quot;,
-  &quot;description&quot;: &quot;GreaterThanUpperThreshold&quot;,
-  &quot;event_type&quot;: &quot;trigger&quot;,
-  &quot;incident_key&quot;: &quot;Response Time Abnormal&quot;,
-  &quot;service_key&quot;: &quot;08cfd976xxxxxxxd03b2753&quot;,
-  &quot;details&quot;: {
-    &quot;Trigger&quot;: {
-      ...
-      &quot;ComparisonOperator&quot;: &quot;GreaterThanUpperThreshold&quot;
-    },
-    &quot;OldStateValue&quot;: &quot;OK&quot;,
-    &quot;NewStateValue&quot;: &quot;ALARM&quot;,
-    &quot;NewStateReason&quot;: &quot;Thresholds Crossed: 5 out of the last 5 datapoints were greater than the upper thresholds. ....&quot;,
-    &quot;AlarmName&quot;: &quot;Response Time Abnormal&quot;,
-    &quot;AlarmDescription&quot;: &quot;Response Time higher than usual&quot;,
-    &quot;AlarmArn&quot;: &quot;arn:aws:cloudwatch:ap-southeast-1:123456789:alarm:Response Time Abnormal&quot;,
-    &quot;AWSAccountId&quot;: &quot;123456789&quot;
-  }
-}
-</code></pre><p>按照Pagerduty的定义，它会把<code>description</code>里面的内容当作报警的描述，收到这样的报警消息，这我根本不知道发生了什么好吧？</p>
-<p>考虑再三之后，我还是向AWS发了一个技术支持的工单，友善的询问他们为什么description选用的是ComparisonOperator这么一个并没有太多意义的内容，是否可以修改成其他更有意义的内容。然后回复工单的小哥很擅长的打了一个太极，告诉我说Pagerduty的网站上有一个关于<a href="https://support.pagerduty.com/docs/aws-cloudwatch-integration-guide#how-can-i-change-how-events-from-cloudwatch-are-deduplicated-into-pagerduty">如何处理CloudWatch重复消息的方法</a>。</p>
-<p>我……</p>
-<p>虽然这个回复根本不是我想要的，但是我还是怀着害死猫的心情点开了这个链接，去了里面说的地方，结果竟然让我发现了意想不到的东西，上面文档里面说的那个“Correlate events by”下面还有一个选项叫做“Derive name from”。哦，这个有点意思的东西里面除了“Default”之外还有“AlarmName”和“AlarmDescription”可以选择。赶紧测试了一下，终于解决了长久以来困扰我的问题。</p>
-<p>猛然间，我觉得AWS的技术支持小哥用心良苦，他是要把找到最终答案这样有意义和激励性的事情留给我亲自去完成，而不是直接告诉我，这才是真正的良师啊。于是，我回邮件告诉了他真正的解决方式。</p>
+                    <p>发现其实很多人搞不清楚Reliability和Availability的区别是什么？还有什么是Maintainability。索性在这里水一个关于它们三个的基础知识的文章，以后就直接丢链接了。</p>
+<p>先说<code>Reliability</code>，我们翻译为“可靠性”，它是说理论上来讲某个东西能正常工作的概率。Reliability是有设计指标的，如果说某一设备的Reliability是99%，就是说在符合其工作条件的情况下，在它的设计寿命时间范围内，有99%的概率是能正常工作的。比如说一台手机，它的设计寿命是3年，然后我们用足了3年之后才坏的，那这台手机的Reliability其实是100%。但厂商毕竟是不可能只生产一台手机的，99%的Reliability意味着生产的所有的手机中有1%在3年之内会坏了。我们现在已经进入了后工业时代，绝大部分设备的品控都是能满足其所标称的Reliability。所以这个词代表的是靠谱的程度。</p>
+<p>再说<code>Availability</code>，是指“可用性”，它影响因素更多一些，除了上述Reliability的不靠谱情况之外，还有其他比如说计划性维护，不满足设备的工作条件，异常情况导致出现了错误的结果等。所以这个词包含的意义也更复杂一些，是说本质上我们是期望它能提供正常服务的，但是因为种种原因，最后得到了一个失败的或者非预期的结果。如果Reliability是说某个东西能不能工作的话，那Availability是说这个东西能不能给我一个期望的结果。拿手机举例，比如说手机sim卡有问题，或者说手机没电了，导致没法打电话，这些情况下，Reliability是没有问题的，但是Availability就有问题了。你为了提高Availability，于是办了两个手机号并买了充电宝。如果手机坏了，那Reliability有问题了，Availability必然也是会受影响的，为了更近一步提高Availability，于是你又买了一个手机。 <strong>所以请记得，Availability是基于实际需求和成本权衡之后得出的一个想要达成的目标，要达到更高的目标，势必要付出更多的代价。</strong> 我碰到很多的领导和团队会不顾实际情况制定一个不切实际的目标，然后导致自己很被动。</p>
+<p>当然，站在买方的角度来讲，Reliability和Availability都是卖方给予的承诺。</p>
+<p>最后来说说<code>Maintainability</code>，一般叫它“可维护性”，这个没有上述两个那么迷惑，表示的是修复一个不能正常工作的设备的难易程度。通常用MTTR(mean time to repair，平均修复时间)来衡量，越短的MTTR表示可维护性越高。能影响这个的因素也挺多，比如说是否容易买到配件，定位问题根因的难易程度，维修工的水平等等。继续拿手机举例，你买了一个国外的小众品牌，在中国它肯定不如华为，小米之类的可维护性高。或者说你有一台10年前的手机，它的可维护性也很差。因为可维护性会影响到修复的时长，所以也就影响到Availability。</p>
+<p>先说这几个吧，如果以后有需要再说说其他的bility。</p>
 
                     <HR width="100%" id="EOF">
                     <p style="color:#777;">Last modified on 2020-07-28</p>
@@ -312,14 +294,14 @@ Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopene
             <nav class="post-pagination">
 
                 
-                <a class="newer-posts" href="https://blog.damnops.com/difference-between-reliability-availability-maintainability/">
-                    Next<br>什么是Reliability, Availability和Maintainability
+                <a class="newer-posts">
+                    Next<br>No newer posts.
                 </a>
                 
                 
                 
-                <a class="older-posts" href="https://blog.damnops.com/ichegg-docker-build-practice/">
-                    Previous<br>爱扯淡 - docker build的好实践和坏实践
+                <a class="older-posts" href="https://blog.damnops.com/cloudwatch-pagerduty-intergration/">
+                    Previous<br>CloudWatch和Pagerduty集成的报警名字问题
                 </a>
                 
             </nav>

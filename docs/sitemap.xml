@@ -4,17 +4,57 @@
   
   <url>
     <loc>https://blog.damnops.com/chronologies/2020/</loc>
-    <lastmod>2020-07-28T10:07:33+08:00</lastmod>
+    <lastmod>2020-07-28T23:52:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.damnops.com/tags/availability/</loc>
+    <lastmod>2020-07-28T23:52:04+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.damnops.com/categories/</loc>
-    <lastmod>2020-07-28T10:07:33+08:00</lastmod>
+    <lastmod>2020-07-28T23:52:04+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.damnops.com/chronologies/</loc>
-    <lastmod>2020-07-28T10:07:33+08:00</lastmod>
+    <lastmod>2020-07-28T23:52:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.damnops.com/</loc>
+    <lastmod>2020-07-28T23:52:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.damnops.com/tags/maintainability/</loc>
+    <lastmod>2020-07-28T23:52:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.damnops.com/tags/reliability/</loc>
+    <lastmod>2020-07-28T23:52:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.damnops.com/tags/</loc>
+    <lastmod>2020-07-28T23:52:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.damnops.com/tags/tech/</loc>
+    <lastmod>2020-07-28T23:52:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.damnops.com/categories/tech/</loc>
+    <lastmod>2020-07-28T23:52:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.damnops.com/difference-between-reliability-availability-maintainability/</loc>
+    <lastmod>2020-07-28T23:52:04+08:00</lastmod>
   </url>
   
   <url>
@@ -33,22 +73,7 @@
   </url>
   
   <url>
-    <loc>https://blog.damnops.com/</loc>
-    <lastmod>2020-07-28T10:07:33+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://blog.damnops.com/tags/pagerduty/</loc>
-    <lastmod>2020-07-28T10:07:33+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.damnops.com/tags/</loc>
-    <lastmod>2020-07-28T10:07:33+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.damnops.com/categories/tech/</loc>
     <lastmod>2020-07-28T10:07:33+08:00</lastmod>
   </url>
   

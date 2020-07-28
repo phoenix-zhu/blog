@@ -7,10 +7,46 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>dAmNOps.com</copyright>
-    <lastBuildDate>Tue, 28 Jul 2020 10:07:33 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2020 23:52:04 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.damnops.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Availability</title>
+      <link>https://blog.damnops.com/tags/availability/</link>
+      <pubDate>Tue, 28 Jul 2020 23:52:04 +0800</pubDate>
+      
+      <guid>https://blog.damnops.com/tags/availability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Maintainability</title>
+      <link>https://blog.damnops.com/tags/maintainability/</link>
+      <pubDate>Tue, 28 Jul 2020 23:52:04 +0800</pubDate>
+      
+      <guid>https://blog.damnops.com/tags/maintainability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reliability</title>
+      <link>https://blog.damnops.com/tags/reliability/</link>
+      <pubDate>Tue, 28 Jul 2020 23:52:04 +0800</pubDate>
+      
+      <guid>https://blog.damnops.com/tags/reliability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tech</title>
+      <link>https://blog.damnops.com/tags/tech/</link>
+      <pubDate>Tue, 28 Jul 2020 23:52:04 +0800</pubDate>
+      
+      <guid>https://blog.damnops.com/tags/tech/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>CloudWatch</title>

@@ -11,7 +11,7 @@ lastmod = "2020-01-27T02:45:34+08:00"
 
 - 15+ years work experience in OPS field.
 - Focused on cloud native technologies.
-- Devoted in devops & SRE practices.
+- Dedicated to devops & SRE.
 - AWS Certified Solutions Architect - Professional.
 - AWS Certified Security - Specialty.
 - CCIE - Routing and Switching.
